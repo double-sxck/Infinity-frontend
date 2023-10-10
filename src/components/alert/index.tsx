@@ -1,3 +1,4 @@
+export {};
 // export { default as Header } from "";
 // export { default as MainText } from "";
 // export { default as SendIcon } from "";
