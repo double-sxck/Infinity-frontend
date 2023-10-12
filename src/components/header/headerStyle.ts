@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Search from "../../assets/images/search.svg";
+import { Link } from "react-router-dom";
 
 export const headerBody = styled.div`
   width: 100vw;
@@ -17,4 +19,43 @@ export const logoBackground = styled.div`
   position: fixed;
   left: 30px;
   top: 10px;
+`;
+
+export const headerButtons = styled(Link)`
+  width: 3.5em;
+  height: 2em;
+  background-color: #f5f5f5;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin-left: 1em;
+`;
+
+export const buttonText = styled.div`
+  color: black;
+  font-weight: 900;
+  font-size: 0.7em;
+`;
+
+export const searchBox = styled.input`
+  width: 60vw;
+  height: 3em;
+  border-radius: 30px;
+  padding-left: 40px; /* 아이콘과 텍스트 간의 간격을 조절하기 위해 추가 */
+  margin: auto;
+  &::placeholder {
+    background-image: url("../../assets/images/search.svg");
+    background-size: contain;
+    background-position: left center; /* 아이콘을 왼쪽에 배치 */
+    background-repeat: no-repeat;
+  }
+`;
+
+export const postionFiexd = styled.div`
+  position: fixed;
+  display: flex;
+  top: 10px;
+  right: 30px;
 `;
