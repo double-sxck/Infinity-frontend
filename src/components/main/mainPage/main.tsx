@@ -41,7 +41,7 @@ const Main = () => {
               </S.arrowButtonUp>
             )}
           </S.selectBox>
-          {view === true && (
+          {view === false && (
             <>
               <S.selectOption onClick={() => setList("최신")}>
                 최신
