@@ -33,6 +33,18 @@ export const headerButtons = styled(Link)`
   margin-left: 1em;
 `;
 
+export const loginButton = styled.div`
+  width: 3.5em;
+  height: 2em;
+  background-color: #f5f5f5;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin-left: 1em;
+`;
+
 export const buttonText = styled.div`
   color: black;
   font-weight: 900;
