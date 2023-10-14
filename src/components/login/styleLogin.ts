@@ -68,3 +68,12 @@ export const closeButton = styled.div`
   height: 1em;
   margin-top: 10vh;
 `;
+
+export const inputTitle = styled.div``;
+
+export const inputContainer = styled.div`
+  border: 1px solid black;
+  height: 1.5em;
+  width: 30vw;
+  display: flex;
+`;

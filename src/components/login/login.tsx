@@ -12,8 +12,25 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
     setIsState(false);
   };
 
-  const [mode, setMode] = useState(false);
+  const userHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUser((prevUser) => ({
+      ...prevUser,
+      [name]: value,
+    }));
+  };
 
+  const [mode, setMode] = useState(false);
+  const [pwMode, setPwMode] = useState(true);
+  const [user, setUser] = useState<{
+    name: string;
+    id: string;
+    pw: string;
+  }>({
+    name: "",
+    id: "",
+    pw: "",
+  });
   return (
     <S.loginBackground>
       <S.mainLoginPage>
@@ -37,6 +54,47 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
             로그인
           </S.loginModeButtonLogin>
         </S.loginMode>
+        {mode ? (
+          <>
+            <S.inputTitle>사용자 이름</S.inputTitle>
+
+            <S.inputContainer>
+              <input
+                type="text"
+                name="name"
+                placeholder="사용자 이름"
+                style={{ border: "none" }}
+                onChange={userHandle}
+              ></input>
+            </S.inputContainer>
+          </>
+        ) : null}
+        <S.inputTitle>아이디</S.inputTitle>
+
+        <S.inputContainer>
+          <input
+            type="text"
+            name="id"
+            placeholder="사용자 이름"
+            style={{ border: "none" }}
+            onChange={userHandle}
+          ></input>
+        </S.inputContainer>
+        <S.inputTitle>비밀번호</S.inputTitle>
+        <S.inputContainer>
+          <input
+            type={pwMode ? "password" : "text"}
+            name="pw"
+            placeholder="사용자 이름"
+            style={{ border: "none" }}
+            onChange={userHandle}
+          ></input>
+          <button
+            onClick={() => {
+              setPwMode(!pwMode);
+            }}
+          ></button>
+        </S.inputContainer>
       </S.mainLoginPage>
       <S.closeButton>
         <button onClick={handleLogin}>나가기</button>
