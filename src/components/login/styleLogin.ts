@@ -13,4 +13,58 @@ export const loginBackground = styled.div`
   width: 100%;
   height: 100%;
   z-index: 1; /* 다른 요소 위에 표시되도록 설정 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const mainLoginPage = styled.div`
+  width: 40vw;
+  height: 80vh;
+  background-color: white;
+`;
+
+export const loginMode = styled.div`
+  width: 40vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const loginModeButtonLogin = styled.div<{ mode: boolean }>`
+  width: 15vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: ${(props) => (props.mode ? "" : "4px solid black")};
+  font-weight: ${(props) => (props.mode ? "" : 900)};
+`;
+
+export const loginModeButtonJoin = styled.div<{ mode: boolean }>`
+  width: 15vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: ${(props) => (props.mode ? "4px solid black" : "")};
+  font-weight: ${(props) => (props.mode ? 900 : "")};
+`;
+
+export const loginHeader = styled.div`
+  background-color: black;
+  width: 40vw;
+  height: 6vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const closeButton = styled.div`
+  align-self: flex-start;
+  background-color: none;
+  height: 1em;
+  margin-top: 10vh;
 `;
