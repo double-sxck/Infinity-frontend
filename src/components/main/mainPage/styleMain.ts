@@ -4,10 +4,6 @@ export const box = styled.div`
   height: 10rem;
 `;
 
-export const dlgmltjd = styled.div`
-  font-size: 10rem;
-`;
-
 export const settingBar = styled.div`
   width: 100wv;
   display: flex;
@@ -25,6 +21,13 @@ export const selectBox = styled.div`
   display: flex;
   align-items: center;
   font-size: 16px;
+`;
+
+export const gridPage = styled.div`
+  width: 90vw;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
 `;
 
 const AniUp = keyframes`

@@ -56,7 +56,14 @@ const Main = () => {
           )}
         </S.RowBox>
       </S.settingBar>
-      <S.dlgmltjd>이희성 멍청이</S.dlgmltjd>
+      <S.gridPage>
+        <p>하이</p>
+        <p>하이</p>
+        <p>하이</p>
+        <p>하이</p>
+        <p>하이</p>
+        <p>하이</p>
+      </S.gridPage>
     </>
   );
 };
