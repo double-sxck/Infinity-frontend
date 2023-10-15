@@ -54,47 +54,51 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
             로그인
           </S.loginModeButtonLogin>
         </S.loginMode>
-        {mode ? (
-          <>
-            <S.inputTitle>사용자 이름</S.inputTitle>
+        <S.displayTable>
+          {mode ? (
+            <>
+              <S.inputTitle>사용자 이름</S.inputTitle>
 
-            <S.inputContainer>
-              <input
-                type="text"
-                name="name"
-                placeholder="사용자 이름"
-                style={{ border: "none" }}
-                onChange={userHandle}
-              ></input>
-            </S.inputContainer>
-          </>
-        ) : null}
-        <S.inputTitle>아이디</S.inputTitle>
+              <S.inputContainer>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="사용자 이름"
+                  style={{ border: "none", outline: "none" }}
+                  onChange={userHandle}
+                ></input>
+              </S.inputContainer>
+            </>
+          ) : null}
+          <S.inputTitle>아이디</S.inputTitle>
 
-        <S.inputContainer>
-          <input
-            type="text"
-            name="id"
-            placeholder="사용자 이름"
-            style={{ border: "none" }}
-            onChange={userHandle}
-          ></input>
-        </S.inputContainer>
-        <S.inputTitle>비밀번호</S.inputTitle>
-        <S.inputContainer>
-          <input
-            type={pwMode ? "password" : "text"}
-            name="pw"
-            placeholder="사용자 이름"
-            style={{ border: "none" }}
-            onChange={userHandle}
-          ></input>
-          <button
-            onClick={() => {
-              setPwMode(!pwMode);
-            }}
-          ></button>
-        </S.inputContainer>
+          <S.inputContainer>
+            <input
+              type="text"
+              name="id"
+              placeholder="사용자 이름"
+              style={{ border: "none", outline: "none" }}
+              onChange={userHandle}
+            ></input>
+          </S.inputContainer>
+          <S.inputTitle>비밀번호</S.inputTitle>
+          <S.inputContainer>
+            <input
+              type={pwMode ? "password" : "text"}
+              name="pw"
+              placeholder="사용자 이름"
+              style={{
+                border: "none",
+                outline: "none",
+              }}
+              onChange={userHandle}
+            ></input>
+            <div style={{ marginRight: 20 }} onClick={() => setPwMode(!pwMode)}>
+              버튼
+            </div>
+          </S.inputContainer>
+          <S.finisButton>{mode ? "가입" : "로그인"}</S.finisButton>
+        </S.displayTable>
       </S.mainLoginPage>
       <S.closeButton>
         <button onClick={handleLogin}>나가기</button>

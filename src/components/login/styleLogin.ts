@@ -69,11 +69,37 @@ export const closeButton = styled.div`
   margin-top: 10vh;
 `;
 
-export const inputTitle = styled.div``;
+export const displayTable = styled.div`
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* 세로 가운데 정렬을 설정합니다 */
+`;
+
+export const inputTitle = styled.div`
+  margin-top: 1em;
+  width: 30vw;
+`;
 
 export const inputContainer = styled.div`
   border: 1px solid black;
   height: 1.5em;
   width: 30vw;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5em;
+`;
+
+export const finisButton = styled.div`
+  width: 30vw;
+  height: 2em;
+  color: white;
+  background-color: #9a9a9a;
+  margin-top: 2em;
+  border-radius: 25px;
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
