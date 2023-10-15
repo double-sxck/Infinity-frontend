@@ -24,9 +24,9 @@ const Header: React.FC = () => {
           <S.loginButton>
             <S.buttonText onClick={() => setIsLogin(true)}>로그인</S.buttonText>
           </S.loginButton>
-          <S.headerButtons to="/join">
-            <S.buttonText>가입</S.buttonText>
-          </S.headerButtons>
+          <S.loginButton>
+            <S.buttonText onClick={() => setIsLogin(true)}>가입</S.buttonText>
+          </S.loginButton>
           <S.headerButtons to="/write">
             <S.buttonText>업로드</S.buttonText>
           </S.headerButtons>
