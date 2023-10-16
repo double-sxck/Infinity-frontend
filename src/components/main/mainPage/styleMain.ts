@@ -9,21 +9,31 @@ export const settingBar = styled.div`
   width: 100wv;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 1em;
 `;
 
 export const selectBox = styled.div`
-  height: 3.5em;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  background-color: #d9d9d9;
+  height: 3em;
+  gap: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  border: 1px solid black;
   margin-left: 20px;
   border-radius: 20px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   font-size: 16px;
 `;
+
+export const selectOptionBar = styled.div`
+  padding: 1px;
+  margin-top: 0.5em;
+  border-radius: 12px;
+  border: 1px solid black;
+`;
+
+export const selectText = styled.p``;
 
 export const gridPage = styled.div`
   width: 90vw;
@@ -66,9 +76,16 @@ export const RowBox = styled.div`
 `;
 
 export const selectOption = styled.div`
-  background-color: green;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+
+  height: 2em;
+  border-radius: 12px;
   &:hover {
-    background-color: blue;
+    background-color: lightgray;
   }
 `;

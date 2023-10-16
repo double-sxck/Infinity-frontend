@@ -43,17 +43,32 @@ const Main = () => {
             )}
           </S.selectBox>
           {view === false && (
-            <>
-              <S.selectOption onClick={() => setList("최신")}>
-                최신
+            <S.selectOptionBar>
+              <S.selectOption
+                onClick={() => {
+                  setList("최신");
+                  setView(true);
+                }}
+              >
+                <S.selectText>최신</S.selectText>
               </S.selectOption>
-              <S.selectOption onClick={() => setList("추천")}>
-                추천
+              <S.selectOption
+                onClick={() => {
+                  setList("추천");
+                  setView(true);
+                }}
+              >
+                <S.selectText>추천</S.selectText>
               </S.selectOption>
-              <S.selectOption onClick={() => setList("오래된 순")}>
-                오래된
+              <S.selectOption
+                onClick={() => {
+                  setList("오래된");
+                  setView(true);
+                }}
+              >
+                <S.selectText>오래된</S.selectText>
               </S.selectOption>
-            </>
+            </S.selectOptionBar>
           )}
         </S.RowBox>
       </S.settingBar>
