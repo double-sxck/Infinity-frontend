@@ -1,7 +1,8 @@
 import styled, { keyframes } from "styled-components";
 
 export const box = styled.div`
-  height: 10rem;
+  height: 11rem;
+  margin-bottom: 1em;
 `;
 
 export const settingBar = styled.div`
@@ -9,6 +10,7 @@ export const settingBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1em;
 `;
 
 export const selectBox = styled.div`

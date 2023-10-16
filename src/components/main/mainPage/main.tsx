@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as S from "./styleMain";
 import Header from "../../header/header";
 import KeyboardArrowUpIcon from "../../../assets/images/viewArrowUp";
+import Card from "../card/card";
 
 const Main = () => {
   const [view, setView] = useState(true);
@@ -57,12 +58,7 @@ const Main = () => {
         </S.RowBox>
       </S.settingBar>
       <S.gridPage>
-        <p>하이</p>
-        <p>하이</p>
-        <p>하이</p>
-        <p>하이</p>
-        <p>하이</p>
-        <p>하이</p>
+        <Card />
       </S.gridPage>
     </>
   );
