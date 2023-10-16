@@ -59,13 +59,6 @@ const Main = () => {
       </S.settingBar>
       <S.gridPage>
         <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
       </S.gridPage>
     </>
   );
