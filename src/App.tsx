@@ -1,5 +1,5 @@
 import React from "react";
-import { Main, Write } from "./components/index";
+import { Main, MainWrite } from "./components/index";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "./reset.css";
 
@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/write" element={<Write />} />
+        <Route path="/write" element={<MainWrite />} />
         <Route path="/about" element={<div>sexy</div>} />
         <Route path="*" element={<div>404</div>} />
       </Routes>
