@@ -58,38 +58,74 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
               <S.boxHeaderButton ty={false}>생성</S.boxHeaderButton>
             </div>
           </S.Between>
+
           <div
-            style={{ width: "80vw", height: 1, backgroundColor: "#D9D9D9" }}
-          ></div>
+            style={{
+              width: "80vw",
+              height: 1,
+              backgroundColor: "#D9D9D9",
+              display: "flex",
+              justifyItems: "space-between", // Change to justifyContent
+            }}
+          >
+            <div>
+              <S.Row>
+                <div>
+                  <div>장르</div>
+                  <S.Row>
+                    <S.inputBoxLow
+                      type="text"
+                      placeholder="제목 입력"
+                      value={newTitle}
+                      onChange={handleTitleChange}
+                    />
+                    <button onClick={addTitle}>제목 등록</button>
+                  </S.Row>
+                </div>
+                <div>
+                  <div>키워드</div>
+                  <S.Row>
+                    <S.inputBoxLow
+                      type="text"
+                      placeholder="이벤트 입력"
+                      value={newEvent}
+                      onChange={handleEventChange}
+                    />
+                    <button onClick={addEvent}>이벤트 등록</button>
+                  </S.Row>
+                </div>
+              </S.Row>
+              <div>
+                <div>사건</div>
+                <S.inputBoxBig placeholder="사건 추가" />
+              </div>
+              <S.Row>
+                <div>
+                  <div>등장인물</div>
+                  <S.inputBoxLow placeholder="등장인물" />
+                </div>
+                <div>
+                  <div>배경</div>
+                  <S.inputBoxLow placeholder="배경추가" />
+                </div>
+              </S.Row>
+            </div>
+            <div style={{ width: "40vw" }}>
+              <h3>Titles:</h3>
+              <ul>
+                {value.title.map((title, index) => (
+                  <li key={index}>{title}</li>
+                ))}
+              </ul>
+              <h3>Events:</h3>
+              <ul>
+                {value.event.map((event, index) => (
+                  <li key={index}>{event}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </S.writeBox>
-        <input
-          type="text"
-          placeholder="제목 입력"
-          value={newTitle}
-          onChange={handleTitleChange}
-        />
-        <button onClick={addTitle}>제목 등록</button>
-        <input
-          type="text"
-          placeholder="이벤트 입력"
-          value={newEvent}
-          onChange={handleEventChange}
-        />
-        <button onClick={addEvent}>이벤트 등록</button>
-        <div>
-          <h3>Titles:</h3>
-          <ul>
-            {value.title.map((title, index) => (
-              <li key={index}>{title}</li>
-            ))}
-          </ul>
-          <h3>Events:</h3>
-          <ul>
-            {value.event.map((event, index) => (
-              <li key={index}>{event}</li>
-            ))}
-          </ul>
-        </div>
       </S.Row>
     </>
   );

@@ -27,3 +27,18 @@ export const boxHeaderButton = styled.div<{ ty: boolean }>`
   background-color: ${(props) => (props.ty ? "white" : "#CCF0FF")};
   border: ${(props) => (props.ty ? "1px solid black" : null)};
 `;
+
+export const inputBoxLow = styled.input`
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 10px;
+  height: 3em;
+`;
+
+export const inputBoxBig = styled.input`
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 10px;
+  height: 3em;
+  width: 100%;
+`;
