@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const headerBody = styled.div`
   width: 100vw;
-  height: 10rem;
+  height: 4.6em;
   background-color: #000000;
   position: fixed;
   top: 0;
@@ -53,7 +53,7 @@ export const buttonText = styled.div`
 `;
 
 export const searchBox = styled.input`
-  width: 60vw;
+  width: 50vw;
   height: 3em;
   border-radius: 30px;
   padding-left: 40px; /* 아이콘과 텍스트 간의 간격을 조절하기 위해 추가 */

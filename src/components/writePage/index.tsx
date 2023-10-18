@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import Write from "./event/writePage";
+import Gpt from "./gptPage/gpt";
 
 const MainWrite = () => {
   const [title, setTitle] = useState<{
+    page: number;
     title: string[];
     event: string[];
     background: string[];
     people: string[];
     keyword: string[];
   }>({
+    page: 1,
     title: [],
     event: [],
     background: [],
@@ -17,7 +20,13 @@ const MainWrite = () => {
   });
   return (
     <>
-      <Write setState={setTitle} value={title} />
+      {title.page === 1 ? (
+        <Write setState={setTitle} value={title} />
+      ) : title.page === 2 ? (
+        <Gpt setState={setTitle} value={title} />
+      ) : (
+        <div>살려줘</div>
+      )}
     </>
   );
 };

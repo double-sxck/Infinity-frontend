@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
 export const box = styled.div`
-  height: 11rem;
+  height: 5rem;
   margin-bottom: 1em;
 `;
 
