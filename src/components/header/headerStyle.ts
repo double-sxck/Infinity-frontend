@@ -7,6 +7,7 @@ export const headerBody = styled.div`
   height: 10rem;
   background-color: #000000;
   position: fixed;
+  top: 0;
   display: flex;
   align-items: center;
   padding-left: 1em;
