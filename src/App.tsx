@@ -9,8 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/write" element={<MainWrite />} />
-        <Route path="/novel" element={<CheckNovel />} />
-        {/* <Route path="/novel/:Id" element={<CheckNovel />} /> */}
+        <Route path="/novel/:Id" element={<CheckNovel />} />
         <Route path="*" element={<div>404</div>} />
       </Routes>
     </BrowserRouter>

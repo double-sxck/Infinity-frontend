@@ -1,33 +1,53 @@
 import styled from "styled-components";
 import HeartIcon from "../../../assets/images/heart";
 import CommentIcon from "../../../assets/images/comment";
+import { Link } from "react-router-dom";
 
-const NovCard = () => {
+type Border = {
+  boardId: number;
+  title: string;
+  novel: string;
+  character: string;
+  event: string;
+  background: string;
+  userUniqueId: number;
+  userName: string;
+  created: string;
+  views: number;
+  likes: number;
+  image: string;
+};
+
+const NovCard: React.FC<Border> = (props) => {
   return (
     <div style={{ marginBottom: 10, width: "15em" }}>
-      <CardBackground>
-        <KeyBox>
-          <KeyWordBox>키워드</KeyWordBox>
-          <KeyWordBox>두자</KeyWordBox>
-          <KeyWordBox>긴키워드</KeyWordBox>
-        </KeyBox>
-      </CardBackground>
-      <CardUnderLine>
-        <div style={{ display: "flex", alignItems: "center", marginLeft: 15 }}>
-          <HeartIcon width={10} height={10} />
-          <UnderLineText>123</UnderLineText>
-        </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <CommentIcon width={10} height={10} />
-          <UnderLineText>123</UnderLineText>
-        </div>
-        <div></div>
-        <UnderLineText style={{ marginRight: 20 }}>123</UnderLineText>
-      </CardUnderLine>
-      <FlexBox>
-        <Title>제목</Title>
-        <Writer>김재목</Writer>
-      </FlexBox>
+      <LinkToPage to={`/novel/${props.boardId}`}>
+        <CardBackground>
+          <KeyBox>
+            <KeyWordBox>키워드</KeyWordBox>
+            <KeyWordBox>두자</KeyWordBox>
+            <KeyWordBox>긴키워드</KeyWordBox>
+          </KeyBox>
+        </CardBackground>
+        <CardUnderLine>
+          <div
+            style={{ display: "flex", alignItems: "center", marginLeft: 15 }}
+          >
+            <HeartIcon width={10} height={10} />
+            <UnderLineText>{props.likes}</UnderLineText>
+          </div>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <CommentIcon width={10} height={10} />
+            <UnderLineText>{props.views}</UnderLineText>
+          </div>
+          <div></div>
+          <UnderLineText style={{ marginRight: 20 }}>123</UnderLineText>
+        </CardUnderLine>
+        <FlexBox>
+          <Title>제목</Title>
+          <Writer>김재목</Writer>
+        </FlexBox>
+      </LinkToPage>
     </div>
   );
 };
@@ -104,4 +124,9 @@ const KeyWordBox = styled.div`
   border-radius: 12px;
   margin-left: 0.5em;
   margin-bottom: 0.5em;
+`;
+
+const LinkToPage = styled(Link)`
+  text-decoration: none;
+  color: black;
 `;

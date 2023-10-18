@@ -1,12 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styleMain";
 import Header from "../../header/header";
 import KeyboardArrowUpIcon from "../../../assets/images/viewArrowUp";
 import Card from "../card/card";
+import axios from "axios";
+
+type Border = {
+  boardId: number;
+  title: string;
+  novel: string;
+  character: string;
+  event: string;
+  background: string;
+  userUniqueId: number;
+  userName: string;
+  created: string;
+  views: number;
+  likes: number;
+  image: string;
+};
 
 const Main = () => {
   const [view, setView] = useState(true);
   const [list, setList] = useState("최신");
+  const [data, setData] = useState<Array<Border>>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get(
+        "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/board"
+      );
+      console.log(res.data);
+      setData(res.data); // 데이터 업데이트
+    };
+    fetchData(); // API 요청 수행
+  }, []);
 
   return (
     <>
@@ -73,7 +101,23 @@ const Main = () => {
         </S.RowBox>
       </S.settingBar>
       <S.gridPage>
-        <Card />
+        {data.map((item) => (
+          <Card
+            boardId={item.boardId}
+            title={item.title}
+            novel={item.novel}
+            character={item.character}
+            event={item.event}
+            background={item.background}
+            userUniqueId={item.userUniqueId}
+            userName={item.userName}
+            created={item.created}
+            views={item.views}
+            likes={item.likes}
+            image={item.image}
+            key={item.boardId} // key를 포함시키는 것이 좋습니다.
+          />
+        ))}
       </S.gridPage>
     </>
   );
