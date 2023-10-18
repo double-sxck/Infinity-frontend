@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Write from "./event/writePage";
 import Gpt from "./gptPage/gpt";
+import Cimg from "./image/createImage";
 
 const MainWrite = () => {
   const [title, setTitle] = useState<{
@@ -25,7 +26,7 @@ const MainWrite = () => {
       ) : title.page === 2 ? (
         <Gpt setState={setTitle} value={title} />
       ) : (
-        <div>살려줘</div>
+        <Cimg value={title} />
       )}
     </>
   );

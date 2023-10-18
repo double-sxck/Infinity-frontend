@@ -28,7 +28,7 @@ const Header: React.FC = () => {
             <S.buttonText onClick={() => setIsLogin(true)}>가입</S.buttonText>
           </S.loginButton>
           <S.headerButtons to="/write">
-            <S.buttonText>업로드</S.buttonText>
+            <S.buttonLink to="/write">업로드</S.buttonLink>
           </S.headerButtons>
         </S.postionFiexd>
       </S.headerBody>
