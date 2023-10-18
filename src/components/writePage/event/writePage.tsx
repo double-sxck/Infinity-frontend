@@ -5,6 +5,7 @@ import { Header } from "../../index";
 interface StateProps {
   setState: React.Dispatch<
     React.SetStateAction<{
+      page: number;
       title: string[];
       event: string[];
       background: string[];
@@ -57,7 +58,6 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
         title: [...prevState.title, newTitle],
       }));
       setNewTitle("");
-      console.log(value);
     }
   };
 
@@ -68,7 +68,6 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
         event: [...prevState.event, newEvent],
       }));
       setNewEvent("");
-      console.log(value);
     }
   };
 
@@ -140,14 +139,24 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
   return (
     <>
       <Header />
-      <div style={{ height: "10rem" }}></div>
+      <div style={{ height: "4rem" }}></div>
       <S.Row>
         <S.writeBox>
           <S.Between>
             <p>원하는 소설의 구조를 작성하세요</p>
             <div style={{ display: "flex" }}>
               <S.boxHeaderButton ty={true}>초기화</S.boxHeaderButton>
-              <S.boxHeaderButton ty={false}>생성</S.boxHeaderButton>
+              <S.boxHeaderButton
+                ty={false}
+                onClick={() => {
+                  setState((prev) => ({
+                    ...prev,
+                    page: 2,
+                  }));
+                }}
+              >
+                생성
+              </S.boxHeaderButton>
             </div>
           </S.Between>
           {/* 헤더 */}
