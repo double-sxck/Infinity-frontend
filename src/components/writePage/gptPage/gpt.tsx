@@ -47,7 +47,7 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
           <Column type="center">
             <S.halfBox>
               <S.addTitle placeholder="제목을 입력하세요"></S.addTitle>
-              <S.gptNovel>sex</S.gptNovel>
+              <S.gptNovel>gpt출력값 넣는곳</S.gptNovel>
             </S.halfBox>
             <S.halfLine></S.halfLine>
             <S.halfBox>
