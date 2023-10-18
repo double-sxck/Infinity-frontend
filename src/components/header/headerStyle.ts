@@ -52,6 +52,12 @@ export const buttonText = styled.div`
   font-size: 0.7em;
 `;
 
+export const buttonLink = styled(Link)`
+  color: black;
+  font-weight: 900;
+  font-size: 0.7em;
+`;
+
 export const searchBox = styled.input`
   width: 50vw;
   height: 3em;
