@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import Write from "./event/writePage";
 
 const MainWrite = () => {
-  const [title, setTitle] = useState<{ title: string[]; event: string[] }>({
+  const [title, setTitle] = useState<{
+    title: string[];
+    event: string[];
+    background: string[];
+    people: string[];
+    keyword: string[];
+  }>({
     title: [],
     event: [],
+    background: [],
+    people: [],
+    keyword: [],
   });
   return (
     <>

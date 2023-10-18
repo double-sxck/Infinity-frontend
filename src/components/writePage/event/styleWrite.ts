@@ -10,6 +10,7 @@ export const Between = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 5px;
 `;
 
 export const writeBox = styled.div`
@@ -40,5 +41,57 @@ export const inputBoxBig = styled.input`
   border: none;
   border-radius: 10px;
   height: 3em;
-  width: 100%;
+  width: 90%;
+`;
+
+export const marginTop = styled.div`
+  margin-top: 4em;
+`;
+
+export const wordBoxBond = styled.div`
+  height: 8em;
+  width: 6em;
+  padding: 1em;
+  border: 1px solid #d9d9d9;
+  overflow-y: scroll;
+`;
+
+export const wordBoxBondLong = styled.div`
+  height: 7em;
+  padding: 1em;
+  border: 1px solid #d9d9d9;
+  overflow-y: scroll;
+  min-width: 14em;
+  max-width: 14em;
+`;
+
+export const overContentBond = styled.div`
+  position: relative;
+  padding-top: 10px;
+`;
+
+export const overContentChild = styled.div`
+  position: absolute;
+  background-color: white;
+  top: -3px;
+  left: 50%;
+  transform: translate(-50%);
+  border: 1px solid black;
+  border-radius: 20px;
+  text-align: center;
+  padding: 3px;
+  width: 100px;
+  box-shadow: 5px gray;
+`;
+
+export const wordBoxChild = styled.div`
+  background-color: #f5f5f5;
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 0.8em;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  padding: 5px;
+  margin-top: 3px;
 `;
