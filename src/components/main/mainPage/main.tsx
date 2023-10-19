@@ -23,6 +23,7 @@ type Border = {
 const Main = () => {
   const [view, setView] = useState(true);
   const [list, setList] = useState("최신");
+  const [search, setSearch] = useState("");
   const [data, setData] = useState<Array<Border>>([]);
 
   useEffect(() => {

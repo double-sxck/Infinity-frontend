@@ -9,6 +9,15 @@ import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   const [isLogin, setIsLogin] = useState(false);
+  const [search, setSearch] = useState("");
+
+  const seachHandle = (e: any) => {
+    setSearch(e.target.value);
+    if (e.key === "Enter") {
+      (window as any).myGlobalVar = search;
+    }
+  };
+
   return (
     <>
       {isLogin && <Login setIsState={setIsLogin} />}
@@ -19,6 +28,8 @@ const Header: React.FC = () => {
         <S.searchBox
           type="text"
           placeholder="---의 모든 작품 검색"
+          onChange={seachHandle}
+          onKeyDown={seachHandle}
         ></S.searchBox>
         <S.postionFiexd>
           <S.loginButton>

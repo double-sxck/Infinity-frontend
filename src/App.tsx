@@ -4,6 +4,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "./reset.css";
 
 function App() {
+  (window as any).myGlobalVar = "";
   return (
     <BrowserRouter>
       <Routes>

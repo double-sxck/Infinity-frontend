@@ -54,12 +54,6 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
         {
           userId: user.id,
           password: user.pw,
-        },
-        {
-          params: {
-            userId: user.id,
-            password: user.pw,
-          },
         }
       );
 
@@ -76,18 +70,12 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
   const isJoin = async () => {
     try {
       console.log("회원가입중");
-
       const response = await axios.post(
         "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/user/register",
         {
           userId: user.id,
           password: user.pw,
-        },
-        {
-          params: {
-            userId: user.id,
-            password: user.pw,
-          },
+          userName: user.name,
         }
       );
 

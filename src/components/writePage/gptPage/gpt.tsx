@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import * as S from "./styleGpt";
 import styled from "styled-components";
 import { Header } from "../../index";
+import axios from "axios";
 
 interface StateProps {
   setState: React.Dispatch<
@@ -25,6 +26,31 @@ interface StateProps {
 }
 
 const Gpt: React.FC<StateProps> = ({ setState, value }) => {
+  const fetchData = async () => {
+    try {
+      const res = await axios
+        .post(
+          "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/generate/novel",
+          {
+            genre: value.title,
+            keywords: value.keyword,
+            character: value.people,
+            event: value.event,
+            background: value.background,
+          }
+        )
+        .then(function (response) {
+          console.log(response);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useLayoutEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <>
       <Header />
