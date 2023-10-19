@@ -10,7 +10,7 @@ export const Between = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 5px;
+  gap: 1em;
 `;
 
 export const writeBox = styled.div`
@@ -23,6 +23,9 @@ export const writeBox = styled.div`
 `;
 
 export const boxHeaderButton = styled.div<{ ty: boolean }>`
+  width: 6em;
+  padding: 0.5em;
+  text-align: center;
   border: 1px solid black;
   border-radius: 25px;
   background-color: ${(props) => (props.ty ? "white" : "#CCF0FF")};
@@ -41,7 +44,7 @@ export const inputBoxBig = styled.input`
   border: none;
   border-radius: 10px;
   height: 3em;
-  width: 90%;
+  width: 80%;
 `;
 
 export const marginTop = styled.div`

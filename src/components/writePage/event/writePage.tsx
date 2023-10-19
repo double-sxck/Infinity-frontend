@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as S from "./styleWrite";
 import { Header } from "../../index";
+import AddButton from "../../../assets/images/addButton";
 
 interface StateProps {
   setState: React.Dispatch<
@@ -143,8 +144,17 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
       <S.Row>
         <S.writeBox>
           <S.Between>
-            <p>원하는 소설의 구조를 작성하세요</p>
-            <div style={{ display: "flex" }}>
+            <p
+              style={{
+                marginLeft: "1em",
+                fontSize: "18px",
+                paddingTop: "1em",
+                paddingBottom: "1em",
+              }}
+            >
+              원하는 소설의 구조를 작성하세요
+            </p>
+            <div style={{ display: "flex", paddingRight: "1em", gap: "2em" }}>
               <S.boxHeaderButton ty={true}>초기화</S.boxHeaderButton>
               <S.boxHeaderButton
                 ty={false}
@@ -171,63 +181,97 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
             }}
           >
             <div style={{ padding: "10px", width: "40vw" }}>
-              <S.Row>
+              <S.Row style={{ gap: "0.5em" }}>
                 <S.marginTop>
                   <div>장르</div>
-                  <S.Between>
+                  <S.Row style={{ gap: "0.5em" }}>
                     <S.inputBoxLow
                       type="text"
                       placeholder="제목 입력"
                       value={newTitle}
                       onChange={handleTitleChange}
                     />
-                    <button onClick={addTitle}>등록</button>
-                  </S.Between>
+                    <div onClick={addTitle}>
+                      <AddButton width={30} height={30}></AddButton>
+                    </div>
+                  </S.Row>
                 </S.marginTop>
                 <S.marginTop>
                   <div>키워드</div>
-                  <S.Row>
+                  <S.Row style={{ gap: "0.5em" }}>
                     <S.inputBoxLow
                       type="text"
                       placeholder="이벤트 입력"
                       value={keyword}
                       onChange={handleKeywordChange}
                     />
-                    <button onClick={updateKeyword}>등록</button>
+                    <div onClick={updateKeyword}>
+                      <AddButton width={30} height={30}></AddButton>
+                    </div>
                   </S.Row>
                 </S.marginTop>
               </S.Row>
               <S.marginTop>
                 <div>사건</div>
-                <S.inputBoxBig
-                  type="text"
-                  placeholder="사건 추가"
-                  value={newEvent}
-                  onChange={handleEventChange}
-                />
-                <button onClick={addEvent}>등록</button>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5em",
+                  }}
+                >
+                  <S.inputBoxBig
+                    type="text"
+                    placeholder="사건 추가"
+                    value={newEvent}
+                    onChange={handleEventChange}
+                  />
+                  <div onClick={addEvent}>
+                    <AddButton width={30} height={30}></AddButton>
+                  </div>
+                </div>
               </S.marginTop>
               <S.marginTop>
                 <S.Between>
                   <div>
                     <div>등장인물</div>
-                    <S.inputBoxLow
-                      type="text"
-                      placeholder="등장인물"
-                      value={people}
-                      onChange={handlePeopleChange}
-                    />
-                    <button onClick={updatePeople}>업데이트</button>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.5em",
+                      }}
+                    >
+                      <S.inputBoxLow
+                        type="text"
+                        placeholder="등장인물"
+                        value={people}
+                        onChange={handlePeopleChange}
+                      />
+                      <div onClick={updatePeople}>
+                        <AddButton width={30} height={30}></AddButton>
+                      </div>
+                    </div>
                   </div>
                   <div>
                     <div>배경</div>
-                    <S.inputBoxLow
-                      type="text"
-                      placeholder="배경추가"
-                      value={background}
-                      onChange={handleBackgroundChange}
-                    />
-                    <button onClick={updateBackground}>업데이트</button>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.5em",
+                      }}
+                    >
+                      <S.inputBoxLow
+                        type="text"
+                        placeholder="배경추가"
+                        value={background}
+                        onChange={handleBackgroundChange}
+                      />
+                      <div onClick={updateBackground}>
+                        <AddButton width={30} height={30}></AddButton>
+                      </div>
+                    </div>
                   </div>
                 </S.Between>
               </S.marginTop>
