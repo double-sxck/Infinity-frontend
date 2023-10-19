@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 const Header: React.FC = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [search, setSearch] = useState("");
+  const [user, setUser] = useState("");
 
   const seachHandle = (e: any) => {
     setSearch(e.target.value);

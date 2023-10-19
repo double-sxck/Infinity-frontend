@@ -155,7 +155,21 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
               원하는 소설의 구조를 작성하세요
             </p>
             <div style={{ display: "flex", paddingRight: "1em", gap: "2em" }}>
-              <S.boxHeaderButton ty={true}>초기화</S.boxHeaderButton>
+              <S.boxHeaderButton
+                ty={true}
+                onClick={() => {
+                  setState((prev) => ({
+                    ...prev,
+                    keyword: [],
+                    event: [],
+                    people: [],
+                    background: [],
+                    title: [],
+                  }));
+                }}
+              >
+                초기화
+              </S.boxHeaderButton>
               <S.boxHeaderButton
                 ty={false}
                 onClick={() => {

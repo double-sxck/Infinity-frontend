@@ -56,6 +56,8 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
           password: user.pw,
         }
       );
+      console.log(response.data);
+      (window as any).myGlobalVar = response.data;
 
       // 성공적으로 로그인한 경우의 처리
       console.log("로그인 성공", response.data);
