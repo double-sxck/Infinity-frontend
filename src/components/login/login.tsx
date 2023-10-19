@@ -66,7 +66,7 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
   const isLogin = async () => {
     try {
       console.log("로그인중");
-      const response = await CustomAxios.post("/api/user/login", {
+      const response = await CustomAxios.post("api/user/login", {
         userId: user.id,
         password: user.pw,
       });

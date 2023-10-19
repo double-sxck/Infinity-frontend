@@ -114,7 +114,7 @@ const Main = () => {
             created={item.created}
             views={item.views}
             likes={item.likes}
-            image={item.image}
+            backImage={item.image}
             key={item.boardId} // key를 포함시키는 것이 좋습니다.
           />
         ))}

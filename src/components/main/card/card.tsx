@@ -15,14 +15,14 @@ type Border = {
   created: string;
   views: number;
   likes: number;
-  image: string;
+  backImage: string;
 };
 
 const NovCard: React.FC<Border> = (props) => {
   return (
     <div style={{ marginBottom: 10, width: "15em" }}>
       <LinkToPage to={`/novel/${props.boardId}`}>
-        <CardBackground>
+        <CardBackground img={props.backImage}>
           <KeyBox>
             <KeyWordBox>키워드</KeyWordBox>
             <KeyWordBox>두자</KeyWordBox>
@@ -44,8 +44,8 @@ const NovCard: React.FC<Border> = (props) => {
           <UnderLineText style={{ marginRight: 20 }}>123</UnderLineText>
         </CardUnderLine>
         <FlexBox>
-          <Title>제목</Title>
-          <Writer>김재목</Writer>
+          <Title>{props.title}</Title>
+          <Writer>{props.userName}</Writer>
         </FlexBox>
       </LinkToPage>
     </div>
@@ -54,13 +54,13 @@ const NovCard: React.FC<Border> = (props) => {
 
 export default NovCard;
 
-const CardBackground = styled.div`
+const CardBackground = styled.div<{ img: string }>`
   background-color: #d9d9d9;
   height: 16em;
   width: 15em;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  background-image: url();
+  background-image: url(${(props) => props.img});
   display: flex;
   justify-content: center;
   align-items: end;
@@ -69,15 +69,18 @@ const CardBackground = styled.div`
 const FlexBox = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 1em;
 `;
 
 const Title = styled.div`
   padding-left: 1em;
   padding-right: 1em;
+  max-width: 7em;
   height: 1.5em;
   text-align: center;
-  background-color: #d9d9d9;
-  border-radius: 5px;
+  border-bottom: 1px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,10 +89,12 @@ const Title = styled.div`
 const Writer = styled.div`
   padding-left: 0.3em;
   padding-right: 0.3em;
+  max-width: 5em;
   height: 1.5em;
   text-align: center;
-  background-color: #d9d9d9;
-  border-radius: 5px;
+  border-bottom: 1px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
