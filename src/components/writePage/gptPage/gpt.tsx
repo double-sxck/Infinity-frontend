@@ -28,20 +28,19 @@ interface StateProps {
 const Gpt: React.FC<StateProps> = ({ setState, value }) => {
   const fetchData = async () => {
     try {
-      const res = await axios
-        .post(
-          "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/generate/novel",
-          {
-            genre: value.title,
-            keywords: value.keyword,
-            character: value.people,
-            event: value.event,
-            background: value.background,
-          }
-        )
-        .then(function (response) {
-          console.log(response);
-        });
+      const res = await axios.post(
+        "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/generate/novel",
+        {
+          genre: value.title,
+          key: value.keyword,
+          character: value.people,
+          event: value.event,
+          background: value.background,
+        }
+      );
+
+      // 요청이 성공하면 이후의 로직을 수행합니다.
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -73,7 +72,7 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
           <Column type="center">
             <S.halfBox>
               <S.addTitle placeholder="제목을 입력하세요"></S.addTitle>
-              <S.gptNovel>gpt출력값 넣는곳</S.gptNovel>
+              <S.gptNovel>니가</S.gptNovel>
             </S.halfBox>
             <S.halfLine></S.halfLine>
             <S.halfBox>

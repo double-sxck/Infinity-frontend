@@ -17,12 +17,17 @@ type UserPostType = {
 };
 
 interface LoginProps {
-  setIsState: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsState: React.Dispatch<
+    React.SetStateAction<{ popup: boolean; login: boolean }>
+  >;
 }
 
 const Login: React.FC<LoginProps> = ({ setIsState }) => {
   const handleLogin = () => {
-    setIsState(false);
+    setIsState((prev) => ({
+      ...prev,
+      popup: false,
+    }));
   };
 
   const userHandle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,6 +66,10 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
 
       // 성공적으로 로그인한 경우의 처리
       console.log("로그인 성공", response.data);
+      setIsState((prev) => ({
+        ...prev,
+        login: true,
+      }));
       // 이후 추가적인 로직을 수행하거나 응답 데이터를 사용할 수 있습니다.
     } catch (error) {
       // 오류 발생 시의 처리

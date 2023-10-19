@@ -35,7 +35,7 @@ export const headerButtons = styled(Link)`
 `;
 
 export const loginButton = styled.div`
-  width: 3.5em;
+  width: 4em;
   height: 2em;
   background-color: #f5f5f5;
   border-radius: 24px;
