@@ -2,6 +2,19 @@
 
 import { useState } from "react";
 import * as S from "./styleLogin";
+import axios, { AxiosResponse } from "axios";
+
+type User = {
+  name: string;
+  id: string;
+  pw: string;
+};
+
+type UserPostType = {
+  userUniqueId: number;
+  userId: string;
+  password: string;
+};
 
 interface LoginProps {
   setIsState: React.Dispatch<React.SetStateAction<boolean>>;
@@ -31,6 +44,63 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
     id: "",
     pw: "",
   });
+
+  const isLogin = async () => {
+    try {
+      console.log("로그인중");
+
+      const response = await axios.post(
+        "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/user/login",
+        {
+          userId: user.id,
+          password: user.pw,
+        },
+        {
+          params: {
+            userId: user.id,
+            password: user.pw,
+          },
+        }
+      );
+
+      // 성공적으로 로그인한 경우의 처리
+      console.log("로그인 성공", response.data);
+      // 이후 추가적인 로직을 수행하거나 응답 데이터를 사용할 수 있습니다.
+    } catch (error) {
+      // 오류 발생 시의 처리
+      console.error("로그인 오류", error);
+      // 예외 처리, 사용자에게 오류 메시지 표시 또는 다른 작업 수행
+    }
+  };
+
+  const isJoin = async () => {
+    try {
+      console.log("회원가입중");
+
+      const response = await axios.post(
+        "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/user/register",
+        {
+          userId: user.id,
+          password: user.pw,
+        },
+        {
+          params: {
+            userId: user.id,
+            password: user.pw,
+          },
+        }
+      );
+
+      // 성공적으로 회원가입한 경우의 처리
+      console.log("회원가입 성공", response.data);
+      // 이후 추가적인 로직을 수행하거나 응답 데이터를 사용할 수 있습니다.
+    } catch (error) {
+      // 오류 발생 시의 처리
+      console.error("회원가입 오류", error);
+      // 예외 처리, 사용자에게 오류 메시지 표시 또는 다른 작업 수행
+    }
+  };
+
   return (
     <S.loginBackground>
       <S.mainLoginPage>
@@ -93,11 +163,17 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
               }}
               onChange={userHandle}
             ></input>
-            <div style={{ marginRight: 20 }} onClick={() => setPwMode(!pwMode)}>
+            <div style={{ marginRight: 20 }} onClick={() => {}}>
               버튼
             </div>
           </S.inputContainer>
-          <S.finisButton>{mode ? "가입" : "로그인"}</S.finisButton>
+          <S.finisButton
+            onClick={() => {
+              mode ? isJoin() : isLogin();
+            }}
+          >
+            {mode ? "가입" : "로그인"}
+          </S.finisButton>
         </S.displayTable>
       </S.mainLoginPage>
       <S.closeButton>
