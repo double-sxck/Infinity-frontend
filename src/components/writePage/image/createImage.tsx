@@ -3,6 +3,7 @@ import styled from "styled-components";
 import React, { useEffect, useState } from "react";
 import { Header } from "../../index";
 import axios from "axios";
+import CustomAxios from "../../../axios/customAxios";
 
 interface StateProps {
   value: {
@@ -15,13 +16,23 @@ interface StateProps {
 }
 
 const CreateImg: React.FC<StateProps> = ({ value }) => {
+  const [loding, setLoding] = useState(false);
+  const [img, setImg] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(
-          "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/user/logincheck"
-        );
-        // 여기서 데이터를 처리할 수 있습니다.
+        setLoding(true);
+        const res = await CustomAxios.post("api/generate/image", {
+          genre: value.title,
+          key: value.keyword,
+          character: value.people,
+          event: value.event,
+          background: value.background,
+        });
+
+        console.log(res.data.result.fileLocation);
+        setImg(res.data.result.fileLocation);
+        setLoding(false);
       } catch (error) {
         console.log(error);
       }
@@ -30,6 +41,7 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
   }, []);
   return (
     <>
+      {loding ? <div style={{ fontSize: "10em" }}>로딩중인것이와요</div> : null}
       <Header />
       <div style={{ height: "5em" }}></div>
       <S.mainImgPage>
@@ -83,7 +95,7 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
           </S.halfBox>
           <S.halfLine></S.halfLine>
           <S.halfBox>
-            <S.createImgBox></S.createImgBox>
+            <S.createImgBox img={img}></S.createImgBox>
             <Column
               type={"between"}
               style={{ paddingRight: "2em", paddingLeft: "2em" }}

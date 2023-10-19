@@ -36,12 +36,15 @@ export const halfLine = styled.div`
   background-color: #d9d9d9;
 `;
 
-export const createImgBox = styled.div`
-  background-image: url();
+export const createImgBox = styled.div<{ img: string }>`
+  background-image: url(http://10.150.149.25:3000${(props) => props.img});
+  background-repeat: no-repeat;
   border: 1px solid #d9d9d9;
   border-radius: 30px;
   margin-top: 2em;
-  width: 25vw;
+  background-size: cover;
+  background-position: center;
+  width: 37vw;
   min-height: 25vw;
   margin: auto;
 `;
