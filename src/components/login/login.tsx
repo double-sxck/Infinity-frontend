@@ -3,6 +3,9 @@
 import { useState } from "react";
 import * as S from "./styleLogin";
 import axios, { AxiosResponse } from "axios";
+import CustomAxios from "../../axios/customAxios";
+
+axios.defaults.withCredentials = true;
 
 type User = {
   name: string;
@@ -50,20 +53,27 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
     pw: "",
   });
 
+  function setCookie(cookie_name: any, value: any, days: any) {
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate() + days);
+    // 설정 일수만큼 현재시간에 만료값으로 지정
+    var cookie_value =
+      escape(value) + (days == null ? "" : ";expires=" + exdate.toUTCString());
+    document.cookie = cookie_name + "=" + cookie_value;
+  }
+
   const isLogin = async () => {
     try {
       console.log("로그인중");
-
-      const response = await axios.post(
-        "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/user/login",
+      console.log(user.id);
+      console.log(user.pw);
+      const response = await CustomAxios.post(
+        "http://10.150.151.198:3000/api/user/login",
         {
           userId: user.id,
           password: user.pw,
         }
       );
-      console.log(response.data);
-      (window as any).myGlobalVar = response.data;
-
       // 성공적으로 로그인한 경우의 처리
       console.log("로그인 성공", response.data);
       setIsState((prev) => ({
@@ -79,16 +89,14 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
   };
 
   const isJoin = async () => {
+    console.log("회원가입중");
+
     try {
-      console.log("회원가입중");
-      const response = await axios.post(
-        "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/user/register",
-        {
-          userId: user.id,
-          password: user.pw,
-          userName: user.name,
-        }
-      );
+      const response = await CustomAxios.post("/api/user/register", {
+        userId: user.id,
+        password: user.pw,
+        userName: user.name,
+      });
 
       // 성공적으로 회원가입한 경우의 처리
       console.log("회원가입 성공", response.data);
@@ -183,3 +191,6 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
 };
 
 export default Login;
+function useCallBack(arg0: () => void) {
+  throw new Error("Function not implemented.");
+}

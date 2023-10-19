@@ -1,7 +1,8 @@
 import * as S from "./styleImage";
 import styled from "styled-components";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "../../index";
+import axios from "axios";
 
 interface StateProps {
   value: {
@@ -14,6 +15,19 @@ interface StateProps {
 }
 
 const CreateImg: React.FC<StateProps> = ({ value }) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/user/logincheck"
+        );
+        // 여기서 데이터를 처리할 수 있습니다.
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData(); // 래퍼 함수 실행
+  }, []);
   return (
     <>
       <Header />

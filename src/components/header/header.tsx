@@ -38,7 +38,7 @@ const Header: React.FC = () => {
         <S.postionFiexd>
           {isLogin.login ? (
             <S.loginButton>
-              <S.buttonText>로그아웃</S.buttonText>
+              <S.buttonText onClick={() => {}}>로그아웃</S.buttonText>
             </S.loginButton>
           ) : (
             <>

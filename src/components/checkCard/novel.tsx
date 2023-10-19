@@ -8,6 +8,10 @@ import ProvIcon from "../../assets/images/provnove";
 import ClickHeart from "../../assets/images/clickHeart";
 import axios from "axios";
 
+const customHeaders = {
+  "Custom-Header-Name": "Custom-Header-Value",
+};
+
 type Border = {
   boardId: number;
   title: string;
@@ -59,7 +63,10 @@ const CheckNovel = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/comment/${novelId}`
+          `http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/comment/${novelId}`,
+          {
+            headers: customHeaders,
+          }
         );
         setChatData(res.data);
         console.log(res.data);
@@ -84,6 +91,9 @@ const CheckNovel = () => {
             {
               borderId: data[0].boardId,
               comment: chat,
+            },
+            {
+              headers: customHeaders,
             }
           );
           // 댓글을 보낸 후 input의 value를 초기화

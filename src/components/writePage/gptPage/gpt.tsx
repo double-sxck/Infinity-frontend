@@ -3,6 +3,7 @@ import * as S from "./styleGpt";
 import styled from "styled-components";
 import { Header } from "../../index";
 import axios from "axios";
+import CustomAxios from "../../../axios/customAxios";
 
 interface StateProps {
   setState: React.Dispatch<
@@ -26,18 +27,26 @@ interface StateProps {
 }
 
 const Gpt: React.FC<StateProps> = ({ setState, value }) => {
+  const fetchData2 = async () => {
+    try {
+      const res = await CustomAxios.get("api/user/logincheck");
+
+      // 요청이 성공하면 이후의 로직을 수행합니다.
+      console.log("쿠키", res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const fetchData = async () => {
     try {
-      const res = await axios.post(
-        "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/generate/novel",
-        {
-          genre: value.title,
-          key: value.keyword,
-          character: value.people,
-          event: value.event,
-          background: value.background,
-        }
-      );
+      const res = await CustomAxios.post("api/generate/novel", {
+        genre: value.title,
+        key: value.keyword,
+        character: value.people,
+        event: value.event,
+        background: value.background,
+      });
 
       // 요청이 성공하면 이후의 로직을 수행합니다.
       console.log(res);
@@ -48,6 +57,7 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
 
   useLayoutEffect(() => {
     fetchData();
+    fetchData2();
   }, []);
 
   return (

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styleWrite";
 import { Header } from "../../index";
 import AddButton from "../../../assets/images/addButton";
+import axios from "axios";
+import CustomAxios from "../../../axios/customAxios";
 
 interface StateProps {
   setState: React.Dispatch<
@@ -29,6 +31,20 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
   const [background, setBackground] = useState("");
   const [people, setPeople] = useState("");
   const [keyword, setKeyword] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await CustomAxios.get("api/user/logincheck");
+        // 비동기 작업 완료 후 처리할 로직을 여기에 추가할 수 있습니다.
+      } catch (error) {
+        console.error("데이터 가져오기 오류:", error);
+        // 오류가 발생한 경우 여기에서 적절한 오류 처리를 수행할 수 있습니다.
+      }
+    };
+
+    fetchData(); // fetchData 함수를 호출하여 데이터를 가져옵니다.
+  }, []); // 의존성 배열이 빈 배열인 경우, useEffect는 컴포넌트가 마운트될 때 한 번만 실행됩니다.
 
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTitle(event.target.value);

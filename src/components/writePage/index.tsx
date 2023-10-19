@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Write from "./event/writePage";
 import Gpt from "./gptPage/gpt";
 import Cimg from "./image/createImage";
+import axios from "axios";
+
+axios.defaults.withCredentials = true;
 
 const MainWrite = () => {
   const [title, setTitle] = useState<{
