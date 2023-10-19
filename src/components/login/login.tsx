@@ -72,6 +72,10 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
       });
       // 성공적으로 로그인한 경우의 처리
       console.log("성공");
+      setIsState((prev) => ({
+        ...prev,
+        popup: false,
+      }));
       return response.data;
       // console.log("로그인 성공", response.data);
       // setIsState((prev) => ({
