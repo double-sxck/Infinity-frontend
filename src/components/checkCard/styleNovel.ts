@@ -67,12 +67,12 @@ export const keywordBox = styled.div`
   align-items: center;
 `;
 
-export const chatImage = styled.div`
+export const chatImage = styled.div<{ img: string }>`
   width: 2em;
   height: 2em;
   background-color: green;
   border-radius: 50%;
-  background-image: url();
+  background-image: url(${(props) => props.img});
 `;
 
 export const chatUserName = styled.div`
