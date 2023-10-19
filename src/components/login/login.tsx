@@ -4,6 +4,7 @@ import { useState } from "react";
 import * as S from "./styleLogin";
 import axios, { AxiosResponse } from "axios";
 import CustomAxios from "../../axios/customAxios";
+import XIcon from "../../assets/images/xButton";
 
 axios.defaults.withCredentials = true;
 
@@ -179,7 +180,9 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
         </S.displayTable>
       </S.mainLoginPage>
       <S.closeButton>
-        <button onClick={handleLogin}>나가기</button>
+        <div onClick={handleLogin}>
+          <XIcon width={20} height={20}></XIcon>
+        </div>
       </S.closeButton>
     </S.loginBackground>
   );

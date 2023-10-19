@@ -67,6 +67,7 @@ export const closeButton = styled.div`
   background-color: none;
   height: 1em;
   margin-top: 10vh;
+  margin-left: 0.5em;
 `;
 
 export const displayTable = styled.div`

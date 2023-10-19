@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const CustomAxios = axios.create({
-  baseURL: "http://10.150.149.25:3000",
+  baseURL: "http://10.150.149.25:3000/",
   withCredentials: true,
 });
 

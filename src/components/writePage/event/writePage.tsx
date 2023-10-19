@@ -35,7 +35,7 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await CustomAxios.get("/api/user/logincheck");
+        const res = await CustomAxios.get("api/user/logincheck");
         console.log(res);
         // 비동기 작업 완료 후 처리할 로직을 여기에 추가할 수 있습니다.
       } catch (error) {

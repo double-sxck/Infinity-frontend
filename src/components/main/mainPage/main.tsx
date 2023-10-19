@@ -4,6 +4,7 @@ import Header from "../../header/header";
 import KeyboardArrowUpIcon from "../../../assets/images/viewArrowUp";
 import Card from "../card/card";
 import axios from "axios";
+import CustomAxios from "../../../axios/customAxios";
 
 type Border = {
   boardId: number;
@@ -28,9 +29,7 @@ const Main = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(
-        "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/board"
-      );
+      const res = await CustomAxios.get("api/board");
       console.log(res.data);
       setData(res.data); // 데이터 업데이트
     };
