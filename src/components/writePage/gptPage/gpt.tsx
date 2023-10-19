@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import * as S from "./styleGpt";
 import styled from "styled-components";
 import { Header } from "../../index";
@@ -27,19 +27,11 @@ interface StateProps {
 }
 
 const Gpt: React.FC<StateProps> = ({ setState, value }) => {
-  const fetchData2 = async () => {
-    try {
-      const res = await CustomAxios.get("api/user/logincheck");
-
-      // 요청이 성공하면 이후의 로직을 수행합니다.
-      console.log("쿠키", res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [loding, setLoding] = useState(false);
 
   const fetchData = async () => {
     try {
+      setLoding(true);
       const res = await CustomAxios.post("api/generate/novel", {
         genre: value.title,
         key: value.keyword,
@@ -49,19 +41,23 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
       });
 
       // 요청이 성공하면 이후의 로직을 수행합니다.
-      console.log(res);
+      console.log(res.data.result);
+      setNovel(res.data.result);
+      setLoding(false);
     } catch (error) {
       console.log(error);
     }
   };
 
+  const [novel, setNovel] = useState("");
+
   useLayoutEffect(() => {
     fetchData();
-    fetchData2();
   }, []);
 
   return (
     <>
+      {loding ? <div style={{ fontSize: "10em" }}>로딩중인것이와요</div> : null}
       <Header />
       <div style={{ height: "5em" }}></div>
       <S.boxPostion>
@@ -82,7 +78,7 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
           <Column type="center">
             <S.halfBox>
               <S.addTitle placeholder="제목을 입력하세요"></S.addTitle>
-              <S.gptNovel>니가</S.gptNovel>
+              <S.gptNovel>{novel}</S.gptNovel>
             </S.halfBox>
             <S.halfLine></S.halfLine>
             <S.halfBox>
@@ -130,7 +126,14 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
               </S.keywordBox>
               <S.rowLine></S.rowLine>
               <Column type={"center"}>
-                <S.createButton type={true}>재생성</S.createButton>
+                <S.createButton
+                  type={true}
+                  onClick={() => {
+                    fetchData();
+                  }}
+                >
+                  재생성
+                </S.createButton>
                 <div style={{ width: "2vw" }}></div>
                 <S.createButton
                   type={false}

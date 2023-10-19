@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import * as S from "./styleMain";
 import Header from "../../header/header";
 import KeyboardArrowUpIcon from "../../../assets/images/viewArrowUp";
@@ -27,7 +27,7 @@ const Main = () => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState<Array<Border>>([]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const fetchData = async () => {
       const res = await CustomAxios.get("api/board");
       console.log(res.data);
@@ -35,6 +35,28 @@ const Main = () => {
     };
     fetchData(); // API 요청 수행
   }, []);
+
+  // const fetchListData = async () => {
+  //   let res; // res 변수를 여기서 선언
+
+  //   if (list === "오래된순") {
+  //     console.log("오래");
+  //     res = await CustomAxios.get("api/board/method/data"); // 변수 res에 결과 저장
+  //     setData(res.data);
+  //   } else if (list === "추천") {
+  //     console.log("추천");
+  //     res = await CustomAxios.get("api/board/method/popular"); // 변수 res에 결과 저장
+  //     setData(res.data);
+  //   } else {
+  //     console.log("최신순");
+  //     res = await CustomAxios.get("api/board"); // 변수 res에 결과 저장
+  //     setData(res.data);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchListData();
+  // }, [list]);
 
   return (
     <>

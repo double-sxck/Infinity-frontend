@@ -34,18 +34,18 @@ const NovCard: React.FC<Border> = (props) => {
             style={{ display: "flex", alignItems: "center", marginLeft: 15 }}
           >
             <HeartIcon width={10} height={10} />
-            <UnderLineText>{props.likes}</UnderLineText>
+            <UnderLineText>{props?.likes}</UnderLineText>
           </div>
           <div style={{ display: "flex", alignItems: "center" }}>
             <CommentIcon width={10} height={10} />
-            <UnderLineText>{props.views}</UnderLineText>
+            <UnderLineText>{props?.views}</UnderLineText>
           </div>
           <div></div>
           <UnderLineText style={{ marginRight: 20 }}>123</UnderLineText>
         </CardUnderLine>
         <FlexBox>
-          <Title>{props.title}</Title>
-          <Writer>{props.userName}</Writer>
+          <Title>{props?.title}</Title>
+          <Writer>{props?.userName}</Writer>
         </FlexBox>
       </LinkToPage>
     </div>
@@ -60,10 +60,15 @@ const CardBackground = styled.div<{ img: string }>`
   width: 15em;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  background-image: url(${(props) => props.img});
+  background-image: url(http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com${(
+    props
+  ) => props.img});
+  background-repeat: no-repeat;
+  background-size: cover; /* 이미지를 커버하도록 설정 */
+  background-position: center; /* 이미지를 가운데로 정렬 */
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end; /* 이미지 아래에 내용을 배치합니다. */
 `;
 
 const FlexBox = styled.div`
