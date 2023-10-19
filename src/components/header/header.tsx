@@ -27,7 +27,9 @@ const Header: React.FC = () => {
       {isLogin.popup && <Login setIsState={setIsLogin} />}
       <S.headerBody>
         <S.logoBackground>
-          <Logo width="100" height="40" />
+          <Link to="/">
+            <Logo width="100" height="40" />
+          </Link>
         </S.logoBackground>
         <S.searchBox
           type="text"

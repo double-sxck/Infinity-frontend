@@ -65,21 +65,18 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
   const isLogin = async () => {
     try {
       console.log("로그인중");
-      console.log(user.id);
-      console.log(user.pw);
-      const response = await CustomAxios.post(
-        "http://10.150.151.198:3000/api/user/login",
-        {
-          userId: user.id,
-          password: user.pw,
-        }
-      );
+      const response = await CustomAxios.post("/api/user/login", {
+        userId: user.id,
+        password: user.pw,
+      });
       // 성공적으로 로그인한 경우의 처리
-      console.log("로그인 성공", response.data);
-      setIsState((prev) => ({
-        ...prev,
-        login: true,
-      }));
+      console.log("성공");
+      return response.data;
+      // console.log("로그인 성공", response.data);
+      // setIsState((prev) => ({
+      //   ...prev,
+      //   login: true,
+      // }));
       // 이후 추가적인 로직을 수행하거나 응답 데이터를 사용할 수 있습니다.
     } catch (error) {
       // 오류 발생 시의 처리
@@ -141,7 +138,7 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
                   type="text"
                   name="name"
                   placeholder="사용자 이름"
-                  style={{ border: "none", outline: "none" }}
+                  style={{ border: "none", outline: "none", width: "100%" }}
                   onChange={userHandle}
                 ></input>
               </S.inputContainer>
@@ -154,7 +151,7 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
               type="text"
               name="id"
               placeholder="사용자 이름"
-              style={{ border: "none", outline: "none" }}
+              style={{ border: "none", outline: "none", width: "100%" }}
               onChange={userHandle}
             ></input>
           </S.inputContainer>
@@ -163,16 +160,14 @@ const Login: React.FC<LoginProps> = ({ setIsState }) => {
             <input
               type={pwMode ? "password" : "text"}
               name="pw"
-              placeholder="사용자 이름"
+              placeholder="비밀번호"
               style={{
                 border: "none",
                 outline: "none",
+                width: "100%",
               }}
               onChange={userHandle}
             ></input>
-            <div style={{ marginRight: 20 }} onClick={() => {}}>
-              버튼
-            </div>
           </S.inputContainer>
           <S.finisButton
             onClick={() => {
