@@ -43,9 +43,7 @@ export const gridPage = styled.div`
   place-items: center;
   grid-template-columns: repeat(3, 1fr);
 `;
-export const flexEnd = styled.div`
-  display: flex;
-`;
+
 export const gridOutPage = styled.div`
   display: flex;
   padding-left: 2.5vw;
