@@ -64,7 +64,7 @@ const CheckNovel = () => {
       try {
         const res = await CustomAxios.get(`api/comment/${novelId}`, {});
         setChatData(res.data);
-        console.log(res.data);
+        console.log("챗팅", res.data);
       } catch (error) {
         console.error("데이터 가져오기 오류2:", error);
         // 오류가 발생한 경우 여기에서 적절한 오류 처리를 수행하실 수 있습니다.
@@ -81,6 +81,7 @@ const CheckNovel = () => {
       try {
         if (chat.replace(/\s/g, "") !== "") {
           console.log("성공");
+          console.log(chat);
           const res = await CustomAxios.post("api/comment", {
             borderId: data[0].boardId,
             comment: chat,
@@ -169,7 +170,7 @@ const CheckNovel = () => {
                 <Between>
                   <S.commentNumber>댓글 5개</S.commentNumber>
                   <Column>
-                    <S.likeNumber>{data[0]?.likes}1</S.likeNumber>
+                    <S.likeNumber>{data[0]?.likes}</S.likeNumber>
                     <ClickHeart width={40} height={40} />
                   </Column>
                 </Between>
