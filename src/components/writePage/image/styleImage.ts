@@ -45,10 +45,9 @@ export const createImgBox = styled.div<{ img: string }>`
   background-position: center;
   width: 37vw;
   min-height: 25vw;
+  background-image: 37vw 25vw;
   margin: auto;
-  background-image: url(http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com${(
-    props
-  ) => props.img});
+  background-image: url(https://infinitynovel.kro.kr${(props) => props.img});
 `;
 
 export const lineIndex = styled.div`
