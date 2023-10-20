@@ -37,7 +37,6 @@ export const halfLine = styled.div`
 `;
 
 export const createImgBox = styled.div<{ img: string }>`
-  background-image: url(http://10.150.149.25:3000${(props) => props.img});
   background-repeat: no-repeat;
   border: 1px solid #d9d9d9;
   border-radius: 30px;
@@ -47,6 +46,9 @@ export const createImgBox = styled.div<{ img: string }>`
   width: 37vw;
   min-height: 25vw;
   margin: auto;
+  background-image: url(http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com${(
+    props
+  ) => props.img});
 `;
 
 export const lineIndex = styled.div`
