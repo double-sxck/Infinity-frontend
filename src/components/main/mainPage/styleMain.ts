@@ -30,6 +30,7 @@ export const selectOptionBar = styled.div`
   padding: 1px;
   margin-top: 0.5em;
   border-radius: 12px;
+
   border: 1px solid black;
 `;
 
@@ -38,8 +39,16 @@ export const selectText = styled.p``;
 export const gridPage = styled.div`
   width: 90vw;
   display: grid;
+  justify-content: flex-end;
   place-items: center;
   grid-template-columns: repeat(3, 1fr);
+`;
+export const flexEnd = styled.div`
+  display: flex;
+`;
+export const gridOutPage = styled.div`
+  display: flex;
+  padding-left: 2.5vw;
 `;
 
 const AniUp = keyframes`

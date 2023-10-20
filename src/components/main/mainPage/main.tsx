@@ -63,11 +63,6 @@ const Main = () => {
       <Header />
       <S.box></S.box>
       <S.settingBar>
-        <S.settingBar>
-          <S.selectBox>키워드</S.selectBox>
-          <S.selectBox>두자</S.selectBox>
-          <S.selectBox>긴키워드</S.selectBox>
-        </S.settingBar>
         <S.RowBox>
           <S.selectBox
             onClick={() => {
@@ -122,25 +117,27 @@ const Main = () => {
           )}
         </S.RowBox>
       </S.settingBar>
-      <S.gridPage>
-        {data.map((item) => (
-          <Card
-            boardId={item.boardId}
-            title={item.title}
-            novel={item.novel}
-            character={item.character}
-            event={item.event}
-            background={item.background}
-            userUniqueId={item.userUniqueId}
-            userName={item.userName}
-            created={item.created}
-            views={item.views}
-            likes={item.likes}
-            backImage={item.image}
-            key={item.boardId} // key를 포함시키는 것이 좋습니다.
-          />
-        ))}
-      </S.gridPage>
+      <S.gridOutPage>
+        <S.gridPage>
+          {data.map((item) => (
+            <Card
+              boardId={item.boardId}
+              title={item.title}
+              novel={item.novel}
+              character={item.character}
+              event={item.event}
+              background={item.background}
+              userUniqueId={item.userUniqueId}
+              userName={item.userName}
+              created={item.created}
+              views={item.views}
+              likes={item.likes}
+              backImage={item.image}
+              key={item.boardId} // key를 포함시키는 것이 좋습니다.
+            />
+          ))}
+        </S.gridPage>
+      </S.gridOutPage>
     </>
   );
 };
