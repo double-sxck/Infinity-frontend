@@ -158,7 +158,7 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
   return (
     <>
       <Header />
-      <div style={{ height: "4rem" }}></div>
+      <S.process>1 / 3</S.process>
       <S.Row>
         <S.writeBox>
           <S.Between>
@@ -172,7 +172,7 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
             >
               <S.nameDiv>
                 당신의 이름을 입력해 주세요.&nbsp;
-                <S.nameInput></S.nameInput>
+                <S.nameInput placeholder="작가 이름"></S.nameInput>
               </S.nameDiv>
             </p>
             <div style={{ display: "flex", paddingRight: "1em", gap: "2em" }}>
@@ -220,7 +220,7 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                 <S.Row style={{ gap: "0.5em" }}>
                   <S.genreDiv>
                     <S.marginTop>
-                      <div>장르</div>
+                      <div style={{ marginBottom:"0.5vh" }}>장르</div>
                       <S.Row style={{ gap: "0.5em" }}>
                         <S.inputBoxLow
                           type="text"
@@ -234,7 +234,7 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                       </S.Row>
                     </S.marginTop>
                     <S.marginTop>
-                      <div>키워드</div>
+                      <div style={{ marginBottom:"0.5vh" }}>키워드</div>
                       <S.Row style={{ gap: "0.5em" }}>
                         <S.inputBoxLow
                           type="text"
@@ -249,55 +249,44 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                     </S.marginTop>
                   </S.genreDiv>
                 </S.Row>
-                <S.marginTop>
-                  <div style={{ paddingLeft: "37px" }}>사건</div>
-                  <S.sageonDiv>
-                    <S.inputBoxBig
-                      type="text"
-                      placeholder="사건 추가"
-                      value={newEvent}
-                      onChange={handleEventChange}
-                    />
+                <S.Row>
+                <S.sageonDiv>
+                  <S.marginTop>
+                  <div style={{ marginBottom:"0.5vh" }}>사건</div>
+                    <S.Row style={{ gap: "0.5em" }}>
+                      <S.inputBoxBig
+                        type="text"
+                        placeholder="사건 추가"
+                        value={newEvent}
+                        onChange={handleEventChange}
+                      />
 
-                    <div onClick={addEvent}>
-                      <AddButton width={30} height={30}></AddButton>
-                    </div>
-                  </S.sageonDiv>
-                </S.marginTop>
-                <S.personDiv>
-                  <S.Between>
-                    <S.marginTop>
-                      <div>
-                        <div>등장인물</div>
-                        <div
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "0.5em",
-                          }}
-                        >
-                          <S.inputBoxLow
-                            type="text"
-                            placeholder="등장인물 추가"
-                            value={people}
-                            onChange={handlePeopleChange}
-                          />
-                          <div onClick={updatePeople}>
-                            <AddButton width={30} height={30}></AddButton>
-                          </div>
-                        </div>
+                      <div onClick={addEvent}>
+                        <AddButton width={30} height={30}></AddButton>
                       </div>
+                    </S.Row>
+                  </S.marginTop>
+                </S.sageonDiv>
+                </S.Row>
+                <S.Row>
+                <S.personDiv>
+                    <S.marginTop>
+                    <div style={{ marginBottom:"0.5vh" }}>등장인물</div>
+                      <S.Row style={{ gap: "0.5em" }}>
+                        <S.inputBoxLow
+                          type="text"
+                          placeholder="등장인물 추가"
+                          value={people}
+                          onChange={handlePeopleChange}
+                        />
+                        <div onClick={updatePeople}>
+                          <AddButton width={30} height={30}></AddButton>
+                        </div>
+                      </S.Row>
                     </S.marginTop>
                     <S.marginTop>
-                      <div>
-                        <div>배경</div>
-                        <div
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "0.5em",
-                          }}
-                        >
+                    <div style={{ marginBottom:"0.5vh" }}>배경</div>
+                        <S.Row style={{ gap: "0.5em" }}>
                           <S.inputBoxLow
                             type="text"
                             placeholder="배경 추가"
@@ -307,13 +296,13 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                           <div onClick={updateBackground}>
                             <AddButton width={30} height={30}></AddButton>
                           </div>
-                        </div>
-                      </div>
+                      </S.Row>
                     </S.marginTop>
-                  </S.Between>
                 </S.personDiv>
+                </S.Row>
               </div>
             </S.divBody>
+            <S.vertical />
             <S.divBody>
               <S.Between>
                 <S.insertBody>
@@ -388,7 +377,7 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                   </S.overContentBond>
                 </S.insertBody>
               </S.Between>
-              &nbsp;&nbsp;&nbsp;클릭하면 지울 수 있어요!
+              <S.info>※키워드를 클릭하여 삭제할 수 있습니다.</S.info>
             </S.divBody>
           </div>
         </S.writeBox>
