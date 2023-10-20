@@ -33,47 +33,15 @@ const Header: React.FC = () => {
         </S.logoBackground>
         <S.searchBox
           type="text"
-          placeholder="---의 모든 작품 검색"
+          placeholder="인피니티의 모든 작품 검색"
           onChange={seachHandle}
           onKeyDown={seachHandle}
         ></S.searchBox>
-        <S.postionFiexd>
-          {isLogin.login ? (
-            <S.loginButton>
-              <S.buttonText onClick={() => {}}>로그아웃</S.buttonText>
-            </S.loginButton>
-          ) : (
-            <>
-              <S.loginButton>
-                <S.buttonText
-                  onClick={() =>
-                    setIsLogin((prev) => ({
-                      ...prev,
-                      popup: true,
-                    }))
-                  }
-                >
-                  로그인
-                </S.buttonText>
-              </S.loginButton>
-              <S.loginButton>
-                <S.buttonText
-                  onClick={() =>
-                    setIsLogin((prev) => ({
-                      ...prev,
-                      popup: true,
-                    }))
-                  }
-                >
-                  가입
-                </S.buttonText>
-              </S.loginButton>
-            </>
-          )}
-          <S.headerButtons to="/write">
-            <S.buttonLink to="/write">업로드</S.buttonLink>
-          </S.headerButtons>
-        </S.postionFiexd>
+        {/* <S.postionFiexd> */}
+        <S.headerButtons to="/write">
+          <S.buttonLink to="/write">업로드</S.buttonLink>
+        </S.headerButtons>
+        {/* </S.postionFiexd> */}
       </S.headerBody>
     </>
   );
