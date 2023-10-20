@@ -2,59 +2,64 @@ import styled from "styled-components";
 import Search from "../../assets/images/search.svg";
 import { Link } from "react-router-dom";
 
-export const headerBody = styled.div`
+export const container = styled.div`
   width: 100vw;
-  height: 200px;
-  background-color: #000000;
-  top: 0;
-  justify-content: center;
+  height: 9vh;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 
-export const logoBackground = styled.div`
-  width: 160px;
-  height: 64px;
-  background-color: white;
-  margin: 20px 40px auto;
-`;
-export const logoUploadBody = styled.div`
-  width: 100vw;
+export const alignLeft = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 35px;
 `;
-export const headerButtons = styled(Link)`
+
+export const searchBar = styled.input`
+  width: 66.7%;
+  height: 3.75rem;
+  background-color: #f5f5f5;
+  border-radius: 1.875rem;
+  padding: 0 3.75rem;
+  font-size: 1rem;
+  border: none;
+`;
+
+export const alignRight = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 35px;
+`;
+
+export const profileImage = styled.img`
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+  background-color: black;
+`;
+
+export const uploadBox = styled(Link)`
   width: 100px;
-  height: 40px;
-  background-color: #CCF0FF;
-  border-radius: 16px;
-  margin: auto 40px 20px auto;
+  height: 3.75rem;
+  background-color: #ccf0ff;
+  border-radius: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
 `;
 
-export const buttonLink = styled(Link)`
+export const uploadFont = styled(Link)`
   color: black;
   font-weight: 900;
   font-size: 1em;
   text-decoration: none;
-`;
-export const searchOutBox = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 0;
-`;
-export const searchBox = styled.input`
-  width: 50vw;
-  height: 48px;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  padding: 0 60px;
-  font-size: 16px;
-`;
-
-export const postionFiexd = styled.div`
-  display: flex;
-  right: 30px;
 `;
