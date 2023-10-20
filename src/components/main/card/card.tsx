@@ -60,15 +60,15 @@ const CardBackground = styled.div<{ img: string }>`
   width: 15em;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  background-image: url(http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com${(
-    props
-  ) => props.img});
   background-repeat: no-repeat;
-  background-size: cover; /* 이미지를 커버하도록 설정 */
+  background-size: cover; /* 이미지를  커버하도록 설정 */
   background-position: center; /* 이미지를 가운데로 정렬 */
   display: flex;
   justify-content: center;
   align-items: flex-end; /* 이미지 아래에 내용을 배치합니다. */
+  background-image: url(http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com${({
+    img,
+  }) => img}); //url에서 줄바꿈이 일어나서 에러가 남
 `;
 
 const FlexBox = styled.div`

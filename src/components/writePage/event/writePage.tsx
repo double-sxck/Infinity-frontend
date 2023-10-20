@@ -168,7 +168,10 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                 paddingBottom: "1em",
               }}
             >
-              원하는 소설의 구조를 작성하세요
+              <S.nameDiv>
+                당신의 이름을 입력해 주세요.&nbsp;
+                <S.nameInput></S.nameInput>
+              </S.nameDiv>
             </p>
             <div style={{ display: "flex", paddingRight: "1em", gap: "2em" }}>
               <S.boxHeaderButton
@@ -210,174 +213,181 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
               alignContent: "center",
             }}
           >
-            <div style={{ padding: "10px", width: "40vw" }}>
-              <S.Row style={{ gap: "0.5em" }}>
+            <S.divBody>
+              <div style={{ padding: "10px", width: "40vw" }}>
+                <S.Row style={{ gap: "0.5em" }}>
+                  <S.genreDiv>
+                    <S.marginTop>
+                      <div>장르</div>
+                      <S.Row style={{ gap: "0.5em" }}>
+                        <S.inputBoxLow
+                          type="text"
+                          placeholder="장르 추가"
+                          value={newTitle}
+                          onChange={handleTitleChange}
+                        />
+                        <div onClick={addTitle}>
+                          <AddButton width={30} height={30}></AddButton>
+                        </div>
+                      </S.Row>
+                    </S.marginTop>
+                    <S.marginTop>
+                      <div>키워드</div>
+                      <S.Row style={{ gap: "0.5em" }}>
+                        <S.inputBoxLow
+                          type="text"
+                          placeholder="키워드 추가"
+                          value={keyword}
+                          onChange={handleKeywordChange}
+                        />
+                        <div onClick={updateKeyword}>
+                          <AddButton width={30} height={30}></AddButton>
+                        </div>
+                      </S.Row>
+                    </S.marginTop>
+                  </S.genreDiv>
+                </S.Row>
                 <S.marginTop>
-                  <div>장르</div>
-                  <S.Row style={{ gap: "0.5em" }}>
-                    <S.inputBoxLow
+                  <div style={{ paddingLeft: "37px" }}>사건</div>
+                  <S.sageonDiv>
+                    <S.inputBoxBig
                       type="text"
-                      placeholder="제목 입력"
-                      value={newTitle}
-                      onChange={handleTitleChange}
+                      placeholder="사건 추가"
+                      value={newEvent}
+                      onChange={handleEventChange}
                     />
-                    <div onClick={addTitle}>
+
+                    <div onClick={addEvent}>
                       <AddButton width={30} height={30}></AddButton>
                     </div>
-                  </S.Row>
+                  </S.sageonDiv>
                 </S.marginTop>
-                <S.marginTop>
-                  <div>키워드</div>
-                  <S.Row style={{ gap: "0.5em" }}>
-                    <S.inputBoxLow
-                      type="text"
-                      placeholder="이벤트 입력"
-                      value={keyword}
-                      onChange={handleKeywordChange}
-                    />
-                    <div onClick={updateKeyword}>
-                      <AddButton width={30} height={30}></AddButton>
-                    </div>
-                  </S.Row>
-                </S.marginTop>
-              </S.Row>
-              <S.marginTop>
-                <div>사건</div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5em",
-                  }}
-                >
-                  <S.inputBoxBig
-                    type="text"
-                    placeholder="사건 추가"
-                    value={newEvent}
-                    onChange={handleEventChange}
-                  />
-                  <div onClick={addEvent}>
-                    <AddButton width={30} height={30}></AddButton>
-                  </div>
-                </div>
-              </S.marginTop>
-              <S.marginTop>
-                <S.Between>
-                  <div>
-                    <div>등장인물</div>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "0.5em",
-                      }}
-                    >
-                      <S.inputBoxLow
-                        type="text"
-                        placeholder="등장인물"
-                        value={people}
-                        onChange={handlePeopleChange}
-                      />
-                      <div onClick={updatePeople}>
-                        <AddButton width={30} height={30}></AddButton>
+                <S.personDiv>
+                  <S.Between>
+                    <S.marginTop>
+                      <div>
+                        <div>등장인물</div>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "0.5em",
+                          }}
+                        >
+                          <S.inputBoxLow
+                            type="text"
+                            placeholder="등장인물 추가"
+                            value={people}
+                            onChange={handlePeopleChange}
+                          />
+                          <div onClick={updatePeople}>
+                            <AddButton width={30} height={30}></AddButton>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div>배경</div>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "0.5em",
-                      }}
-                    >
-                      <S.inputBoxLow
-                        type="text"
-                        placeholder="배경추가"
-                        value={background}
-                        onChange={handleBackgroundChange}
-                      />
-                      <div onClick={updateBackground}>
-                        <AddButton width={30} height={30}></AddButton>
+                    </S.marginTop>
+                    <S.marginTop>
+                      <div>
+                        <div>배경</div>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "0.5em",
+                          }}
+                        >
+                          <S.inputBoxLow
+                            type="text"
+                            placeholder="배경 추가"
+                            value={background}
+                            onChange={handleBackgroundChange}
+                          />
+                          <div onClick={updateBackground}>
+                            <AddButton width={30} height={30}></AddButton>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </S.Between>
-              </S.marginTop>
-            </div>
-            <div style={{ padding: "20px", width: "40vw" }}>
+                    </S.marginTop>
+                  </S.Between>
+                </S.personDiv>
+              </div>
+            </S.divBody>
+            <S.divBody>
               <S.Between>
-                <S.overContentBond>
-                  <S.overContentChild>장르</S.overContentChild>
-                  <S.wordBoxBond>
-                    {value.title.map((title, index) => (
-                      <S.wordBoxChild
-                        key={index}
-                        onClick={() => removeGenre(index)}
-                      >
-                        {title}
-                      </S.wordBoxChild>
-                    ))}
-                  </S.wordBoxBond>
-                </S.overContentBond>
-                <S.overContentBond>
-                  <S.overContentChild>사건</S.overContentChild>
-                  <S.wordBoxBondLong>
-                    {value.event.map((event, index) => (
-                      <S.wordBoxChild
-                        key={index}
-                        onClick={() => removeEvent(index)}
-                      >
-                        {event}
-                      </S.wordBoxChild>
-                    ))}
-                  </S.wordBoxBondLong>
-                </S.overContentBond>
+                <S.insertBody>
+                  <S.overContentBond>
+                    <S.overContentChild>장르</S.overContentChild>
+                    <S.wordBoxBond>
+                      {value.title.map((title, index) => (
+                        <S.wordBoxChild
+                          key={index}
+                          onClick={() => removeGenre(index)}
+                        >
+                          {title}
+                        </S.wordBoxChild>
+                      ))}
+                    </S.wordBoxBond>
+                  </S.overContentBond>
+                  <S.overContentBond>
+                    <S.overContentChild>사건</S.overContentChild>
+                    <S.wordBoxBondLong>
+                      {value.event.map((event, index) => (
+                        <S.wordBoxChild
+                          key={index}
+                          onClick={() => removeEvent(index)}
+                        >
+                          {event}
+                        </S.wordBoxChild>
+                      ))}
+                    </S.wordBoxBondLong>
+                  </S.overContentBond>
+                </S.insertBody>
               </S.Between>
-              <div style={{ height: "5vh" }}></div>
               <S.Between>
-                <S.overContentBond>
-                  <S.overContentChild>키워드</S.overContentChild>
-                  <S.wordBoxBond>
-                    {value.keyword.map((keyword, index) => (
-                      <S.wordBoxChild
-                        key={index}
-                        onClick={() => removeKeyword(index)}
-                      >
-                        {keyword}
-                      </S.wordBoxChild>
-                    ))}
-                  </S.wordBoxBond>
-                </S.overContentBond>
-                <S.overContentBond>
-                  <S.overContentChild>등장인물</S.overContentChild>
-                  <S.wordBoxBond>
-                    {value.people.map((people, index) => (
-                      <S.wordBoxChild
-                        key={index}
-                        onClick={() => removePeople(index)}
-                      >
-                        {people}
-                      </S.wordBoxChild>
-                    ))}
-                  </S.wordBoxBond>
-                </S.overContentBond>
-                <S.overContentBond>
-                  <S.overContentChild>배경</S.overContentChild>
-                  <S.wordBoxBond>
-                    {value.background.map((background, index) => (
-                      <S.wordBoxChild
-                        key={index}
-                        onClick={() => removeBackground(index)}
-                      >
-                        {background}
-                      </S.wordBoxChild>
-                    ))}
-                  </S.wordBoxBond>
-                </S.overContentBond>
+                <S.insertBody>
+                  <S.overContentBond>
+                    <S.overContentChild>키워드</S.overContentChild>
+                    <S.wordBoxBond>
+                      {value.keyword.map((keyword, index) => (
+                        <S.wordBoxChild
+                          key={index}
+                          onClick={() => removeKeyword(index)}
+                        >
+                          {keyword}
+                        </S.wordBoxChild>
+                      ))}
+                    </S.wordBoxBond>
+                  </S.overContentBond>
+                  <S.overContentBond>
+                    <S.overContentChild>등장인물</S.overContentChild>
+                    <S.wordBoxBond>
+                      {value.people.map((people, index) => (
+                        <S.wordBoxChild
+                          key={index}
+                          onClick={() => removePeople(index)}
+                        >
+                          {people}
+                        </S.wordBoxChild>
+                      ))}
+                    </S.wordBoxBond>
+                  </S.overContentBond>
+                  <S.overContentBond>
+                    <S.overContentChild>배경</S.overContentChild>
+                    <S.wordBoxBond>
+                      {value.background.map((background, index) => (
+                        <S.wordBoxChild
+                          key={index}
+                          onClick={() => removeBackground(index)}
+                        >
+                          {background}
+                        </S.wordBoxChild>
+                      ))}
+                    </S.wordBoxBond>
+                  </S.overContentBond>
+                </S.insertBody>
               </S.Between>
-            </div>
+              &nbsp;&nbsp;&nbsp;클릭하면 지울 수 있어요!
+            </S.divBody>
           </div>
         </S.writeBox>
       </S.Row>
