@@ -16,6 +16,7 @@ interface StateProps {
       background: string[];
       people: string[];
       keyword: string[];
+      userName: string;
     }>
   >;
   value: {

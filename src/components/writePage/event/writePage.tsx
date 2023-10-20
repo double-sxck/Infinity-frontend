@@ -16,6 +16,7 @@ interface StateProps {
       background: string[];
       people: string[];
       keyword: string[];
+      userName: string;
     }>
   >;
   value: {
@@ -172,7 +173,15 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
             >
               <S.nameDiv>
                 당신의 이름을 입력해 주세요.&nbsp;
-                <S.nameInput placeholder="작가 이름"></S.nameInput>
+                <S.nameInput
+                  placeholder="작가 이름"
+                  onChange={(e) => {
+                    setState((props) => ({
+                      ...props,
+                      userName: e.target.value,
+                    }));
+                  }}
+                ></S.nameInput>
               </S.nameDiv>
             </p>
             <div style={{ display: "flex", paddingRight: "1em", gap: "2em" }}>
@@ -220,7 +229,7 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                 <S.Row style={{ gap: "0.5em" }}>
                   <S.genreDiv>
                     <S.marginTop>
-                      <div style={{ marginBottom:"0.5vh" }}>장르</div>
+                      <div style={{ marginBottom: "0.5vh" }}>장르</div>
                       <S.Row style={{ gap: "0.5em" }}>
                         <S.inputBoxLow
                           type="text"
@@ -234,7 +243,7 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                       </S.Row>
                     </S.marginTop>
                     <S.marginTop>
-                      <div style={{ marginBottom:"0.5vh" }}>키워드</div>
+                      <div style={{ marginBottom: "0.5vh" }}>키워드</div>
                       <S.Row style={{ gap: "0.5em" }}>
                         <S.inputBoxLow
                           type="text"
@@ -250,28 +259,28 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                   </S.genreDiv>
                 </S.Row>
                 <S.Row>
-                <S.sageonDiv>
-                  <S.marginTop>
-                  <div style={{ marginBottom:"0.5vh" }}>사건</div>
-                    <S.Row style={{ gap: "0.5em" }}>
-                      <S.inputBoxBig
-                        type="text"
-                        placeholder="사건 추가"
-                        value={newEvent}
-                        onChange={handleEventChange}
-                      />
+                  <S.sageonDiv>
+                    <S.marginTop>
+                      <div style={{ marginBottom: "0.5vh" }}>사건</div>
+                      <S.Row style={{ gap: "0.5em" }}>
+                        <S.inputBoxBig
+                          type="text"
+                          placeholder="사건 추가"
+                          value={newEvent}
+                          onChange={handleEventChange}
+                        />
 
-                      <div onClick={addEvent}>
-                        <AddButton width={30} height={30}></AddButton>
-                      </div>
-                    </S.Row>
-                  </S.marginTop>
-                </S.sageonDiv>
+                        <div onClick={addEvent}>
+                          <AddButton width={30} height={30}></AddButton>
+                        </div>
+                      </S.Row>
+                    </S.marginTop>
+                  </S.sageonDiv>
                 </S.Row>
                 <S.Row>
-                <S.personDiv>
+                  <S.personDiv>
                     <S.marginTop>
-                    <div style={{ marginBottom:"0.5vh" }}>등장인물</div>
+                      <div style={{ marginBottom: "0.5vh" }}>등장인물</div>
                       <S.Row style={{ gap: "0.5em" }}>
                         <S.inputBoxLow
                           type="text"
@@ -285,20 +294,20 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                       </S.Row>
                     </S.marginTop>
                     <S.marginTop>
-                    <div style={{ marginBottom:"0.5vh" }}>배경</div>
-                        <S.Row style={{ gap: "0.5em" }}>
-                          <S.inputBoxLow
-                            type="text"
-                            placeholder="배경 추가"
-                            value={background}
-                            onChange={handleBackgroundChange}
-                          />
-                          <div onClick={updateBackground}>
-                            <AddButton width={30} height={30}></AddButton>
-                          </div>
+                      <div style={{ marginBottom: "0.5vh" }}>배경</div>
+                      <S.Row style={{ gap: "0.5em" }}>
+                        <S.inputBoxLow
+                          type="text"
+                          placeholder="배경 추가"
+                          value={background}
+                          onChange={handleBackgroundChange}
+                        />
+                        <div onClick={updateBackground}>
+                          <AddButton width={30} height={30}></AddButton>
+                        </div>
                       </S.Row>
                     </S.marginTop>
-                </S.personDiv>
+                  </S.personDiv>
                 </S.Row>
               </div>
             </S.divBody>

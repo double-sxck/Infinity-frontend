@@ -15,6 +15,7 @@ interface StateProps {
     background: string[];
     people: string[];
     keyword: string[];
+    userName: string;
   };
 }
 
@@ -48,7 +49,7 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
         title: value.postTitle,
         novel: value.novel,
         keyword: value.keyword.join(),
-        userName: "인투디언노운",
+        userName: value.userName,
         image: img.substring(12),
         tempImage: [img.substring(12)],
       });

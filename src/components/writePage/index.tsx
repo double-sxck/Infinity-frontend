@@ -16,6 +16,7 @@ const MainWrite = () => {
     background: string[];
     people: string[];
     keyword: string[];
+    userName: string;
   }>({
     page: 1,
     postTitle: "",
@@ -25,6 +26,7 @@ const MainWrite = () => {
     background: [],
     people: [],
     keyword: [],
+    userName: "none",
   });
   return (
     <>
