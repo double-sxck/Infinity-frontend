@@ -141,7 +141,7 @@ export const commentImage = styled.div`
 
 export const chatInput = styled.input`
   border-radius: 10px;
-  width: 30vw;
+  width: 28vw;
   height: 5vh;
   margin: auto;
   padding: 0 1vw;
