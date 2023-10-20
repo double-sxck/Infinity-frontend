@@ -1,5 +1,19 @@
 import styled from "styled-components";
 
+export const process = styled.div`
+  margin: 0 auto;
+  width: 80vw;
+  text-align: right;
+  padding-top: 6.7vh;
+  padding-bottom: 2vh;
+`;
+
+export const vertical = styled.div`
+  background-color: #d9d9d9;
+  height: 60vh;
+  width: 1px;;
+`;
+
 export const Row = styled.div`
   display: flex;
   justify-content: center;
@@ -15,49 +29,54 @@ export const Between = styled.div`
 
 export const writeBox = styled.div`
   width: 80vw;
-  height: calc(95vh - 10rem);
-  border: 1px solid #d9d9d9;
-  border-radius: 20px;
-  padding-right: 20px;
-  margin-top: 2em;
-  box-shadow: 0 4px 6px rgba(0, 0, 0.1, 0.1);
+  height: 70vh;
+  box-shadow: 0px 0px 12px 4px rgba(217, 217, 217, 0.50);
 `;
 
 export const boxHeaderButton = styled.div<{ ty: boolean }>`
   width: 6em;
   padding: 0.5em;
   text-align: center;
-  border: 1px solid #9a9a9a;
   border-radius: 12px;
   background-color: ${(props) => (props.ty ? "white" : "#CCF0FF")};
-  border: ${(props) => (props.ty ? "1px solid #9a9a9a" : null)};
+  border: ${(props) => (props.ty ? "1px solid #9a9a9a" : "none")};
 `;
 
 export const divBody = styled.div`
   display: center;
   align-items: center;
   justify-content: center;
+  width: 40vw;
 `;
 export const personDiv = styled.div`
   display: flex;
-  padding-left: 30px;
+  gap: 5vh;
+  align-items: center;
+  justify-content: center;
 `;
 export const genreDiv = styled.div`
   display: flex;
-  gap: 60px;
-`;
-export const insertBody = styled.div`
-  display: flex;
-  padding: 40px 10px 10px 10px;
-  gap: 30px;
+  gap: 5vh;
+  align-items: center;
+  justify-content: center;
 `;
 export const sageonDiv = styled.div`
   display: flex;
-  padding-left: 30px;
-  gap: 10px;
-
   align-items: center;
-  gap: "0.5em";
+  justify-content: center;
+`;
+export const nameDiv = styled.div`
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+`;
+export const nameInput = styled.input`
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 10px;
+  padding-left: 10px;
+  height: 3em;
 `;
 export const inputBoxLow = styled.input`
   background-color: #f5f5f5;
@@ -65,47 +84,44 @@ export const inputBoxLow = styled.input`
   border-radius: 10px;
   padding-left: 10px;
   height: 3em;
-`;
-export const nameDiv = styled.div`
-  gap: 20px;
-  border: none;
-  border-radius: 10px;
-`;
-export const nameInput = styled.input`
-  background-color: #f5f5f5;
-  width: 70px;
+  width: 11vw;
 `;
 export const inputBoxBig = styled.input`
   background-color: #f5f5f5;
-  padding-left: 10px;
   border: none;
   border-radius: 10px;
+  padding-left: 10px;
   height: 3em;
-  width: 84%;
+  width: calc(28vw - 4px);
 `;
 
 export const marginTop = styled.div`
-  margin-top: 4em;
+  margin-top: 7vh;
   gap: 5px;
 `;
 
+export const insertBody = styled.div`
+  display: flex;
+  gap: 3vw;
+  margin: 3vh auto;
+  height: 20vh;
+`;
 export const wordBoxBond = styled.div`
-  height: 7em;
-  width: 6em;
+  height: 15vh;
+  width: 5vw;
   padding: 1em;
-  padding-top: 20px;
+  padding-top: 1.3em;
   border: 1px solid #d9d9d9;
   overflow-y: scroll;
 `;
 
 export const wordBoxBondLong = styled.div`
-  height: 7em;
+  height: 15vh;
+  width: 15.2vw;
   padding: 1em;
+  padding-top: 1.3em;
   border: 1px solid #d9d9d9;
   overflow-y: scroll;
-  padding-top: 20px;
-  min-width: 14em;
-  max-width: 14em;
 `;
 
 export const overContentBond = styled.div`
@@ -114,32 +130,30 @@ export const overContentBond = styled.div`
 `;
 
 export const overContentChild = styled.div`
-  position: absolute;
   display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  top: -3px;
-  left: 45%;
-  transform: translate(-50%);
-  border: 1px solid #d9d9d9;
-  border-radius: 10px;
-  text-align: center;
   width: 80px;
-  height: 30px;
-  box-shadow: 5px gray;
+  height: 32px;
+  border-radius: 10px;
+  border: 1px solid #D9D9D9;
+  background: #FFF;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+  margin: 0 auto -2vh;
 `;
 
 export const wordBoxChild = styled.div`
   background-color: #f5f5f5;
   border: 1px solid #d9d9d9;
-  border-radius: 10px;
+  border-radius: 8px;
   text-align: center;
   font-size: 0.8em;
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-  padding: 5px;
+  padding: 1vh 1vw;
+  margin-top: 1vh;
+`;
 
-  margin-top: 4px;
+export const info = styled.div`
+  margin: 3vh;
+  width: 95%;
+  text-align: right;
 `;

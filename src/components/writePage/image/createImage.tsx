@@ -62,13 +62,13 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
   }, []);
   return (
     <>
-      {loding ? <div style={{ fontSize: "10em" }}>로딩중인것이와요</div> : null}
+      {loding && <div style={{ fontSize: "10em" }}>로딩중인것이와요</div>}
       <Header />
-      <div style={{ height: "2em" }}></div>
+      <S.process>3 / 3</S.process>
       <S.mainImgPage>
         <Column type={"space-between"}>
           <S.halfBox>
-            <div style={{ textAlign: "center", marginTop: "2em" }}>
+            <div style={{ textAlign: "center", margin: "-3vh 0 3vh 0" }}>
               썸네일에 포함하고 싶은 키워드를 선택하세요
             </div>
             <S.contentBox>
