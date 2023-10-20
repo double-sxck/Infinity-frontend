@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import NextIcon from "../../assets/images/nextnove";
 import ProvIcon from "../../assets/images/provnove";
 import ClickHeart from "../../assets/images/clickHeart";
+import AddButton from "../../assets/images/addButton";
 import axios from "axios";
 
 const customHeaders = {
@@ -109,7 +110,6 @@ const CheckNovel = () => {
   return (
     <>
       <Header />
-      <div style={{ height: "5em" }}></div>
       <div style={{ margin: "2em" }}>
         <Between>
           <S.nextPost to={`/novel/${novelId - 1}`}>
@@ -182,6 +182,9 @@ const CheckNovel = () => {
                     }}
                     onKeyDown={handleChat}
                   ></S.chatInput>
+                  <div>
+                    <AddButton width={40} height={40}></AddButton>
+                  </div>
                 </Column1>
               </S.halfBox>
             </Between>
