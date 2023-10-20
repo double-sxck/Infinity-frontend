@@ -26,21 +26,25 @@ const Header: React.FC = () => {
     <>
       {isLogin.popup && <Login setIsState={setIsLogin} />}
       <S.headerBody>
-        <S.logoBackground>
-          <Link to="/">
-            <Logo width="100" height="40" />
-          </Link>
-        </S.logoBackground>
-        <S.searchBox
-          type="text"
-          placeholder="인피니티의 모든 작품 검색"
-          onChange={seachHandle}
-          onKeyDown={seachHandle}
-        ></S.searchBox>
-        {/* <S.postionFiexd> */}
-        <S.headerButtons to="/write">
-          <S.buttonLink to="/write">업로드</S.buttonLink>
-        </S.headerButtons>
+        <S.logoUploadBody>
+          <S.logoBackground>
+            <Link to="/">
+              <Logo width="100" height="40" />
+            </Link>
+          </S.logoBackground>
+          {/* <S.postionFiexd> */}
+          <S.headerButtons to="/write">
+            <S.buttonLink to="/write">업로드</S.buttonLink>
+          </S.headerButtons>
+        </S.logoUploadBody>
+        <S.searchOutBox>
+          <S.searchBox
+            type="text"
+            placeholder="인피니티의 모든 작품 검색"
+            onChange={seachHandle}
+            onKeyDown={seachHandle}
+          ></S.searchBox>
+        </S.searchOutBox>
         {/* </S.postionFiexd> */}
       </S.headerBody>
     </>
