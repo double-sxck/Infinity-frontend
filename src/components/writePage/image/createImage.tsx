@@ -18,25 +18,27 @@ interface StateProps {
 const CreateImg: React.FC<StateProps> = ({ value }) => {
   const [loding, setLoding] = useState(false);
   const [img, setImg] = useState("");
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoding(true);
-        const res = await CustomAxios.post("api/generate/image", {
-          genre: value.title,
-          key: value.keyword,
-          character: value.people,
-          event: value.event,
-          background: value.background,
-        });
 
-        console.log(res.data.result.fileLocation);
-        setImg(res.data.result.fileLocation);
-        setLoding(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  const fetchData = async () => {
+    try {
+      setLoding(true);
+      const res = await CustomAxios.post("api/generate/image", {
+        genre: value.title,
+        key: value.keyword,
+        character: value.people,
+        event: value.event,
+        background: value.background,
+      });
+
+      console.log(res.data.result.fileLocation);
+      setImg(res.data.result.fileLocation);
+      setLoding(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
     fetchData(); // 래퍼 함수 실행
   }, []);
   return (
@@ -100,7 +102,14 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
               type={"between"}
               style={{ paddingRight: "2em", paddingLeft: "2em" }}
             >
-              <S.createButton ty={true}>재생성</S.createButton>
+              <S.createButton
+                ty={true}
+                onClick={() => {
+                  fetchData();
+                }}
+              >
+                재생성
+              </S.createButton>
               <S.createButton ty={false}>게시</S.createButton>
             </Column>
           </S.halfBox>
