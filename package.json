@@ -19,8 +19,7 @@
     "react-scripts": "5.0.1",
     "styled-components": "^6.0.8",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
-    "proxy": "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
