@@ -59,7 +59,7 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
 
   return (
     <>
-      {loding ? <div style={{ fontSize: "10em" }}>로딩중인것이와요</div> : null}
+      {loding && <div style={{ fontSize: "10em" }}>로딩중인것이와요</div>}
       <Header />
       <S.boxPostion>
         <Column type={"space-between"}>
@@ -71,7 +71,7 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
               }));
             }}
           >
-            {"<"}키워드 입력 다시하기
+            {"<"} 키워드 입력 다시하기
           </div>
           <div>2 / 3</div>
         </Column>

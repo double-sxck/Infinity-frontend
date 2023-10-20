@@ -43,7 +43,7 @@ export const gptNovel = styled.div`
 `;
 
 export const halfLine = styled.div`
-  height: 65vh;
+  height: 68vh;
   width: 1px;
   background-color: #d9d9d9;
   margin-right: 1em;
@@ -87,32 +87,29 @@ export const rowIndex = styled.div`
 `;
 
 export const wordBoxLine = styled.div`
-  width: 25vw;
-  margin-right: 1em;
-  height: 40px;
+  width: 23vw;
+  height: 4vh;
+  margin-right: 2em;
   display: flex;
-  align-items: center;
-  gap: 1em;
   border: 1px solid #d9d9d9;
   border-radius: 10px;
-  overflow-x: scroll;
-  padding: 0.3em 1em;
   -ms-overflow-style: none; /* 인터넷 익스플로러 */
   scrollbar-width: none; /* 파이어폭스 */
   &::-webkit-scrollbar {
     display: none; /* 크롬, 사파리, 오페라, 엣지 */
   }
+  padding: 0.5em 1em;
+  gap: 1vw;
 `;
 
 export const wordBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30px;
-  padding-left: 1em;
-  padding-right: 1em;
   font-size: 12px;
+  line-height: 4vh;
   background-color: #f5f5f5;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid #D9D9D9;
+  padding: 0 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
