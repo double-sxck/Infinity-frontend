@@ -11,7 +11,7 @@ export const process = styled.div`
 export const vertical = styled.div`
   background-color: #d9d9d9;
   height: 60vh;
-  width: 1px;;
+  width: 1px;
 `;
 
 export const Row = styled.div`
@@ -30,7 +30,7 @@ export const Between = styled.div`
 export const writeBox = styled.div`
   width: 80vw;
   height: 70vh;
-  box-shadow: 0px 0px 12px 4px rgba(217, 217, 217, 0.50);
+  box-shadow: 0px 0px 12px 4px rgba(217, 217, 217, 0.5);
 `;
 
 export const boxHeaderButton = styled.div<{ ty: boolean }>`
@@ -134,8 +134,8 @@ export const overContentChild = styled.div`
   width: 80px;
   height: 32px;
   border-radius: 10px;
-  border: 1px solid #D9D9D9;
-  background: #FFF;
+  border: 1px solid #d9d9d9;
+  background: #fff;
   justify-content: center;
   align-items: center;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
