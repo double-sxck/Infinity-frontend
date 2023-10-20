@@ -21,7 +21,7 @@ interface StateProps {
 const CreateImg: React.FC<StateProps> = ({ value }) => {
   const [loding, setLoding] = useState(false);
   const [img, setImg] = useState("");
-
+  const navigate = useNavigate();
   const fetchData = async () => {
     try {
       setLoding(true);
@@ -41,7 +41,7 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
     }
   };
 
-  const postSaveData = async () => {
+  const PostSaveData = async () => {
     try {
       const res = await CustomAxios.post("api/board", {
         title: value.postTitle,
@@ -51,7 +51,6 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
         image: img,
         tempImage: [img],
       });
-      let navigate = useNavigate();
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -133,7 +132,7 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
               <S.createButton
                 ty={false}
                 onClick={() => {
-                  postSaveData();
+                  PostSaveData();
                 }}
               >
                 게시
