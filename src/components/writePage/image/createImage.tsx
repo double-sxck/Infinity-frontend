@@ -38,6 +38,14 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
     }
   };
 
+  const postSaveData = async () => {
+    try {
+      const res = await CustomAxios.post("api/board");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchData(); // 래퍼 함수 실행
   }, []);

@@ -9,6 +9,8 @@ interface StateProps {
   setState: React.Dispatch<
     React.SetStateAction<{
       page: number;
+      postTitle: string;
+      novel: string;
       title: string[];
       event: string[];
       background: string[];
@@ -77,7 +79,15 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
         <S.mainGptPage>
           <Column type="center">
             <S.halfBox>
-              <S.addTitle placeholder="제목을 입력하세요"></S.addTitle>
+              <S.addTitle
+                placeholder="제목을 입력하세요"
+                onChange={(e) => {
+                  setState((props) => ({
+                    ...props,
+                    postTitle: e.target.value,
+                  }));
+                }}
+              ></S.addTitle>
               <S.gptNovel>{novel}</S.gptNovel>
             </S.halfBox>
             <S.halfLine></S.halfLine>

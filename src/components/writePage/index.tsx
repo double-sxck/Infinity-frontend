@@ -9,6 +9,8 @@ axios.defaults.withCredentials = true;
 const MainWrite = () => {
   const [title, setTitle] = useState<{
     page: number;
+    postTitle: string;
+    novel: string;
     title: string[];
     event: string[];
     background: string[];
@@ -16,6 +18,8 @@ const MainWrite = () => {
     keyword: string[];
   }>({
     page: 1,
+    postTitle: "",
+    novel: "",
     title: [],
     event: [],
     background: [],
