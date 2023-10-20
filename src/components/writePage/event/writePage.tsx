@@ -9,6 +9,8 @@ interface StateProps {
   setState: React.Dispatch<
     React.SetStateAction<{
       page: number;
+      postTitle: string;
+      novel: string;
       title: string[];
       event: string[];
       background: string[];

@@ -1,12 +1,15 @@
 import * as S from "./styleImage";
 import styled from "styled-components";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Header } from "../../index";
 import axios from "axios";
 import CustomAxios from "../../../axios/customAxios";
 
 interface StateProps {
   value: {
+    postTitle: string;
+    novel: string;
     title: string[];
     event: string[];
     background: string[];
@@ -33,6 +36,23 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
       console.log(res.data.result.fileLocation);
       setImg(res.data.result.fileLocation);
       setLoding(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const postSaveData = async () => {
+    try {
+      const res = await CustomAxios.post("api/board", {
+        title: value.postTitle,
+        novel: value.novel,
+        keyword: value.keyword.join(),
+        userName: "인투디언노운",
+        image: img,
+        tempImage: [img],
+      });
+      let navigate = useNavigate();
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -110,7 +130,14 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
               >
                 재생성
               </S.createButton>
-              <S.createButton ty={false}>게시</S.createButton>
+              <S.createButton
+                ty={false}
+                onClick={() => {
+                  postSaveData();
+                }}
+              >
+                게시
+              </S.createButton>
             </Column>
           </S.halfBox>
         </Column>
