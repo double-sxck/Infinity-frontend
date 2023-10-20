@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const mainImgPage = styled.div`
   width: 80vw;
-  min-height: 70vh;
+  height: 70vh;
   box-shadow: 0px 0px 12px 4px rgba(217, 217, 217, 0.5);
   border-radius: 20px;
   border: 1px solid #d9d9d9;
@@ -19,7 +19,7 @@ export const halfBox = styled.div`
 
 export const contentBox = styled.div`
   width: 32vw;
-  min-height: 400px;
+  height: 45vh;
   margin: auto;
   border: 1px solid #d9d9d9;
   border-radius: 10px;
@@ -44,8 +44,8 @@ export const createImgBox = styled.div<{ img: string }>`
   margin-top: 2em;
   background-size: cover;
   background-position: center;
-  width: 37vw;
-  min-height: 25vw;
+  width: 50vh;
+  height: 50vh;
   margin: auto;
 `;
 
