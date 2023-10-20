@@ -66,9 +66,8 @@ const CardBackground = styled.div<{ img: string }>`
   display: flex;
   justify-content: center;
   align-items: flex-end; /* 이미지 아래에 내용을 배치합니다. */
-  background-image: url(http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com${({
-    img,
-  }) => img}); //url에서 줄바꿈이 일어나서 에러가 남
+  background-image: url(https://infinitynovel.kro.kr${({ img }) =>
+    img}); //url에서 줄바꿈이 일어나서 에러가 남
 `;
 
 const FlexBox = styled.div`
