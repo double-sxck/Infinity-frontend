@@ -64,7 +64,7 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
     <>
       {loding ? <div style={{ fontSize: "10em" }}>로딩중인것이와요</div> : null}
       <Header />
-      <div style={{ height: "5em" }}></div>
+      <div style={{ height: "2em" }}></div>
       <S.mainImgPage>
         <Column type={"space-between"}>
           <S.halfBox>
@@ -119,7 +119,7 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
             <S.createImgBox img={img}></S.createImgBox>
             <Column
               type={"between"}
-              style={{ paddingRight: "2em", paddingLeft: "2em" }}
+              style={{ width: "20vw", margin: "0px auto" }}
             >
               <S.createButton
                 ty={true}

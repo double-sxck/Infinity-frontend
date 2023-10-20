@@ -158,7 +158,6 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
   return (
     <>
       <Header />
-      <div style={{ height: "4rem" }}></div>
       <S.Row>
         <S.writeBox>
           <S.Between>

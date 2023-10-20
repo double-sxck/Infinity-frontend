@@ -61,7 +61,6 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
     <>
       {loding ? <div style={{ fontSize: "10em" }}>로딩중인것이와요</div> : null}
       <Header />
-      <div style={{ height: "5em" }}></div>
       <S.boxPostion>
         <Column type={"space-between"}>
           <div
