@@ -12,6 +12,7 @@ import axios from "axios";
 import CustomAxios from "../../axios/customAxios";
 
 type Border = {
+  [x: string]: any;
   boardId: number;
   title: string;
   novel: string;
@@ -28,11 +29,13 @@ type Border = {
 
 type Chat = {
   borderId: number;
+  created: string;
+  image: string;
+  keyword: string;
   commentId: number;
   comment: string;
   userUniqueId: number;
   userName: string;
-  created: string;
 };
 
 const CheckNovel = () => {
@@ -47,7 +50,7 @@ const CheckNovel = () => {
       try {
         const res = await CustomAxios.get(`api/board/${novelId}`);
         setData(res.data);
-        console.log(res.data);
+        console.log("데이터", res.data);
       } catch (error) {
         console.error("데이터 가져오기 오류1:", error);
         // 오류가 발생한 경우 여기에서 적절한 오류 처리를 수행하실 수 있습니다.
@@ -122,8 +125,12 @@ const CheckNovel = () => {
                   <div style={{ fontSize: "20px" }}>{data[0]?.userName}</div>
                 </Column1>
                 <ColumnEnd>
-                  <S.keywordBox>키</S.keywordBox>
-                  <S.keywordBox>키</S.keywordBox>
+                  {data[0]?.keyword
+                    .replace(/ /g, "")
+                    .split(",")
+                    .map((splitKeyword: string, index: number) => (
+                      <S.keywordBox key={index}>{splitKeyword}</S.keywordBox>
+                    ))}
                 </ColumnEnd>
                 <Column1>
                   <S.comment>댓글</S.comment>
