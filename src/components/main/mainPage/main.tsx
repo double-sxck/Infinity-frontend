@@ -7,6 +7,7 @@ import KeyboardArrowUpIcon from "../../../assets/images/viewArrowUp";
 import Card from "../card/card";
 import axios from "axios";
 import CustomAxios from "../../../axios/customAxios";
+import { ReactComponent as SearchIcon } from "../../../assets/images/search.svg";
 
 type Border = {
   boardId: number;
@@ -102,7 +103,7 @@ const Main = () => {
 
   return (
     <>
-      <C.headerBody>
+      {/* <C.headerBody>
         <C.logoBackground>
           <Link to="/">
             <Logo width="100" height="40" />
@@ -113,12 +114,35 @@ const Main = () => {
           placeholder="인피니티의 모든 작품 검색"
           onChange={seachHandle}
           onKeyDown={seachHandle}
-        ></C.searchBox>
-        {/* <S.postionFiexd> */}
-        <C.headerButtons to="/write">
+        ></C.searchBox> */}
+      {/* <S.postionFiexd> */}
+      {/* <C.headerButtons to="/write">
           <C.buttonLink to="/write">업로드</C.buttonLink>
-        </C.headerButtons>
-        {/* </S.postionFiexd> */}
+        </C.headerButtons> */}
+      {/* </S.postionFiexd> */}
+      {/* </C.headerBody> */}
+      <C.headerBody>
+        <C.logoUploadBody>
+          <C.logoBackground>
+            <Link to="/">
+              <Logo width="160" height="64" />
+            </Link>
+          </C.logoBackground>
+          <C.headerButtons to="/write">
+            <C.buttonLink to="/write">업로드</C.buttonLink>
+          </C.headerButtons>
+        </C.logoUploadBody>
+        <C.searchOutBox>
+          <SearchIcon
+            style={{ position: "relative", left: "35px", margin: "auto 0" }}
+          />
+          <C.searchBox
+            type="text"
+            placeholder="인피니티의 모든 작품 검색"
+            onChange={seachHandle}
+            onKeyDown={seachHandle}
+          ></C.searchBox>
+        </C.searchOutBox>
       </C.headerBody>
       <S.box></S.box>
       <S.settingBar>
