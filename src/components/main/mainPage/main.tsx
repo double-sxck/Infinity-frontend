@@ -10,7 +10,7 @@ import CustomAxios from "../../../axios/customAxios";
 
 type Border = {
   boardId: number;
-  title1: string;
+  title: string;
   novel: string;
   character: string;
   event: string;
@@ -185,7 +185,7 @@ const Main = () => {
         {data.map((item) => (
           <Card
             boardId={item.boardId}
-            title1={item.title1}
+            title1={item.title}
             novel={item.novel}
             character={item.character}
             event={item.event}

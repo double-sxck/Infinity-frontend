@@ -31,7 +31,7 @@ interface StateProps {
 
 const Gpt: React.FC<StateProps> = ({ setState, value }) => {
   const [loding, setLoding] = useState(false);
-
+  console.log(value);
   const fetchData = async () => {
     try {
       setLoding(true);

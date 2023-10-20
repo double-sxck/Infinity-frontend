@@ -44,6 +44,7 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
   };
 
   const postSaveData = async () => {
+    console.log(value.userName);
     try {
       const res = await CustomAxios.post("api/board", {
         title: value.postTitle,
