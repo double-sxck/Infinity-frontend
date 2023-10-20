@@ -8,6 +8,7 @@ import ProvIcon from "../../assets/images/provnove";
 import ClickHeart from "../../assets/images/clickHeart";
 import AddButton from "../../assets/images/addButton";
 import axios from "axios";
+import CustomAxios from "../../axios/customAxios";
 
 const customHeaders = {
   "Custom-Header-Name": "Custom-Header-Value",
@@ -47,9 +48,7 @@ const CheckNovel = () => {
     console.log(novelId);
     const fetchData = async () => {
       try {
-        const res = await axios.get(
-          `http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/board/${novelId}`
-        );
+        const res = await CustomAxios.get(`api/board/${novelId}`);
         setData(res.data);
         console.log(res.data);
       } catch (error) {
@@ -123,8 +122,10 @@ const CheckNovel = () => {
               </S.halfBox>
               <S.halfLine></S.halfLine>
               <S.halfBox>
-                <S.date>게시일 : {data[0]?.created.slice(0, -9).replaceAll('-', '.')}</S.date>
-                <Column1> 
+                <S.date>
+                  게시일 : {data[0]?.created.slice(0, -9).replaceAll("-", ".")}
+                </S.date>
+                <Column1>
                   <S.profileImage />
                   <div style={{ fontSize: "20px" }}>닉이름</div>
                 </Column1>
@@ -137,30 +138,32 @@ const CheckNovel = () => {
                 </Column1>
                 <S.chatBox>
                   {/* {chatData.map((props) => { */}
-                    <S.chat>
-                      <S.chatImage img={data[0]?.image}></S.chatImage>
-                      <S.chatValue>{chatData[0]?.comment}</S.chatValue>
-                    </S.chat>
-                    <S.chat>
-                      <S.chatImage img={data[0]?.image}></S.chatImage>
-                      <S.chatValue>{chatData[0]?.comment}</S.chatValue>
-                    </S.chat>
-                    <S.chat>
-                      <S.chatImage img={data[0]?.image}></S.chatImage>
-                      <S.chatValue>dkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdk</S.chatValue>
-                    </S.chat>
-                    <S.chat>
-                      <S.chatImage img={data[0]?.image}></S.chatImage>
-                      <S.chatValue>{chatData[0]?.comment}</S.chatValue>
-                    </S.chat>
-                    <S.chat>
-                      <S.chatImage img={data[0]?.image}></S.chatImage>
-                      <S.chatValue>{chatData[0]?.comment}</S.chatValue>
-                    </S.chat>
-                    <S.chat>
-                      <S.chatImage img={data[0]?.image}></S.chatImage>
-                      <S.chatValue>{chatData[0]?.comment}</S.chatValue>
-                    </S.chat>
+                  <S.chat>
+                    <S.chatImage img={data[0]?.image}></S.chatImage>
+                    <S.chatValue>{chatData[0]?.comment}</S.chatValue>
+                  </S.chat>
+                  <S.chat>
+                    <S.chatImage img={data[0]?.image}></S.chatImage>
+                    <S.chatValue>{chatData[0]?.comment}</S.chatValue>
+                  </S.chat>
+                  <S.chat>
+                    <S.chatImage img={data[0]?.image}></S.chatImage>
+                    <S.chatValue>
+                      dkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdk
+                    </S.chatValue>
+                  </S.chat>
+                  <S.chat>
+                    <S.chatImage img={data[0]?.image}></S.chatImage>
+                    <S.chatValue>{chatData[0]?.comment}</S.chatValue>
+                  </S.chat>
+                  <S.chat>
+                    <S.chatImage img={data[0]?.image}></S.chatImage>
+                    <S.chatValue>{chatData[0]?.comment}</S.chatValue>
+                  </S.chat>
+                  <S.chat>
+                    <S.chatImage img={data[0]?.image}></S.chatImage>
+                    <S.chatValue>{chatData[0]?.comment}</S.chatValue>
+                  </S.chat>
                   {/* })} */}
                 </S.chatBox>
                 <S.horizontal />
