@@ -124,7 +124,7 @@ const CheckNovel = () => {
               <S.halfLine></S.halfLine>
               <S.halfBox>
                 <S.date>게시일 : {data[0]?.created.slice(0, -9).replaceAll('-', '.')}</S.date>
-                <Column1>
+                <Column1> 
                   <S.profileImage />
                   <div style={{ fontSize: "20px" }}>닉이름</div>
                 </Column1>

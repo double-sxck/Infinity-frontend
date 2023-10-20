@@ -128,7 +128,7 @@ export const likeNumber = styled.div`
   font-size: 20px;
   text-align: right;
   margin-right: 10px;
-`;
+`; 
 
 export const commentImage = styled.div`
   width: 3em;
