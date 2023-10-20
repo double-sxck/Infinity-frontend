@@ -36,11 +36,10 @@ export const createImgBox = styled.div<{ img: string }>`
   background-size: cover;
   background-position: center;
   width: 25em;
-  height: 25em;
+  min-height: 25em;
+  background-image: 25em 25em;
   margin: auto;
-  background-image: url(http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com${(
-    props
-  ) => props.img});
+  background-image: url(https://infinitynovel.kro.kr${(props) => props.img});
 `;
 
 export const contentBox = styled.div`

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const nextPost = styled(Link)`
+export const nextPost = styled.div`
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -53,13 +53,15 @@ export const date = styled.div`
   margin: -1vh 10px 1vh 0;
 `;
 
-export const profileImage = styled.div`
+export const profileImage = styled.div<{ img: string }>`
   width: 3em;
   height: 3em;
   margin: 0 1vw 0 2vw;
   border-radius: 50%;
   background-color: green;
-  background-image: url();
+  background-image: url(https://infinitynovel.kro.kr${(props) => props.img});
+  background-size: 3em 3em;
+  background-repeat: no-repeat;
 `;
 
 export const keywordBox = styled.div`
@@ -128,7 +130,7 @@ export const likeNumber = styled.div`
   font-size: 20px;
   text-align: right;
   margin-right: 10px;
-`; 
+`;
 
 export const commentImage = styled.div`
   width: 3em;

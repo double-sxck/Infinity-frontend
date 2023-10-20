@@ -1,6 +1,8 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import * as S from "./styleMain";
-import Header from "../../header/header";
+import * as C from "./mainHeader";
+import { Link } from "react-router-dom";
+import { ReactComponent as Logo } from "../../../assets/images/infinityLogo.svg";
 import KeyboardArrowUpIcon from "../../../assets/images/viewArrowUp";
 import Card from "../card/card";
 import axios from "axios";
@@ -8,7 +10,7 @@ import CustomAxios from "../../../axios/customAxios";
 
 type Border = {
   boardId: number;
-  title: string;
+  title1: string;
   novel: string;
   character: string;
   event: string;
@@ -27,13 +29,34 @@ const Main = () => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState<Array<Border>>([]);
 
+  useEffect(() => {
+    if (list === "오래된") {
+      fetchData1();
+    } else if (list === "추천") {
+      fetchData2();
+    } else {
+      fetchData3();
+    }
+  }, [list]);
+
+  const fetchData1 = async () => {
+    const res = await CustomAxios.get("api/board/method/date");
+    console.log(res.data);
+    setData(res.data); // 데이터 업데이트
+  };
+  const fetchData2 = async () => {
+    const res = await CustomAxios.get("api/board/method/popular");
+    console.log(res.data);
+    setData(res.data); // 데이터 업데이트
+  };
+  const fetchData3 = async () => {
+    const res = await CustomAxios.get("api/board");
+    console.log(res.data);
+    setData(res.data); // 데이터 업데이트
+  };
+
   useLayoutEffect(() => {
-    const fetchData = async () => {
-      const res = await CustomAxios.get("api/board");
-      console.log(res.data);
-      setData(res.data); // 데이터 업데이트
-    };
-    fetchData(); // API 요청 수행
+    fetchData1(); // API 요청 수행
   }, []);
 
   // const fetchListData = async () => {
@@ -58,9 +81,45 @@ const Main = () => {
   //   fetchListData();
   // }, [list]);
 
+  const fetchSearch = async () => {
+    try {
+      const res = await CustomAxios.get("api/search", {
+        params: { title: search },
+      });
+      setData(res.data);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const seachHandle = (e: any) => {
+    setSearch(e.target.value);
+    if (e.key === "Enter") {
+      fetchSearch();
+    }
+  };
+
   return (
     <>
-      <Header />
+      <C.headerBody>
+        <C.logoBackground>
+          <Link to="/">
+            <Logo width="100" height="40" />
+          </Link>
+        </C.logoBackground>
+        <C.searchBox
+          type="text"
+          placeholder="인피니티의 모든 작품 검색"
+          onChange={seachHandle}
+          onKeyDown={seachHandle}
+        ></C.searchBox>
+        {/* <S.postionFiexd> */}
+        <C.headerButtons to="/write">
+          <C.buttonLink to="/write">업로드</C.buttonLink>
+        </C.headerButtons>
+        {/* </S.postionFiexd> */}
+      </C.headerBody>
       <S.box></S.box>
       <S.settingBar>
         <S.settingBar>
@@ -126,7 +185,7 @@ const Main = () => {
         {data.map((item) => (
           <Card
             boardId={item.boardId}
-            title={item.title}
+            title1={item.title1}
             novel={item.novel}
             character={item.character}
             event={item.event}

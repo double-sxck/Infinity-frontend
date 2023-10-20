@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 type Border = {
   boardId: number;
-  title: string;
+  title1: string;
   novel: string;
   character: string;
   event: string;
@@ -44,7 +44,7 @@ const NovCard: React.FC<Border> = (props) => {
           <UnderLineText style={{ marginRight: 20 }}>123</UnderLineText>
         </CardUnderLine>
         <FlexBox>
-          <Title>{props?.title}</Title>
+          <Title>{props?.title1}</Title>
           <Writer>{props?.userName}</Writer>
         </FlexBox>
       </LinkToPage>

@@ -2,18 +2,17 @@ import styled from "styled-components";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import * as S from "./styleNovel";
 import { Header } from "../index";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import NextIcon from "../../assets/images/nextnove";
 import ProvIcon from "../../assets/images/provnove";
 import ClickHeart from "../../assets/images/clickHeart";
 import AddButton from "../../assets/images/addButton";
 import axios from "axios";
-
-const customHeaders = {
-  "Custom-Header-Name": "Custom-Header-Value",
-};
+import CustomAxios from "../../axios/customAxios";
 
 type Border = {
+  [x: string]: any;
   boardId: number;
   title: string;
   novel: string;
@@ -30,11 +29,13 @@ type Border = {
 
 type Chat = {
   borderId: number;
+  created: string;
+  image: string;
+  keyword: string;
   commentId: number;
   comment: string;
   userUniqueId: number;
   userName: string;
-  created: string;
 };
 
 const CheckNovel = () => {
@@ -47,11 +48,9 @@ const CheckNovel = () => {
     console.log(novelId);
     const fetchData = async () => {
       try {
-        const res = await axios.get(
-          `http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/board/${novelId}`
-        );
+        const res = await CustomAxios.get(`api/board/${novelId}`);
         setData(res.data);
-        console.log(res.data);
+        console.log("데이터", res.data);
       } catch (error) {
         console.error("데이터 가져오기 오류1:", error);
         // 오류가 발생한 경우 여기에서 적절한 오류 처리를 수행하실 수 있습니다.
@@ -63,14 +62,9 @@ const CheckNovel = () => {
   useLayoutEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(
-          `http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/comment/${novelId}`,
-          {
-            headers: customHeaders,
-          }
-        );
+        const res = await CustomAxios.get(`api/comment/${novelId}`, {});
         setChatData(res.data);
-        console.log(res.data);
+        console.log("챗팅", res.data);
       } catch (error) {
         console.error("데이터 가져오기 오류2:", error);
         // 오류가 발생한 경우 여기에서 적절한 오류 처리를 수행하실 수 있습니다.
@@ -87,16 +81,11 @@ const CheckNovel = () => {
       try {
         if (chat.replace(/\s/g, "") !== "") {
           console.log("성공");
-          const res = await axios.post(
-            "http://ec2-43-202-10-202.ap-northeast-2.compute.amazonaws.com/api/comment",
-            {
-              borderId: data[0].boardId,
-              comment: chat,
-            },
-            {
-              headers: customHeaders,
-            }
-          );
+          console.log(chat);
+          const res = await CustomAxios.post("api/comment", {
+            borderId: data[0].boardId,
+            comment: chat,
+          });
           // 댓글을 보낸 후 input의 value를 초기화
           setChat("");
           console.log("초기화");
@@ -107,12 +96,18 @@ const CheckNovel = () => {
     }
   };
 
+  const navigate = useNavigate();
+
   return (
     <>
       <Header />
       <div style={{ margin: "2em" }}>
         <Between>
-          <S.nextPost to={`/novel/${novelId - 1}`}>
+          <S.nextPost
+            onClick={() => {
+              navigate(`/novel/${novelId - 1}`);
+            }}
+          >
             <NextIcon width={40} height={40} />
           </S.nextPost>
           <S.mainPage>
@@ -123,51 +118,59 @@ const CheckNovel = () => {
               </S.halfBox>
               <S.halfLine></S.halfLine>
               <S.halfBox>
-                <S.date>게시일 : {data[0]?.created.slice(0, -9).replaceAll('-', '.')}</S.date>
-                <Column1> 
-                  <S.profileImage />
-                  <div style={{ fontSize: "20px" }}>닉이름</div>
+                <S.date>
+                  게시일 : {data[0]?.created.slice(0, -9).replaceAll("-", ".")}
+                </S.date>
+                <Column1>
+                  <S.profileImage img={data[0]?.image} />
+                  <div style={{ fontSize: "20px" }}>{data[0]?.userName}</div>
                 </Column1>
                 <ColumnEnd>
-                  <S.keywordBox>키</S.keywordBox>
-                  <S.keywordBox>키</S.keywordBox>
+                  {data[0]?.keyword
+                    .replace(/ /g, "")
+                    .split(",")
+                    .map((splitKeyword: string, index: number) => (
+                      <S.keywordBox key={index}>{splitKeyword}</S.keywordBox>
+                    ))}
                 </ColumnEnd>
                 <Column1>
                   <S.comment>댓글</S.comment>
                 </Column1>
                 <S.chatBox>
                   {/* {chatData.map((props) => { */}
-                    <S.chat>
-                      <S.chatImage img={data[0]?.image}></S.chatImage>
-                      <S.chatValue>{chatData[0]?.comment}</S.chatValue>
-                    </S.chat>
-                    <S.chat>
-                      <S.chatImage img={data[0]?.image}></S.chatImage>
-                      <S.chatValue>{chatData[0]?.comment}</S.chatValue>
-                    </S.chat>
-                    <S.chat>
-                      <S.chatImage img={data[0]?.image}></S.chatImage>
-                      <S.chatValue>dkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdk</S.chatValue>
-                    </S.chat>
-                    <S.chat>
-                      <S.chatImage img={data[0]?.image}></S.chatImage>
-                      <S.chatValue>{chatData[0]?.comment}</S.chatValue>
-                    </S.chat>
-                    <S.chat>
-                      <S.chatImage img={data[0]?.image}></S.chatImage>
-                      <S.chatValue>{chatData[0]?.comment}</S.chatValue>
-                    </S.chat>
-                    <S.chat>
-                      <S.chatImage img={data[0]?.image}></S.chatImage>
-                      <S.chatValue>{chatData[0]?.comment}</S.chatValue>
-                    </S.chat>
+                  <S.chat>
+                    <S.chatImage img={data[0]?.image}></S.chatImage>
+                    <S.chatValue>{chatData[0]?.comment}</S.chatValue>
+                  </S.chat>
+                  <S.chat>
+                    <S.chatImage img={data[0]?.image}></S.chatImage>
+                    <S.chatValue>{chatData[0]?.comment}</S.chatValue>
+                  </S.chat>
+                  <S.chat>
+                    <S.chatImage img={data[0]?.image}></S.chatImage>
+                    <S.chatValue>
+                      dkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdk
+                    </S.chatValue>
+                  </S.chat>
+                  <S.chat>
+                    <S.chatImage img={data[0]?.image}></S.chatImage>
+                    <S.chatValue>{chatData[0]?.comment}</S.chatValue>
+                  </S.chat>
+                  <S.chat>
+                    <S.chatImage img={data[0]?.image}></S.chatImage>
+                    <S.chatValue>{chatData[0]?.comment}</S.chatValue>
+                  </S.chat>
+                  <S.chat>
+                    <S.chatImage img={data[0]?.image}></S.chatImage>
+                    <S.chatValue>{chatData[0]?.comment}</S.chatValue>
+                  </S.chat>
                   {/* })} */}
                 </S.chatBox>
                 <S.horizontal />
                 <Between>
                   <S.commentNumber>댓글 5개</S.commentNumber>
                   <Column>
-                    <S.likeNumber>{data[0]?.likes}1</S.likeNumber>
+                    <S.likeNumber>{data[0]?.likes}</S.likeNumber>
                     <ClickHeart width={40} height={40} />
                   </Column>
                 </Between>
@@ -189,7 +192,11 @@ const CheckNovel = () => {
               </S.halfBox>
             </Between>
           </S.mainPage>
-          <S.nextPost to={`/novel/${novelId + 1}`}>
+          <S.nextPost
+            onClick={() => {
+              navigate(`/novel/${novelId + 1}`);
+            }}
+          >
             <ProvIcon width={40} height={40} />
           </S.nextPost>
         </Between>
