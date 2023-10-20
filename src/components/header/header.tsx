@@ -24,20 +24,19 @@ const Header: React.FC = () => {
 
   return (
     <>
-      {isLogin.popup && <Login setIsState={setIsLogin} />}
       <S.headerBody>
         <S.logoUploadBody>
           <S.logoBackground>
             <Link to="/">
-              <Logo width="100" height="40" />
+              <Logo width="160" height="64" />
             </Link>
           </S.logoBackground>
-          {/* <S.postionFiexd> */}
           <S.headerButtons to="/write">
             <S.buttonLink to="/write">업로드</S.buttonLink>
           </S.headerButtons>
         </S.logoUploadBody>
         <S.searchOutBox>
+          <SearchIcon style={{ position:"relative",left:"35px", margin:"auto 0" }} />
           <S.searchBox
             type="text"
             placeholder="인피니티의 모든 작품 검색"
@@ -45,7 +44,6 @@ const Header: React.FC = () => {
             onKeyDown={seachHandle}
           ></S.searchBox>
         </S.searchOutBox>
-        {/* </S.postionFiexd> */}
       </S.headerBody>
     </>
   );
