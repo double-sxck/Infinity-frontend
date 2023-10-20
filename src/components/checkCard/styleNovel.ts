@@ -12,9 +12,10 @@ export const nextPost = styled(Link)`
 
 export const mainPage = styled.div`
   width: 80vw;
-  height: 70vh;
+  height: 75vh;
   border-radius: 20px;
   box-shadow: 0px 0px 12px 4px rgba(217, 217, 217, 0.5);
+  margin: auto;
 `;
 
 export const halfBox = styled.div`
@@ -24,33 +25,38 @@ export const halfBox = styled.div`
 
 export const titleText = styled.div`
   font-size: 28px;
-  padding: 1em;
+  padding: 0 20px 30px;
+  font-weight: 700;
 `;
 
 export const halfLine = styled.div`
   width: 1px;
-  height: 70vh;
+  height: 75vh;
   background-color: #d9d9d9;
+  margin-top: -16px;
   margin-right: 1em;
 `;
 
 export const novelText = styled.div`
   height: 60vh;
   font-size: 20px;
-  padding-left: 1em;
-  margin-top: 0.2em;
+  line-height: 24px;
+  padding: 0 20px;
   word-wrap: break-word;
   overflow-y: scroll;
-  -ms-overflow-style: none; /* 인터넷 익스플로러 */
-  scrollbar-width: none; /* 파이어폭스 */
-  &::-webkit-scrollbar {
-    display: none; /* 크롬, 사파리, 오페라, 엣지 */
-  }
+`;
+
+export const date = styled.div`
+  text-align: right;
+  font-size: 12px;
+  font-weight: bold;
+  margin: -1vh 10px 1vh 0;
 `;
 
 export const profileImage = styled.div`
-  width: 2.5em;
-  height: 2.5em;
+  width: 3em;
+  height: 3em;
+  margin: 0 1vw 0 2vw;
   border-radius: 50%;
   background-color: green;
   background-image: url();
@@ -65,6 +71,29 @@ export const keywordBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 14px;
+`;
+
+export const comment = styled.div`
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 3vh;
+  margin-top: 2vh;
+`;
+
+export const chatBox = styled.div`
+  margin-left: 3vw;
+  margin-bottom: 3vh;
+  width: 35vw;
+  max-height: 25vh;
+  overflow: scroll;
+`;
+
+export const chat = styled.div`
+  display: flex;
+  text-align: left;
+  width: 30vw;
+  padding: 10px 0;
 `;
 
 export const chatImage = styled.div<{ img: string }>`
@@ -73,22 +102,49 @@ export const chatImage = styled.div<{ img: string }>`
   background-color: green;
   border-radius: 50%;
   background-image: url(${(props) => props.img});
-`;
-
-export const chatUserName = styled.div`
-  font-size: 18px;
-  font-weight: 700;
+  margin-right: 1vw;
 `;
 
 export const chatValue = styled.div`
+  width: 27vw;
   font-size: 16px;
-  word-wrap: break-word;
+  line-height: 20px;
+  word-break: break-all;
+  margin: auto 0;
+`;
+
+export const horizontal = styled.div`
+  background-color: #d9d9d9;
+  height: 2px;
+  width: 105.8%;
+  margin-left: -3%;
+`;
+
+export const commentNumber = styled.div`
+  font-size: 20px;
+`;
+
+export const likeNumber = styled.div`
+  font-size: 20px;
+  text-align: right;
+  margin-right: 10px;
+`;
+
+export const commentImage = styled.div`
+  width: 3em;
+  height: 3em;
+  margin: 0 1vw 0;
+  border-radius: 50%;
+  background-color: green;
+  background-image: url();
 `;
 
 export const chatInput = styled.input`
   border-radius: 10px;
-  width: 34vw;
-  height: 2em;
+  width: 30vw;
+  height: 5vh;
   margin: auto;
+  padding: 0 1vw;
   border: 1px solid #d9d9d9;
+  font-size: 20px;
 `;
