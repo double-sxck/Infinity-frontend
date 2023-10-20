@@ -118,47 +118,61 @@ const CheckNovel = () => {
           <S.mainPage>
             <Between>
               <S.halfBox>
-                <Between></Between>
                 <S.titleText>{data[0]?.title}</S.titleText>
                 <S.novelText>{data[0]?.novel}</S.novelText>
               </S.halfBox>
               <S.halfLine></S.halfLine>
               <S.halfBox>
-                <Between>
-                  <Column1 style={{ marginTop: "2em" }}>
-                    <S.profileImage></S.profileImage>
-                    <div style={{ fontSize: "20px" }}>닉이름</div>
-                  </Column1>
-                  <div style={{ alignSelf: "start" }}>
-                    게시일 {data[0]?.created}
-                  </div>
-                </Between>
+                <S.date>게시일 : {data[0]?.created.slice(0, -9).replaceAll('-', '.')}</S.date>
+                <Column1> 
+                  <S.profileImage />
+                  <div style={{ fontSize: "20px" }}>닉이름</div>
+                </Column1>
                 <ColumnEnd>
+                  <S.keywordBox>키</S.keywordBox>
                   <S.keywordBox>키</S.keywordBox>
                 </ColumnEnd>
                 <Column1>
-                  <h1 style={{ fontSize: "20px" }}>댓글</h1>
+                  <S.comment>댓글</S.comment>
                 </Column1>
-                <Column1
-                  style={{ gap: "0.5em", marginTop: "2em", marginLeft: "1em" }}
-                >
-                  {/* {chatData.map((props) => {
-                    <>
+                <S.chatBox>
+                  {/* {chatData.map((props) => { */}
+                    <S.chat>
                       <S.chatImage img={data[0]?.image}></S.chatImage>
-                      <S.chatUserName>{chatData[0]?.userName}</S.chatUserName>
                       <S.chatValue>{chatData[0]?.comment}</S.chatValue>
-                    </>;
-                  })} */}
-                </Column1>
-                <Between style={{ marginTop: "5em" }}>
-                  <div>댓글 5개</div>
+                    </S.chat>
+                    <S.chat>
+                      <S.chatImage img={data[0]?.image}></S.chatImage>
+                      <S.chatValue>{chatData[0]?.comment}</S.chatValue>
+                    </S.chat>
+                    <S.chat>
+                      <S.chatImage img={data[0]?.image}></S.chatImage>
+                      <S.chatValue>dkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdk</S.chatValue>
+                    </S.chat>
+                    <S.chat>
+                      <S.chatImage img={data[0]?.image}></S.chatImage>
+                      <S.chatValue>{chatData[0]?.comment}</S.chatValue>
+                    </S.chat>
+                    <S.chat>
+                      <S.chatImage img={data[0]?.image}></S.chatImage>
+                      <S.chatValue>{chatData[0]?.comment}</S.chatValue>
+                    </S.chat>
+                    <S.chat>
+                      <S.chatImage img={data[0]?.image}></S.chatImage>
+                      <S.chatValue>{chatData[0]?.comment}</S.chatValue>
+                    </S.chat>
+                  {/* })} */}
+                </S.chatBox>
+                <S.horizontal />
+                <Between>
+                  <S.commentNumber>댓글 5개</S.commentNumber>
                   <Column>
-                    <div>{data[0]?.likes}</div>
-                    <ClickHeart width={30} height={30} />
+                    <S.likeNumber>{data[0]?.likes}1</S.likeNumber>
+                    <ClickHeart width={40} height={40} />
                   </Column>
                 </Between>
                 <Column1>
-                  <S.chatImage img={data[0]?.image}></S.chatImage>
+                  <S.commentImage />
                   <S.chatInput
                     type="text"
                     placeholder="댓글 추가"
@@ -197,7 +211,7 @@ const ColumnEnd = styled.div`
   justify-content: end;
   align-items: center;
   gap: 1em;
-  width: 100%;
+  width: 95%;
   overflow: hidden;
 `;
 
