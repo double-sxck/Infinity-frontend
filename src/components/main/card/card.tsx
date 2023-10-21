@@ -25,13 +25,14 @@ const NovCard: React.FC<Border> = (props: any) => {
       <LinkToPage to={`/novel/${props.boardId}`}>
         <CardBackground img={props.backImage}>
           <KeyBox>
-            {props.keyword
-              .replace(/ /g, "")
-              .split(",")
-              .slice(0, 3)
-              .map((splitKeyword: string, index: number) => (
-                <KeyWordBox key={index}>{splitKeyword}</KeyWordBox>
-              ))}
+            {props.keyword !== "" &&
+              props.keyword
+                .replace(/ /g, "")
+                .split(",")
+                .slice(0, 3)
+                .map((splitKeyword: string, index: number) => (
+                  <KeyWordBox key={index}>{splitKeyword}</KeyWordBox>
+                ))}
           </KeyBox>
         </CardBackground>
         <CardUnderLine>
