@@ -24,6 +24,8 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
   const [img, setImg] = useState("");
   const navigate = useNavigate();
 
+  console.log(value);
+
   const fetchData = async () => {
     try {
       setLoding(true);
