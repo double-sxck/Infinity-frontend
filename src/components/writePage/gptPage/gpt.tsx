@@ -21,6 +21,7 @@ interface StateProps {
   >;
   value: {
     page: number;
+    novel: string;
     title: string[];
     event: string[];
     background: string[];
@@ -45,7 +46,10 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
 
       // 요청이 성공하면 이후의 로직을 수행합니다.
       const novelWithLineBreaks = res.data.result.replace(/\n/g, "<br>");
-      setNovel(novelWithLineBreaks);
+      setState((props) => ({
+        ...props,
+        novel: novelWithLineBreaks,
+      }));
       setLoding(false);
     } catch (error) {
       console.log(error);
@@ -89,7 +93,7 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
                 }}
               ></S.addTitle>
               <S.gptNovel
-                dangerouslySetInnerHTML={{ __html: novel }}
+                dangerouslySetInnerHTML={{ __html: value.novel }}
               ></S.gptNovel>
             </S.halfBox>
             <S.halfLine></S.halfLine>
