@@ -5,6 +5,7 @@ import { Header } from "../../index";
 import CustomAxios from "../../../axios/customAxios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import WritingPage from "../../loading/writing";
 
 interface StateProps {
   setState: React.Dispatch<
@@ -61,127 +62,129 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
   useLayoutEffect(() => {
     fetchData();
   }, []);
-
-  return (
-    <>
-      {loding && <div style={{ fontSize: "10em" }}>로딩중인것이와요</div>}
-      <Header />
-      <S.boxPostion>
-        <div>
-          <ToastContainer />
-        </div>
-        <Column type={"space-between"}>
-          <div
-            onClick={() => {
-              setState((props) => ({
-                ...props,
-                page: 1,
-              }));
-            }}
-          >
-            {"<"} 키워드 입력 다시하기
+  if (!loding) {
+    return (
+      <>
+        <Header />
+        <S.boxPostion>
+          <div>
+            <ToastContainer />
           </div>
-          <div>2 / 3</div>
-        </Column>
-        <S.mainGptPage>
-          <Column type="center">
-            <S.halfBox>
-              <S.addTitle
-                placeholder="제목을 입력하세요"
-                onChange={(e) => {
-                  setState((props) => ({
-                    ...props,
-                    postTitle: e.target.value,
-                  }));
-                }}
-              ></S.addTitle>
-              <S.gptNovel
-                dangerouslySetInnerHTML={{ __html: value.novel }}
-              ></S.gptNovel>
-            </S.halfBox>
-            <S.halfLine></S.halfLine>
-            <S.halfBox>
-              <S.keywordBox>
-                <Column type="end">
-                  <S.rowIndex>장르</S.rowIndex>
-                  <S.wordBoxLine>
-                    {value.title.map((title, index) => (
-                      <S.wordBox key={index}>{title}</S.wordBox>
-                    ))}
-                  </S.wordBoxLine>
-                </Column>
-                <Column type="end">
-                  <S.rowIndex>키워드</S.rowIndex>
-                  <S.wordBoxLine>
-                    {value.keyword.map((keyword, index) => (
-                      <S.wordBox key={index}>{keyword}</S.wordBox>
-                    ))}
-                  </S.wordBoxLine>
-                </Column>
-                <Column type="end">
-                  <S.rowIndex>사건</S.rowIndex>
-                  <S.wordBoxLine>
-                    {value.event.map((event, index) => (
-                      <S.wordBox key={index}>{event}</S.wordBox>
-                    ))}
-                  </S.wordBoxLine>
-                </Column>
-                <Column type="end">
-                  <S.rowIndex>등장인물</S.rowIndex>
-                  <S.wordBoxLine>
-                    {value.people.map((people, index) => (
-                      <S.wordBox key={index}>{people}</S.wordBox>
-                    ))}
-                  </S.wordBoxLine>
-                </Column>
-                <Column type="end">
-                  <S.rowIndex>배경</S.rowIndex>
-                  <S.wordBoxLine>
-                    {value.background.map((background, index) => (
-                      <S.wordBox key={index}>{background}</S.wordBox>
-                    ))}
-                  </S.wordBoxLine>
-                </Column>
-              </S.keywordBox>
-              <S.rowLine></S.rowLine>
-              <Column type={"center"}>
-                <S.createButton
-                  type={true}
-                  onClick={() => {
-                    fetchData();
-                  }}
-                >
-                  재생성
-                </S.createButton>
-                <div style={{ width: "2vw" }}></div>
-                <S.createButton
-                  type={false}
-                  onClick={() => {
-                    if (value.postTitle !== "") {
-                      setState((prev) => ({
-                        ...prev,
-                        page: 3,
-                      }));
-                    } else {
-                      notify();
-                    }
-                  }}
-                >
-                  다음
-                </S.createButton>
-                <ToastContainer
-                  position="top-right"
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                />
-              </Column>
-            </S.halfBox>
+          <Column type={"space-between"}>
+            <div
+              onClick={() => {
+                setState((props) => ({
+                  ...props,
+                  page: 1,
+                }));
+              }}
+            >
+              {"<"} 키워드 입력 다시하기
+            </div>
+            <div>2 / 3</div>
           </Column>
-        </S.mainGptPage>
-      </S.boxPostion>
-    </>
-  );
+          <S.mainGptPage>
+            <Column type="center">
+              <S.halfBox>
+                <S.addTitle
+                  placeholder="제목을 입력하세요"
+                  onChange={(e) => {
+                    setState((props) => ({
+                      ...props,
+                      postTitle: e.target.value,
+                    }));
+                  }}
+                ></S.addTitle>
+                <S.gptNovel
+                  dangerouslySetInnerHTML={{ __html: value.novel }}
+                ></S.gptNovel>
+              </S.halfBox>
+              <S.halfLine></S.halfLine>
+              <S.halfBox>
+                <S.keywordBox>
+                  <Column type="end">
+                    <S.rowIndex>장르</S.rowIndex>
+                    <S.wordBoxLine>
+                      {value.title.map((title, index) => (
+                        <S.wordBox key={index}>{title}</S.wordBox>
+                      ))}
+                    </S.wordBoxLine>
+                  </Column>
+                  <Column type="end">
+                    <S.rowIndex>키워드</S.rowIndex>
+                    <S.wordBoxLine>
+                      {value.keyword.map((keyword, index) => (
+                        <S.wordBox key={index}>{keyword}</S.wordBox>
+                      ))}
+                    </S.wordBoxLine>
+                  </Column>
+                  <Column type="end">
+                    <S.rowIndex>사건</S.rowIndex>
+                    <S.wordBoxLine>
+                      {value.event.map((event, index) => (
+                        <S.wordBox key={index}>{event}</S.wordBox>
+                      ))}
+                    </S.wordBoxLine>
+                  </Column>
+                  <Column type="end">
+                    <S.rowIndex>등장인물</S.rowIndex>
+                    <S.wordBoxLine>
+                      {value.people.map((people, index) => (
+                        <S.wordBox key={index}>{people}</S.wordBox>
+                      ))}
+                    </S.wordBoxLine>
+                  </Column>
+                  <Column type="end">
+                    <S.rowIndex>배경</S.rowIndex>
+                    <S.wordBoxLine>
+                      {value.background.map((background, index) => (
+                        <S.wordBox key={index}>{background}</S.wordBox>
+                      ))}
+                    </S.wordBoxLine>
+                  </Column>
+                </S.keywordBox>
+                <S.rowLine></S.rowLine>
+                <Column type={"center"}>
+                  <S.createButton
+                    type={true}
+                    onClick={() => {
+                      fetchData();
+                    }}
+                  >
+                    재생성
+                  </S.createButton>
+                  <div style={{ width: "2vw" }}></div>
+                  <S.createButton
+                    type={false}
+                    onClick={() => {
+                      if (value.postTitle !== "") {
+                        setState((prev) => ({
+                          ...prev,
+                          page: 3,
+                        }));
+                      } else {
+                        notify();
+                      }
+                    }}
+                  >
+                    다음
+                  </S.createButton>
+                  <ToastContainer
+                    position="top-right"
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                  />
+                </Column>
+              </S.halfBox>
+            </Column>
+          </S.mainGptPage>
+        </S.boxPostion>
+      </>
+    );
+  } else {
+    return <WritingPage />;
+  }
 };
 
 const Column = styled.div<{ type: string }>`
