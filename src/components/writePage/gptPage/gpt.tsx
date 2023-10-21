@@ -2,8 +2,9 @@ import React, { useLayoutEffect, useState } from "react";
 import * as S from "./styleGpt";
 import styled from "styled-components";
 import { Header } from "../../index";
-import axios from "axios";
 import CustomAxios from "../../../axios/customAxios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface StateProps {
   setState: React.Dispatch<
@@ -21,6 +22,7 @@ interface StateProps {
   >;
   value: {
     page: number;
+    postTitle: string;
     novel: string;
     title: string[];
     event: string[];
@@ -32,7 +34,7 @@ interface StateProps {
 
 const Gpt: React.FC<StateProps> = ({ setState, value }) => {
   const [loding, setLoding] = useState(false);
-  console.log(value);
+  const notify = () => toast.error("제목 입력하세요!!");
   const fetchData = async () => {
     try {
       setLoding(true);
@@ -56,8 +58,6 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
     }
   };
 
-  const [novel, setNovel] = useState("");
-
   useLayoutEffect(() => {
     fetchData();
   }, []);
@@ -67,6 +67,9 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
       {loding && <div style={{ fontSize: "10em" }}>로딩중인것이와요</div>}
       <Header />
       <S.boxPostion>
+        <div>
+          <ToastContainer />
+        </div>
         <Column type={"space-between"}>
           <div
             onClick={() => {
@@ -154,14 +157,24 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
                 <S.createButton
                   type={false}
                   onClick={() => {
-                    setState((prev) => ({
-                      ...prev,
-                      page: 3,
-                    }));
+                    if (value.postTitle !== "") {
+                      setState((prev) => ({
+                        ...prev,
+                        page: 3,
+                      }));
+                    } else {
+                      notify();
+                    }
                   }}
                 >
                   다음
                 </S.createButton>
+                <ToastContainer
+                  position="top-right"
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                />
               </Column>
             </S.halfBox>
           </Column>
