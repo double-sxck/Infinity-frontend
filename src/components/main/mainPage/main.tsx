@@ -83,7 +83,7 @@ const Main = () => {
 
   const seachHandle = (e: any) => {
     setSearch(e.target.value);
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.nativeEvent.isComposing === false) {
       fetchSearch(search);
     }
   };

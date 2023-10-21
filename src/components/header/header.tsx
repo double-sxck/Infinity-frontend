@@ -29,7 +29,7 @@ const Header: React.FC = () => {
 
   const searchHandle = (e: any) => {
     setSearch(e.target.value);
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.nativeEvent.isComposing === false) {
       navigate("/", { state: search });
     }
   };
