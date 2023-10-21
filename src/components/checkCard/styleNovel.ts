@@ -59,7 +59,8 @@ export const profileImage = styled.div<{ img: string }>`
   margin: 0 1vw 0 2vw;
   border-radius: 50%;
   background-color: green;
-  background-image: url(https://infinitynovel.kro.kr${(props) => props.img});
+  background-image: url(https://infinitynovel.kro.kr/image/profiles/${(props) =>
+    props.img});
   background-size: 3em 3em;
   background-repeat: no-repeat;
 `;
