@@ -85,7 +85,6 @@ const CheckNovel = () => {
             boardId: data[0].boardId,
             comment: String(chat),
           });
-          // 댓글을 보낸 후 input의 value를 초기화
           setChat("");
           console.log("초기화");
           fetchData();
@@ -114,7 +113,9 @@ const CheckNovel = () => {
             <Between>
               <S.halfBox>
                 <S.titleText>{data[0]?.title}</S.titleText>
-                <S.novelText>{data[0]?.novel}</S.novelText>
+                <S.novelText
+                  dangerouslySetInnerHTML={{ __html: data[0]?.novel }}
+                ></S.novelText>
               </S.halfBox>
               <S.halfLine></S.halfLine>
               <S.halfBox>
@@ -142,6 +143,7 @@ const CheckNovel = () => {
                       <S.chat key={index}>
                         <S.chatImage img={item.image}></S.chatImage>
                         <S.chatValue>{item.comment}</S.chatValue>
+                        <S.chatDate>{item.created}</S.chatDate>
                       </S.chat>
                     );
                   })}
