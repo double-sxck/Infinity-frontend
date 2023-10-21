@@ -37,16 +37,14 @@ const NovCard: React.FC<Border> = (props: any) => {
         <CardUnderLine>
           <div
             style={{ display: "flex", alignItems: "center", marginLeft: 15 }}
-          >
-            <HeartIcon width={10} height={10} />
-            <UnderLineText>{props?.likes}</UnderLineText>
-          </div>
+          ></div>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <CommentIcon width={10} height={10} />
-            <UnderLineText>{props?.views}</UnderLineText>
+            <UnderLineText>조회 {props?.views}</UnderLineText>
           </div>
           <div></div>
-          <UnderLineText style={{ marginRight: 20 }}>123</UnderLineText>
+          <UnderLineText style={{ marginRight: 20 }}>
+            {props?.created.slice(0, -9).replaceAll("-", ".")}
+          </UnderLineText>
         </CardUnderLine>
         <FlexBox>
           <Title>{props?.title1}</Title>
@@ -91,6 +89,7 @@ const Title = styled.div`
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   display: flex;
+  font-weight: bold;
   align-items: center;
   justify-content: center;
 `;
@@ -100,6 +99,7 @@ const Writer = styled.div`
   padding-right: 0.3em;
   max-width: 5em;
   height: 1.5em;
+  font-weight: bold;
   text-align: center;
   border-bottom: 1px solid black;
   border-top-left-radius: 5px;
@@ -132,10 +132,11 @@ const KeyBox = styled.div`
 `;
 
 const KeyWordBox = styled.div`
-  font-size: 12px;
+  font-size: 15px;
   padding: 10px;
-  background-color: #9a9a9a;
-  border-radius: 12px;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #9a9a9a;
   margin-left: 0.5em;
   margin-bottom: 0.5em;
 `;
