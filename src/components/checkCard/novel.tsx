@@ -75,24 +75,29 @@ const CheckNovel = () => {
 
   const [chat, setChat] = useState("");
 
-  const handleChat = async (e: any) => {
+  const handleChat = (e: any) => {
     if (e.key === "Enter") {
       console.log("send");
-      try {
-        if (chat.replace(/\s/g, "") !== "") {
-          console.log("성공");
-          const res = await CustomAxios.post("api/comment", {
-            boardId: data[0].boardId,
-            comment: String(chat),
-          });
-          // 댓글을 보낸 후 input의 value를 초기화
-          setChat("");
-          console.log("초기화");
-          fetchData();
-        }
-      } catch (error) {
-        console.log("댓글 post error", error);
+      sendChat();
+    }
+  };
+
+  const sendChat = async () => {
+    console.log("send");
+    try {
+      if (chat.replace(/\s/g, "") !== "") {
+        console.log("성공");
+        const res = await CustomAxios.post("api/comment", {
+          boardId: data[0].boardId,
+          comment: String(chat),
+        });
+        // 댓글을 보낸 후 input의 value를 초기화
+        setChat("");
+        console.log("초기화");
+        fetchData();
       }
+    } catch (error) {
+      console.log("댓글 post error", error);
     }
   };
 
@@ -161,7 +166,7 @@ const CheckNovel = () => {
                     }}
                     onKeyDown={handleChat}
                   ></S.chatInput>
-                  <div>
+                  <div onClick={sendChat}>
                     <AddButton width={40} height={40}></AddButton>
                   </div>
                 </Column1>
