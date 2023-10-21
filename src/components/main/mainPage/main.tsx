@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import * as S from "./styleMain";
 import * as C from "./mainHeader";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/images/infinityLogo.svg";
 import KeyboardArrowUpIcon from "../../../assets/images/viewArrowUp";
 import Card from "../card/card";
@@ -30,6 +30,18 @@ const Main = () => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState<Array<Border>>([]);
 
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    const query = location.state;
+    console.log(query);
+    if (query !== null) {
+      fetchSearch(query);
+    } else {
+      fetchData1();
+    }
+  }, []);
+
   useEffect(() => {
     if (list === "오래된") {
       fetchData1();
@@ -56,36 +68,10 @@ const Main = () => {
     setData(res.data); // 데이터 업데이트
   };
 
-  useLayoutEffect(() => {
-    fetchData1(); // API 요청 수행
-  }, []);
-
-  // const fetchListData = async () => {
-  //   let res; // res 변수를 여기서 선언
-
-  //   if (list === "오래된순") {
-  //     console.log("오래");
-  //     res = await CustomAxios.get("api/board/method/data"); // 변수 res에 결과 저장
-  //     setData(res.data);
-  //   } else if (list === "추천") {
-  //     console.log("추천");
-  //     res = await CustomAxios.get("api/board/method/popular"); // 변수 res에 결과 저장
-  //     setData(res.data);
-  //   } else {
-  //     console.log("최신순");
-  //     res = await CustomAxios.get("api/board"); // 변수 res에 결과 저장
-  //     setData(res.data);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchListData();
-  // }, [list]);
-
-  const fetchSearch = async () => {
+  const fetchSearch = async (data: string) => {
     try {
       const res = await CustomAxios.get("api/search", {
-        params: { title: search },
+        params: { title: data },
       });
       setData(res.data);
       console.log(res);
@@ -97,30 +83,12 @@ const Main = () => {
   const seachHandle = (e: any) => {
     setSearch(e.target.value);
     if (e.key === "Enter") {
-      fetchSearch();
+      fetchSearch(search);
     }
   };
 
   return (
     <>
-      {/* <C.headerBody>
-        <C.logoBackground>
-          <Link to="/">
-            <Logo width="100" height="40" />
-          </Link>
-        </C.logoBackground>
-        <C.searchBox
-          type="text"
-          placeholder="인피니티의 모든 작품 검색"
-          onChange={seachHandle}
-          onKeyDown={seachHandle}
-        ></C.searchBox> */}
-      {/* <S.postionFiexd> */}
-      {/* <C.headerButtons to="/write">
-          <C.buttonLink to="/write">업로드</C.buttonLink>
-        </C.headerButtons> */}
-      {/* </S.postionFiexd> */}
-      {/* </C.headerBody> */}
       <C.headerBody>
         <C.logoUploadBody>
           <C.logoBackground>

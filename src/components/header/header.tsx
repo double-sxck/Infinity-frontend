@@ -2,23 +2,35 @@
 
 import * as S from "./headerStyle";
 import React, { useState } from "react";
-import Login from "../login/login";
 import { ReactComponent as Logo } from "../../assets/images/logo_v2.svg";
 import { ReactComponent as SearchIcon } from "../../assets/images/search.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import CustomAxios from "../../axios/customAxios";
 
 const Header: React.FC = () => {
-  const [isLogin, setIsLogin] = useState({
-    popup: false,
-    login: false,
-  });
   const [search, setSearch] = useState("");
-  const [user, setUser] = useState("");
+  const [data, setData] = useState<Array<Border>>([]);
+  const navigate = useNavigate();
 
-  const seachHandle = (e: any) => {
+  type Border = {
+    boardId: number;
+    title1: string;
+    novel: string;
+    character: string;
+    event: string;
+    background: string;
+    userUniqueId: number;
+    userName: string;
+    created: string;
+    views: number;
+    likes: number;
+    image: string;
+  };
+
+  const searchHandle = (e: any) => {
     setSearch(e.target.value);
     if (e.key === "Enter") {
-      (window as any).myGlobalVar = search;
+      navigate("/", { state: search });
     }
   };
 
@@ -26,11 +38,17 @@ const Header: React.FC = () => {
     <>
       <S.container>
         <S.alignLeft>
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
           <SearchIcon
             style={{ position: "relative", left: "35px", margin: "auto 0" }}
           />
-          <S.searchBar placeholder="인피니티의 모든 작품 검색" />
+          <S.searchBar
+            placeholder="인피니티의 모든 작품 검색"
+            onChange={searchHandle}
+            onKeyDown={searchHandle}
+          />
         </S.alignLeft>
         <S.alignRight>
           <S.profileImage />
