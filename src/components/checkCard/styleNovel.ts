@@ -58,7 +58,6 @@ export const profileImage = styled.div<{ img: string }>`
   height: 3em;
   margin: 0 1vw 0 2vw;
   border-radius: 50%;
-  background-color: green;
   background-image: url(https://infinitynovel.kro.kr/image/profiles/${(props) =>
     props.img});
   background-size: 3em 3em;
@@ -102,7 +101,6 @@ export const chat = styled.div`
 export const chatImage = styled.div<{ img: string }>`
   width: 2em;
   height: 2em;
-  background-color: green;
   border-radius: 50%;
   background-image: url(${(props) => props.img});
   margin-right: 1vw;
@@ -138,10 +136,12 @@ export const commentImage = styled.div`
   height: 3em;
   margin: 0 1vw 0;
   border-radius: 50%;
-  background-color: green;
   background-image: url();
 `;
 
+export const chatDate = styled.div`
+  font-size: 16px;
+`;
 export const chatInput = styled.input`
   border-radius: 10px;
   width: 28vw;

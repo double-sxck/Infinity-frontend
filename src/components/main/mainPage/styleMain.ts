@@ -27,8 +27,10 @@ export const selectBox = styled.div`
 `;
 
 export const selectOptionBar = styled.div`
-  padding: 1px;
+  position: absolute;
+  padding: 2px;
   margin-top: 0.5em;
+  margin-left: 1em;
   border-radius: 12px;
   border: 1px solid black;
 `;
@@ -39,6 +41,7 @@ export const gridPage = styled.div`
   width: 90vw;
   display: grid;
   place-items: center;
+  padding-left: 3vw;
   grid-template-columns: repeat(3, 1fr);
 `;
 
