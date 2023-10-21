@@ -142,6 +142,7 @@ const CheckNovel = () => {
                       <S.chat key={index}>
                         <S.chatImage img={item.image}></S.chatImage>
                         <S.chatValue>{item.comment}</S.chatValue>
+                        <S.chatDate>{item.created}</S.chatDate>
                       </S.chat>
                     );
                   })}

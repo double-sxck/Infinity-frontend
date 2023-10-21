@@ -146,11 +146,7 @@ const Main = () => {
       </C.headerBody>
       <S.box></S.box>
       <S.settingBar>
-        <S.settingBar>
-          <S.selectBox>키워드</S.selectBox>
-          <S.selectBox>두자</S.selectBox>
-          <S.selectBox>긴키워드</S.selectBox>
-        </S.settingBar>
+        <S.settingBar></S.settingBar>
         <S.RowBox>
           <S.selectBox
             onClick={() => {
