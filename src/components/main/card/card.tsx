@@ -43,7 +43,7 @@ const NovCard: React.FC<Border> = (props: any) => {
           </div>
           <div></div>
           <UnderLineText style={{ marginRight: 20 }}>
-            {props?.created.slice(0, -9).replaceAll("-", ".")}
+            {props?.created.replaceAll("-", ".")}
           </UnderLineText>
         </CardUnderLine>
         <FlexBox>
