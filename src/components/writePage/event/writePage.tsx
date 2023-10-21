@@ -164,6 +164,7 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
 
   const handleCheckEnter = (event: React.KeyboardEvent, callBack: any) => {
     if (event.key === "Enter") {
+      if (event.nativeEvent.isComposing) return;
       callBack();
     }
   };
