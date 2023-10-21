@@ -122,7 +122,7 @@ const CheckNovel = () => {
                   게시일 : {data[0]?.created.slice(0, -9).replaceAll("-", ".")}
                 </S.date>
                 <Column1>
-                  <S.profileImage img={data[0]?.image} />
+                  <S.profileImage img={data[0]?.userProfileImage + ".png"} />
                   <div style={{ fontSize: "20px" }}>{data[0]?.userName}</div>
                 </Column1>
                 <ColumnEnd>
@@ -148,11 +148,7 @@ const CheckNovel = () => {
                 </S.chatBox>
                 <S.horizontal />
                 <Between>
-                  <S.commentNumber>댓글 5개</S.commentNumber>
-                  <Column>
-                    <S.likeNumber>{data[0]?.likes}</S.likeNumber>
-                    <ClickHeart width={40} height={40} />
-                  </Column>
+                  <S.commentNumber>댓글 쓰기</S.commentNumber>
                 </Between>
                 <Column1>
                   <S.commentImage />
