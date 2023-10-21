@@ -96,6 +96,7 @@ export const chat = styled.div`
   text-align: left;
   width: 30vw;
   padding: 10px 0;
+  border-bottom: 1px solid #d9d9d9;
 `;
 
 export const chatImage = styled.div<{ img: string }>`

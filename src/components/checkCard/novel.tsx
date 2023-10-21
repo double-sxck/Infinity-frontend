@@ -77,6 +77,7 @@ const CheckNovel = () => {
 
   const handleChat = (e: any) => {
     if (e.key === "Enter") {
+      if (e.nativeEvent.isComposing) return;
       console.log("send");
       sendChat();
     }
