@@ -49,6 +49,12 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
     fetchData(); // fetchData 함수를 호출하여 데이터를 가져옵니다.
   }, []); // 의존성 배열이 빈 배열인 경우, useEffect는 컴포넌트가 마운트될 때 한 번만 실행됩니다.
 
+  const checkEnter = (callback: any) => (event: any) => {
+    if (event.key === "Enter") {
+      callback();
+    }
+  };
+
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTitle(event.target.value);
   };
@@ -156,6 +162,12 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
     }));
   };
 
+  const handleCheckEnter = (event: React.KeyboardEvent, callBack: any) => {
+    if (event.key === "Enter") {
+      callBack();
+    }
+  };
+
   return (
     <>
       <Header />
@@ -236,6 +248,9 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                           placeholder="장르 추가"
                           value={newTitle}
                           onChange={handleTitleChange}
+                          onKeyDown={(e) => {
+                            handleCheckEnter(e, addTitle);
+                          }}
                         />
                         <div onClick={addTitle}>
                           <AddButton width={30} height={30}></AddButton>
@@ -250,6 +265,9 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                           placeholder="키워드 추가"
                           value={keyword}
                           onChange={handleKeywordChange}
+                          onKeyDown={(e) => {
+                            handleCheckEnter(e, updateKeyword);
+                          }}
                         />
                         <div onClick={updateKeyword}>
                           <AddButton width={30} height={30}></AddButton>
@@ -268,6 +286,9 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                           placeholder="사건 추가"
                           value={newEvent}
                           onChange={handleEventChange}
+                          onKeyDown={(e) => {
+                            handleCheckEnter(e, addEvent);
+                          }}
                         />
 
                         <div onClick={addEvent}>
@@ -287,6 +308,9 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                           placeholder="등장인물 추가"
                           value={people}
                           onChange={handlePeopleChange}
+                          onKeyDown={(e) => {
+                            handleCheckEnter(e, updatePeople);
+                          }}
                         />
                         <div onClick={updatePeople}>
                           <AddButton width={30} height={30}></AddButton>
@@ -301,6 +325,9 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                           placeholder="배경 추가"
                           value={background}
                           onChange={handleBackgroundChange}
+                          onKeyDown={(e) => {
+                            handleCheckEnter(e, updateBackground);
+                          }}
                         />
                         <div onClick={updateBackground}>
                           <AddButton width={30} height={30}></AddButton>
