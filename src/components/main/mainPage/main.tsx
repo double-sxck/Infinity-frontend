@@ -14,6 +14,7 @@ type Border = {
   title: string;
   novel: string;
   character: string;
+  keyword: string;
   event: string;
   background: string;
   userUniqueId: number;
@@ -180,6 +181,7 @@ const Main = () => {
             title1={item.title}
             novel={item.novel}
             character={item.character}
+            keyword={item.keyword}
             event={item.event}
             background={item.background}
             userUniqueId={item.userUniqueId}

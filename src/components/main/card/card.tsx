@@ -8,6 +8,7 @@ type Border = {
   title1: string;
   novel: string;
   character: string;
+  keyword: string;
   event: string;
   background: string;
   userUniqueId: number;
@@ -18,15 +19,19 @@ type Border = {
   backImage: string;
 };
 
-const NovCard: React.FC<Border> = (props) => {
+const NovCard: React.FC<Border> = (props: any) => {
   return (
     <div style={{ marginBottom: 10, width: "15em" }}>
       <LinkToPage to={`/novel/${props.boardId}`}>
         <CardBackground img={props.backImage}>
           <KeyBox>
-            <KeyWordBox>키워드</KeyWordBox>
-            <KeyWordBox>두자</KeyWordBox>
-            <KeyWordBox>긴키워드</KeyWordBox>
+            {props.keyword
+              .replace(/ /g, "")
+              .split(",")
+              .slice(0, 3)
+              .map((splitKeyword: string, index: number) => (
+                <KeyWordBox key={index}>{splitKeyword}</KeyWordBox>
+              ))}
           </KeyBox>
         </CardBackground>
         <CardUnderLine>
