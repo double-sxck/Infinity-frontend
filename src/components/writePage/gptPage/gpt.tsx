@@ -67,9 +67,7 @@ const Gpt: React.FC<StateProps> = ({ setState, value }) => {
       <>
         <Header />
         <S.boxPostion>
-          <div>
-            <ToastContainer />
-          </div>
+          <ToastContainer />
           <Column type={"space-between"}>
             <div
               onClick={() => {
