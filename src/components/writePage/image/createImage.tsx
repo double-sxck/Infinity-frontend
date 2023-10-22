@@ -24,6 +24,9 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
   const [loding, setLoding] = useState(false);
   const [img, setImg] = useState("");
   const navigate = useNavigate();
+
+  console.log(value.userName === "none");
+
   const fetchData = async () => {
     try {
       setLoding(true);
@@ -49,7 +52,7 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
         title: value.postTitle,
         novel: value.novel,
         keyword: value.keyword.join(),
-        userName: value.userName,
+        userName: value.userName === "none" ? "익명" : value.userName,
         image: img.substring(12),
         tempImage: [img.substring(12)],
       });

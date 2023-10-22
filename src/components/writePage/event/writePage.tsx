@@ -224,7 +224,6 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
                     setState((prev) => ({
                       ...prev,
                       page: 2,
-                      userName: "익명",
                     }));
                     writeName--;
                   } else {
