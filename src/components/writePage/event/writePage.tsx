@@ -26,6 +26,7 @@ interface StateProps {
     background: string[];
     people: string[];
     keyword: string[];
+    userName: string;
   };
 }
 
@@ -220,7 +221,7 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
               <S.boxHeaderButton
                 ty={false}
                 onClick={() => {
-                  if (writeName === 1) {
+                  if (writeName === 1 || value.userName !== "none") {
                     setState((prev) => ({
                       ...prev,
                       page: 2,
