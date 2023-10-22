@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "../../index";
 import axios from "axios";
 import CustomAxios from "../../../axios/customAxios";
+import ThumbnailPage from "../../loading/thumbnail";
 
 interface StateProps {
   value: {
@@ -63,7 +64,7 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
   }, []);
   return (
     <>
-      {loding && <div style={{ fontSize: "10em" }}>로딩중인것이와요</div>}
+      {loding && <ThumbnailPage></ThumbnailPage>}
       <Header />
       <S.process>3 / 3</S.process>
       <S.mainImgPage>
