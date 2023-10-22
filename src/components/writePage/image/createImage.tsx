@@ -48,7 +48,7 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
         title: value.postTitle,
         novel: value.novel,
         keyword: value.keyword.join(),
-        userName: value.userName === "none" ? value.userName : "익명",
+        userName: value.userName,
         image: img.substring(12),
         tempImage: [img.substring(12)],
       });
