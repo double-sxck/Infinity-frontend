@@ -25,7 +25,7 @@ export const searchBar = styled.input`
   width: 66.7%;
   height: 3.75rem;
   background-color: #f5f5f5;
-  border-radius: 1.875rem;
+  border-radius: 1.5rem;
   padding: 0 3.75rem;
   font-size: 1rem;
   border: none;
@@ -48,9 +48,9 @@ export const profileImage = styled.img`
 
 export const uploadBox = styled(Link)`
   width: 100px;
-  height: 3.75rem;
+  height: 40px;
   background-color: #ccf0ff;
-  border-radius: 24px;
+  border-radius: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
