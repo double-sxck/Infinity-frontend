@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import * as S from "./styleWrite";
 import { Header } from "../../index";
 import AddButton from "../../../assets/images/addButton";
-import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 import CustomAxios from "../../../axios/customAxios";
+import "react-toastify/dist/ReactToastify.css";
 
 interface StateProps {
   setState: React.Dispatch<
@@ -28,12 +29,15 @@ interface StateProps {
   };
 }
 
+let writeName = 0;
+
 const Write: React.FC<StateProps> = ({ setState, value }) => {
   const [newTitle, setNewTitle] = useState("");
   const [newEvent, setNewEvent] = useState("");
   const [background, setBackground] = useState("");
   const [people, setPeople] = useState("");
   const [keyword, setKeyword] = useState("");
+  const notify = () => toast.warning("익명으로 등록할까요?");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -216,16 +220,34 @@ const Write: React.FC<StateProps> = ({ setState, value }) => {
               <S.boxHeaderButton
                 ty={false}
                 onClick={() => {
-                  setState((prev) => ({
-                    ...prev,
-                    page: 2,
-                  }));
+                  if (writeName === 1) {
+                    setState((prev) => ({
+                      ...prev,
+                      page: 2,
+                    }));
+                    writeName--;
+                  } else {
+                    notify();
+                    writeName++;
+                  }
                 }}
               >
                 생성
               </S.boxHeaderButton>
             </div>
           </S.Between>
+          <ToastContainer
+            position="top-right" // 알람 위치 지정
+            autoClose={3000} // 자동 off 시간
+            hideProgressBar={false} // 진행시간바 숨김
+            closeOnClick // 클릭으로 알람 닫기
+            rtl={false} // 알림 좌우 반전
+            pauseOnFocusLoss // 화면을 벗어나면 알람 정지
+            draggable // 드래그 가능
+            pauseOnHover // 마우스를 올리면 알람 정지
+            theme="light"
+            limit={1} // 알람 개수 제한
+          />
           {/* 헤더 */}
           <div
             style={{
