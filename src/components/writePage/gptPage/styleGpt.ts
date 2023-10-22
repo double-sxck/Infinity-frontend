@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const mainGptPage = styled.div`
-  box-shadow: 0px 0px 12px 4px rgba(217, 217, 217, 0.50);
+  box-shadow: 0px 0px 12px 4px rgba(217, 217, 217, 0.5);
   width: 80vw;
   height: 70vh;
   margin: auto;
@@ -107,7 +107,7 @@ export const wordBox = styled.div`
   line-height: 4vh;
   background-color: #f5f5f5;
   border-radius: 8px;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
   padding: 0 1em;
   overflow: hidden;
   white-space: nowrap;

@@ -57,6 +57,7 @@ const CreateImg: React.FC<StateProps> = ({ value }) => {
         image: img.substring(12),
         tempImage: [img.substring(12)],
       });
+      console.log(res);
       navigate("/");
     } catch (error) {
       console.log(error);

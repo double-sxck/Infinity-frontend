@@ -51,7 +51,6 @@ const Header: React.FC = () => {
           />
         </S.alignLeft>
         <S.alignRight>
-          <S.profileImage />
           <S.uploadBox to="/write">
             <S.uploadFont to="/write">업로드</S.uploadFont>
           </S.uploadBox>
