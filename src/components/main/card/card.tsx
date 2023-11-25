@@ -21,7 +21,7 @@ type Border = {
 
 const NovCard: React.FC<Border> = (props: any) => {
   return (
-    <div style={{ marginBottom: 10, width: "15em" }}>
+    <div style={{ marginBottom: 45, width: "15em" }}>
       <LinkToPage to={`/novel/${props.boardId}`}>
         <CardBackground img={props.backImage}>
           <KeyBox>
@@ -60,10 +60,10 @@ export default NovCard;
 
 const CardBackground = styled.div<{ img: string }>`
   background-color: #d9d9d9;
-  height: 16em;
-  width: 15em;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  height: 18em;
+  width: 20em;
+  border-top-right-radius: 13px;
+  border-top-left-radius: 13px;
   background-repeat: no-repeat;
   background-size: cover; /* 이미지를  커버하도록 설정 */
   background-position: center; /* 이미지를 가운데로 정렬 */
@@ -76,30 +76,30 @@ const CardBackground = styled.div<{ img: string }>`
 
 const FlexBox = styled.div`
   display: flex;
+  width: 20em;
   justify-content: space-between;
   margin-top: 1em;
 `;
 
 const Title = styled.div`
-  padding-left: 1em;
-  padding-right: 1em;
-  max-width: 7em;
-  height: 1.5em;
-  text-align: center;
+  padding-left: 0.5em;
+  width: 10em;
+  height: 2em;
+  text-align: left;
   border-bottom: 1px solid black;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   display: flex;
-  font-weight: bold;
+  font-weight: 900;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 `;
 
 const Writer = styled.div`
   padding-left: 0.3em;
   padding-right: 0.3em;
-  max-width: 5em;
-  height: 1.5em;
+  width: 5em;
+  height: 2em;
   font-weight: bold;
   text-align: center;
   border-bottom: 1px solid black;
@@ -112,10 +112,10 @@ const Writer = styled.div`
 
 const CardUnderLine = styled.div`
   background-color: black;
-  width: 15em;
+  width: 20em;
   height: 2em;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -123,6 +123,7 @@ const CardUnderLine = styled.div`
 
 const UnderLineText = styled.h1`
   color: white;
+  font-weight: bold;
 `;
 
 const KeyBox = styled.div`
@@ -136,7 +137,7 @@ const KeyWordBox = styled.div`
   font-size: 15px;
   padding: 10px;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #9a9a9a;
   margin-left: 0.5em;
   margin-bottom: 0.5em;

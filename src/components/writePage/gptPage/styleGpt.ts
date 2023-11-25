@@ -70,10 +70,11 @@ export const rowLine = styled.div`
 `;
 
 export const createButton = styled.div<{ type: boolean }>`
-  border: ${(props) => (props.type ? "1px solid black" : "none")};
+  border: ${(props) => (props.type ? "1px solid #9a9a9a" : "none")};
   background-color: ${(props) => (props.type ? "white" : "#CCF0FF")};
-  border-radius: 25px;
+  border-radius: 15px;
   width: 8em;
+  font-weight: bold;
   padding-top: 0.7em;
   padding-bottom: 0.7em;
   display: flex;

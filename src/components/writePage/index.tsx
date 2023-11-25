@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Write from "./event/writePage";
 import Gpt from "./gptPage/gpt";
 import Cimg from "./image/createImage";

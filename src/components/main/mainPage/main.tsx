@@ -5,9 +5,9 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/images/infinityLogo.svg";
 import KeyboardArrowUpIcon from "../../../assets/images/viewArrowUp";
 import Card from "../card/card";
-import axios from "axios";
 import CustomAxios from "../../../axios/customAxios";
 import { ReactComponent as SearchIcon } from "../../../assets/images/search.svg";
+import { off } from "process";
 
 type Border = {
   boardId: number;
@@ -27,7 +27,7 @@ type Border = {
 
 const Main = () => {
   const [view, setView] = useState(true);
-  const [list, setList] = useState("최신");
+  const [list, setList] = useState("최신순");
   const [search, setSearch] = useState("");
   const [data, setData] = useState<Array<Border>>([]);
 
@@ -44,12 +44,12 @@ const Main = () => {
   }, []);
 
   useEffect(() => {
-    if (list === "오래된") {
-      fetchData1();
-    } else if (list === "추천") {
+    if (list === "최신순") {
+      fetchData3();
+    } else if (list === "인기순") {
       fetchData2();
     } else {
-      fetchData3();
+      fetchData1();
     }
   }, [list]);
 
@@ -144,27 +144,27 @@ const Main = () => {
             <S.selectOptionBar>
               <S.selectOption
                 onClick={() => {
-                  setList("최신");
+                  setList("최신순");
                   setView(true);
                 }}
               >
-                <S.selectText>최신</S.selectText>
+                <S.selectText>최신순</S.selectText>
               </S.selectOption>
               <S.selectOption
                 onClick={() => {
-                  setList("추천");
+                  setList("인기순");
                   setView(true);
                 }}
               >
-                <S.selectText>추천</S.selectText>
+                <S.selectText>인기순</S.selectText>
               </S.selectOption>
               <S.selectOption
                 onClick={() => {
-                  setList("오래된");
+                  setList("날짜순");
                   setView(true);
                 }}
               >
-                <S.selectText>오래된</S.selectText>
+                <S.selectText>날짜순</S.selectText>
               </S.selectOption>
             </S.selectOptionBar>
           )}

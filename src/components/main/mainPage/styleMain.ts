@@ -13,14 +13,15 @@ export const settingBar = styled.div`
 `;
 
 export const selectBox = styled.div`
-  height: 3em;
-  gap: 0.5em;
+  height: 5vh;
+  width: 4em;
   padding-left: 1em;
   padding-right: 1em;
   border: 1px solid black;
-  margin-left: 20px;
-  border-radius: 20px;
+  margin-left: 14px;
+  border-radius: 17px;
   display: flex;
+  gap: 1px;
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
@@ -31,7 +32,7 @@ export const selectOptionBar = styled.div`
   padding: 2px;
   margin-top: 0.5em;
   margin-left: 1em;
-  border-radius: 12px;
+  border-radius: 15px;
   border: 1px solid black;
 `;
 
