@@ -29,6 +29,7 @@ export const searchBar = styled.input`
   padding: 0 3.75rem;
   font-size: 1rem;
   border: none;
+  font-family: Pretendard;
 `;
 
 export const alignRight = styled.div`

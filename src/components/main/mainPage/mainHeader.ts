@@ -128,6 +128,7 @@ export const searchBox = styled.input`
   justify-content: center;
   padding: 0 60px;
   font-size: 16px;
+  font-family: Pretendard;
 `;
 
 export const postionFiexd = styled.div`
