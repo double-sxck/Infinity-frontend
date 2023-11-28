@@ -79,7 +79,7 @@ import Search from "../../assets/images/search.svg";
 import { Link } from "react-router-dom";
 
 export const headerBody = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 200px;
   background-color: #000000;
   top: 0;
@@ -94,7 +94,7 @@ export const logoBackground = styled.div`
   margin: 20px 40px auto;
 `;
 export const logoUploadBody = styled.div`
-  width: 100vw;
+  width: 100%;
   display: flex;
 `;
 export const headerButtons = styled(Link)`

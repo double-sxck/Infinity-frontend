@@ -21,7 +21,13 @@ type Border = {
 
 const NovCard: React.FC<Border> = (props: any) => {
   return (
-    <div style={{ marginBottom: 45, width: "15em" }}>
+    <div
+      style={{
+        width: "100%",
+        minWidth: "fit-content",
+        backgroundColor: "white",
+      }}
+    >
       <LinkToPage to={`/novel/${props.boardId}`}>
         <CardBackground img={props.backImage}>
           <KeyBox>
@@ -36,16 +42,8 @@ const NovCard: React.FC<Border> = (props: any) => {
           </KeyBox>
         </CardBackground>
         <CardUnderLine>
-          <div
-            style={{ display: "flex", alignItems: "center", marginLeft: 15 }}
-          ></div>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <UnderLineText>조회 {props?.views}</UnderLineText>
-          </div>
-          <div></div>
-          <UnderLineText style={{ marginRight: 20 }}>
-            {props?.created.replaceAll("-", ".")}
-          </UnderLineText>
+          <UnderLineText>조회 {props?.views}</UnderLineText>
+          <UnderLineText>{props?.created.replaceAll("-", ".")}</UnderLineText>
         </CardUnderLine>
         <FlexBox>
           <Title>{props?.title1}</Title>
@@ -60,8 +58,8 @@ export default NovCard;
 
 const CardBackground = styled.div<{ img: string }>`
   background-color: #d9d9d9;
-  height: 18em;
-  width: 20em;
+  height: 30rem;
+  width: 100%;
   border-top-right-radius: 13px;
   border-top-left-radius: 13px;
   background-repeat: no-repeat;
@@ -76,26 +74,28 @@ const CardBackground = styled.div<{ img: string }>`
 
 const FlexBox = styled.div`
   display: flex;
-  width: 20em;
+  width: 100%;
   justify-content: space-between;
   margin-top: 1em;
 `;
 
 const Title = styled.div`
   padding-left: 0.5em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   width: 10em;
   height: 2em;
-  text-align: left;
   border-bottom: 1px solid black;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  display: flex;
   font-weight: 900;
-  align-items: center;
-  justify-content: left;
 `;
 
 const Writer = styled.div`
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   padding-left: 0.3em;
   padding-right: 0.3em;
   width: 5em;
@@ -105,15 +105,12 @@ const Writer = styled.div`
   border-bottom: 1px solid black;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 const CardUnderLine = styled.div`
   background-color: black;
-  width: 20em;
-  height: 2em;
+  width: 100%;
+  height: 3em;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   display: flex;
@@ -124,6 +121,8 @@ const CardUnderLine = styled.div`
 const UnderLineText = styled.h1`
   color: white;
   font-weight: bold;
+  padding: 0 1rem;
+  white-space: nowrap;
 `;
 
 const KeyBox = styled.div`

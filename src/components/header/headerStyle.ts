@@ -3,7 +3,7 @@ import Search from "../../assets/images/search.svg";
 import { Link } from "react-router-dom";
 
 export const container = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 9vh;
   padding: 10px 0;
   display: flex;

@@ -107,7 +107,8 @@ const CheckNovel = () => {
   return (
     <>
       <Header />
-      <div style={{ margin: "2em" }}>
+
+      <div>
         <Between>
           <S.nextPost
             onClick={() => {

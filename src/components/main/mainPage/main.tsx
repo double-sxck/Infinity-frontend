@@ -89,7 +89,7 @@ const Main = () => {
   };
 
   return (
-    <>
+    <div>
       <C.headerBody>
         <C.logoUploadBody>
           <C.logoBackground>
@@ -190,7 +190,7 @@ const Main = () => {
           />
         ))}
       </S.gridPage>
-    </>
+    </div>
   );
 };
 
