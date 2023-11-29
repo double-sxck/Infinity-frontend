@@ -82,52 +82,44 @@ export const headerBody = styled.div`
   width: 100%;
   height: 200px;
   background-color: #000000;
-  top: 0;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const logoBackground = styled.div`
-  width: 160px;
-  height: 64px;
+  width: 240px;
+  height: 96px;
   background-color: white;
   margin: 20px 40px auto;
 `;
 export const logoUploadBody = styled.div`
   width: 100%;
   display: flex;
-`;
-export const headerButtons = styled(Link)`
-  width: 100px;
-  height: 40px;
-  background-color: #ccf0ff;
-  border-radius: 16px;
-  margin: auto 40px 20px auto;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  text-decoration: none;
+  justify-content: space-between;
 `;
 
 export const buttonLink = styled(Link)`
+  padding: 20px 40px;
+  border-radius: 20px;
+  background-color: #ccf0ff;
   color: black;
   font-weight: 900;
-  font-size: 1em;
+  font-size: x-large;
   text-decoration: none;
+  margin-right: 3rem;
 `;
+
 export const searchOutBox = styled.div`
   display: flex;
   justify-content: center;
-  gap: 0;
+  padding: 20px 0 100px;
+  background-color: #000000;
 `;
 export const searchBox = styled.input`
   width: 50vw;
-  height: 48px;
-  border-radius: 20px;
+  padding: 24px 60px;
+  border-radius: 30px;
   display: flex;
-  justify-content: center;
-  padding: 0 60px;
-  font-size: 16px;
+  font-size: x-large;
   font-family: Pretendard;
 `;
 

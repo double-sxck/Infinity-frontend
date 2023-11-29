@@ -26,6 +26,7 @@ const NovCard: React.FC<Border> = (props: any) => {
         width: "100%",
         minWidth: "fit-content",
         backgroundColor: "white",
+        fontSize: "1.2rem",
       }}
     >
       <LinkToPage to={`/novel/${props.boardId}`}>
@@ -77,6 +78,7 @@ const FlexBox = styled.div`
   width: 100%;
   justify-content: space-between;
   margin-top: 1em;
+  font-size: x-large;
 `;
 
 const Title = styled.div`
@@ -133,7 +135,7 @@ const KeyBox = styled.div`
 `;
 
 const KeyWordBox = styled.div`
-  font-size: 15px;
+  font-size: 1.2rem;
   padding: 10px;
   background-color: white;
   border-radius: 10px;

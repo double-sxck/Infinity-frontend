@@ -89,21 +89,23 @@ const Main = () => {
   };
 
   return (
-    <div>
+    <>
       <C.headerBody>
         <C.logoUploadBody>
           <C.logoBackground>
             <Link to="/">
-              <Logo width="160" height="64" />
+              <Logo width="240" height="96" />
             </Link>
           </C.logoBackground>
-          <C.headerButtons to="/write">
-            <C.buttonLink to="/write">업로드</C.buttonLink>
-          </C.headerButtons>
+          <C.buttonLink to="/write">업로드</C.buttonLink>
         </C.logoUploadBody>
         <C.searchOutBox>
           <SearchIcon
-            style={{ position: "relative", left: "35px", margin: "auto 0" }}
+            style={{
+              position: "relative",
+              left: "45px",
+              margin: "auto 0",
+            }}
           />
           <C.searchBox
             type="text"
@@ -128,9 +130,7 @@ const Main = () => {
             {view && (
               <>
                 <S.arrowButtonDown>
-                  <div>
-                    <KeyboardArrowUpIcon />
-                  </div>
+                  <KeyboardArrowUpIcon />
                 </S.arrowButtonDown>
               </>
             )}
@@ -190,7 +190,7 @@ const Main = () => {
           />
         ))}
       </S.gridPage>
-    </div>
+    </>
   );
 };
 

@@ -39,10 +39,10 @@ const Header: React.FC = () => {
       <S.container>
         <S.alignLeft>
           <Link to="/">
-            <Logo />
+            <Logo width="240" height="96" />
           </Link>
           <SearchIcon
-            style={{ position: "relative", left: "35px", margin: "auto 0" }}
+            style={{ position: "relative", left: "45px", margin: "auto 0" }}
           />
           <S.searchBar
             placeholder="인피니티의 모든 작품 검색"
@@ -51,9 +51,7 @@ const Header: React.FC = () => {
           />
         </S.alignLeft>
         <S.alignRight>
-          <S.uploadBox to="/write">
-            <S.uploadFont to="/write">업로드</S.uploadFont>
-          </S.uploadBox>
+          <S.uploadFont to="/write">업로드</S.uploadFont>
         </S.alignRight>
       </S.container>
     </>

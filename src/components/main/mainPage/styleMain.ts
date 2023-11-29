@@ -7,7 +7,7 @@ export const box = styled.div`
 export const settingBar = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  margin: 80px 0 0;
 `;
 
 export const selectBox = styled.div`
@@ -20,7 +20,7 @@ export const selectBox = styled.div`
   gap: 10px;
   justify-content: space-between;
   align-items: center;
-  font-size: 16px;
+  font-size: x-large;
 `;
 
 export const selectOptionBar = styled.div`

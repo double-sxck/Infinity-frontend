@@ -23,11 +23,12 @@ export const alignLeft = styled.div`
 
 export const searchBar = styled.input`
   width: 66.7%;
-  height: 3.75rem;
+
   background-color: #f5f5f5;
-  border-radius: 1.5rem;
-  padding: 0 3.75rem;
-  font-size: 1rem;
+  padding: 24px 60px;
+  border-radius: 30px;
+  font-size: x-large;
+  font-size: x-large;
   border: none;
   font-family: Pretendard;
 `;
@@ -47,20 +48,14 @@ export const profileImage = styled.img`
   background-color: black;
 `;
 
-export const uploadBox = styled(Link)`
-  width: 100px;
-  height: 40px;
-  background-color: #ccf0ff;
-  border-radius: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-`;
-
 export const uploadFont = styled(Link)`
+  padding: 20px 40px;
+  border-radius: 20px;
+  background-color: #ccf0ff;
   color: black;
   font-weight: 900;
-  font-size: 1em;
+  font-size: x-large;
   text-decoration: none;
+  word-break: keep-all;
+  margin-right: 3rem;
 `;
