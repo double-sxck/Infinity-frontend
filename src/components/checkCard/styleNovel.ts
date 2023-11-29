@@ -24,9 +24,9 @@ export const halfBox = styled.div`
 `;
 
 export const titleText = styled.div`
-  font-size: 28px;
   padding: 0 20px 30px;
   font-weight: 700;
+  font-size: 2.5rem;
 `;
 
 export const halfLine = styled.div`
@@ -39,16 +39,15 @@ export const halfLine = styled.div`
 
 export const novelText = styled.div`
   height: 60vh;
-  font-size: 20px;
-  line-height: 24px;
   padding: 0 20px;
   word-wrap: break-word;
   overflow-y: scroll;
+  font-size: xx-large;
+  line-height: normal;
 `;
 
 export const date = styled.div`
   text-align: right;
-  font-size: 12px;
   font-weight: bold;
   margin: -1vh 10px 1vh 0;
 `;
@@ -73,11 +72,9 @@ export const keywordBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
 `;
 
 export const comment = styled.div`
-  font-size: 20px;
   font-weight: bolder;
   padding: 3vh;
   margin-top: 2vh;
@@ -89,6 +86,7 @@ export const chatBox = styled.div`
   width: 35vw;
   max-height: 25vh;
   overflow: scroll;
+  overflow-x: hidden;
 `;
 
 export const chat = styled.div`
@@ -109,7 +107,6 @@ export const chatImage = styled.div<{ img: string }>`
 
 export const chatValue = styled.div`
   width: 27vw;
-  font-size: 16px;
   line-height: 20px;
   word-break: break-all;
   margin: auto 0;
@@ -123,11 +120,10 @@ export const horizontal = styled.div`
 `;
 
 export const commentNumber = styled.div`
-  font-size: 20px;
+  font-size: x-large;
 `;
 
 export const likeNumber = styled.div`
-  font-size: 20px;
   text-align: right;
   margin-right: 10px;
 `;
@@ -140,15 +136,14 @@ export const commentImage = styled.div`
   background-image: url();
 `;
 
-export const chatDate = styled.div`
-  font-size: 16px;
-`;
+export const chatDate = styled.div``;
 export const chatInput = styled.input`
   border-radius: 10px;
   width: 28vw;
-  height: 5vh;
+  height: 50px;
   margin: auto;
   padding: 0 1vw;
+  font-size: x-large;
+  font-family: Pretendard;
   border: 1px solid #d9d9d9;
-  font-size: 20px;
 `;

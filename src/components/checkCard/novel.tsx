@@ -107,84 +107,91 @@ const CheckNovel = () => {
   return (
     <>
       <Header />
-
-      <div>
-        <Between>
-          <S.nextPost
-            onClick={() => {
-              navigate(`/novel/${novelId - 1}`);
-            }}
-          >
-            <NextIcon width={40} height={40} />
-          </S.nextPost>
-          <S.mainPage>
-            <Between>
-              <S.halfBox>
-                <S.titleText>{data[0]?.title}</S.titleText>
-                <S.novelText
-                  dangerouslySetInnerHTML={{ __html: data[0]?.novel }}
-                ></S.novelText>
-              </S.halfBox>
-              <S.halfLine></S.halfLine>
-              <S.halfBox>
-                <S.date>
-                  게시일 : {data[0]?.created.slice(0, -9).replaceAll("-", ".")}
-                </S.date>
-                <Column1>
-                  <S.profileImage img={data[0]?.userProfileImage + ".png"} />
-                  <div style={{ fontSize: "20px" }}>{data[0]?.userName}</div>
-                </Column1>
-                <ColumnEnd>
-                  {data[0]?.keyword
-                    .replace(/ /g, "")
-                    .split(",")
-                    .map((splitKeyword: string, index: number) => (
-                      <S.keywordBox key={index}>{splitKeyword}</S.keywordBox>
-                    ))}
-                </ColumnEnd>
-                <Column1>
-                  <S.comment>댓글</S.comment>
-                </Column1>
-                <S.chatBox>
-                  {chatData.map((item, index) => {
-                    return (
-                      <S.chat key={index}>
-                        <S.chatImage img={item.image}></S.chatImage>
-                        <S.chatValue>{item.comment}</S.chatValue>
-                        <S.chatDate>{item.created}</S.chatDate>
-                      </S.chat>
-                    );
-                  })}
-                </S.chatBox>
-                <S.horizontal />
-                <Between>
-                  <S.commentNumber>댓글 쓰기</S.commentNumber>
-                </Between>
-                <Column1>
-                  <S.chatInput
-                    type="text"
-                    placeholder="댓글 추가"
-                    value={chat} // input의 value를 chat 상태와 연결
-                    onChange={(e) => {
-                      setChat(e.target.value); // input의 값이 변경될 때 chat 상태 업데이트
-                    }}
-                    onKeyDown={handleChat}
-                  ></S.chatInput>
-                  <div onClick={sendChat}>
-                    <AddButton width={40} height={40}></AddButton>
-                  </div>
-                </Column1>
-              </S.halfBox>
-            </Between>
-          </S.mainPage>
-          <S.nextPost
-            onClick={() => {
-              navigate(`/novel/${novelId + 1}`);
-            }}
-          >
-            <ProvIcon width={40} height={40} />
-          </S.nextPost>
-        </Between>
+      <div
+        style={{
+          height: "89vh",
+          display: "flex",
+          justifyContent: "space-between",
+          fontSize: "x-large",
+          alignItems: "center",
+          margin: "0 5%",
+          gap: "20px",
+        }}
+      >
+        <S.nextPost
+          onClick={() => {
+            navigate(`/novel/${novelId - 1}`);
+          }}
+        >
+          <NextIcon width={60} height={60} />
+        </S.nextPost>
+        <S.mainPage>
+          <Between>
+            <S.halfBox>
+              <S.titleText>{data[0]?.title}</S.titleText>
+              <S.novelText
+                dangerouslySetInnerHTML={{ __html: data[0]?.novel }}
+              ></S.novelText>
+            </S.halfBox>
+            <S.halfLine></S.halfLine>
+            <S.halfBox>
+              <S.date>
+                게시일 : {data[0]?.created.slice(0, -9).replaceAll("-", ".")}
+              </S.date>
+              <Column1>
+                <S.profileImage img={data[0]?.userProfileImage + ".png"} />
+                <div>{data[0]?.userName}</div>
+              </Column1>
+              <ColumnEnd>
+                {data[0]?.keyword
+                  .replace(/ /g, "")
+                  .split(",")
+                  .map((splitKeyword: string, index: number) => (
+                    <S.keywordBox key={index}>{splitKeyword}</S.keywordBox>
+                  ))}
+              </ColumnEnd>
+              <Column1>
+                <S.comment>댓글</S.comment>
+              </Column1>
+              <S.chatBox>
+                {chatData.map((item, index) => {
+                  return (
+                    <S.chat key={index}>
+                      <S.chatImage img={item.image}></S.chatImage>
+                      <S.chatValue>{item.comment}</S.chatValue>
+                      <S.chatDate>{item.created}</S.chatDate>
+                    </S.chat>
+                  );
+                })}
+              </S.chatBox>
+              <S.horizontal />
+              <Between>
+                <S.commentNumber>댓글 쓰기</S.commentNumber>
+              </Between>
+              <Column1>
+                <S.chatInput
+                  type="text"
+                  placeholder="댓글 추가"
+                  value={chat} // input의 value를 chat 상태와 연결
+                  onChange={(e) => {
+                    setChat(e.target.value); // input의 값이 변경될 때 chat 상태 업데이트
+                  }}
+                  onKeyDown={handleChat}
+                ></S.chatInput>
+                <div onClick={sendChat}>
+                  <AddButton width={50} height={50}></AddButton>
+                </div>
+              </Column1>
+            </S.halfBox>
+          </Between>
+        </S.mainPage>
+        <S.nextPost
+          onClick={() => {
+            navigate(`/novel/${novelId + 1}`);
+          }}
+        >
+          <ProvIcon width={60} height={60} />
+        </S.nextPost>
       </div>
     </>
   );
@@ -212,7 +219,6 @@ const ColumnEnd = styled.div`
 
 const Between = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 1em;
 `;
